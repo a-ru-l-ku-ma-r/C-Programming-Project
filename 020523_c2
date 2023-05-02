@@ -1,0 +1,6 @@
+// Bit fields in C programming
+
+#include<stdio.h>
+#include<stdint.h>
+
+
