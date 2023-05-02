@@ -6,7 +6,7 @@ int main()
 {
   printf("Hello, Rugged Embedded System World\n");
   
-  char a; int i; float p;
+  char a;
   
   printf("Enter the programming Language name:\t\n");
   scanf("%c", &a);
