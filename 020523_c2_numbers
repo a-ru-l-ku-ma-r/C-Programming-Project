@@ -1,0 +1,73 @@
+// Number Systems
+
+#include <stdio.h>
+
+int main()
+{
+    //Get a Two-digit number from user and print the digit in “Ones” position
+    int x1, y1;
+    printf("Enter a TWO-digit Number: ");
+    scanf("%d", &x1);
+    y1 = x1%10;
+    printf("The digit in Ones position is %d\n",y1);
+    printf("\n");
+
+    //Get a Two digit number from user and print the digit in “Tens” position
+    int x2, y2;
+    printf("Enter a TWO-digit Number: ");
+    scanf("%d", &x2);
+    y2 = x2/10;
+    printf("The digit in Tens position is %d\n",y2);
+    printf("\n");
+
+    //Get a Three digit number from user and print the digit in “Ones” position
+    int x3, y3;
+    printf("Enter a THREE digit Number : ");
+    scanf("%d", &x3);
+    y3 = x3%10;
+    printf("The digit in Ones position is %d\n",y3);
+    printf("\n");
+
+    //Get a Three digit number from user and print the digit in “Tens” position
+    int x4, y4;
+    printf("Enter a THREE digit Number : ");
+    scanf("%d", &x4);
+    y4 = x4/10;
+    y4 = y4%10;
+    printf("The digit in Tens position is %d\n",y4);
+    printf("\n");
+
+    //Get a Three digit number from user and print the digit in “Hundreds” position
+    int x5, y5;
+    printf("Enter a THREE digit Number : ");
+    scanf("%d", &x5);
+    y5 = x5/100;
+    printf("The digit in Hundreds position is %d\n",y5);
+    printf("\n");
+
+    return 0;
+}
+
+
+/******************************************************
+        Compiler Output
+Enter a TWO-digit Number: 78
+The digit in Ones position is 8
+
+Enter a TWO-digit Number: 78
+The digit in Tens position is 7
+
+Enter a THREE digit Number : 738
+The digit in Ones position is 8
+
+Enter a THREE digit Number : 738
+The digit in Tens position is 3
+
+Enter a THREE digit Number : 738
+The digit in Hundreds position is 7
+
+
+Process returned 0 (0x0)   execution time : 12.759 s
+Press any key to continue.
+********************************************************/
+
