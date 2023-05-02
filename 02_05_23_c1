@@ -1,0 +1,26 @@
+// Input and Output Verification Program
+
+#include <stdio.h>
+
+int main()
+{
+  printf("Hello, Rugged Embedded System World\n");
+  
+  char a; int i; float p;
+  
+  printf("Enter the programming Language name:\t\n");
+  scanf("%c", &a);
+}
+
+
+/********* compiler output*****************
+// Input and Output Verification Program
+
+Hello, Rugged Embedded System World
+Enter the programming Language name:
+C
+
+
+...Program finished with exit code 0
+Press ENTER to exit console.
+*******************************************/
