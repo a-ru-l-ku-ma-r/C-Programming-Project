@@ -10,6 +10,8 @@ int main()
   
   printf("Enter the programming Language name:\t\n");
   scanf("%c", &a);
+  
+  return 0;
 }
 
 
