@@ -1,5 +1,5 @@
 /*__________________________________*/
-/*** Find the length of the string***/
+/*** Find the length of a string***/
 /*__________________________________*/
 
 #include<stdio.h>
