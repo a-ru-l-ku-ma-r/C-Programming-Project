@@ -1,0 +1,77 @@
+/*__________________________________*/
+/*** Find the length of the string***/
+/*__________________________________*/
+
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+    /*__Given input string default___*/
+    // using for loop
+    int i;
+    char def_str[] = "Rugged Embedded System";
+    printf("%s\n", def_str);
+    for(i=0; def_str[i] !='\0';i++)
+        ;
+    printf("Length of the string = %d\n\n",i);
+
+
+    /*__Get input from user___*/
+    //using while loop
+    int j=0;
+    char user_str[100];
+    printf("Enter the string :\n");
+    gets(user_str);
+    printf("%s\n", user_str);
+    while(user_str[j] != '\0')
+        j++;
+    printf("Length of the string = %d\n\n", j);
+
+
+    /*__Given input string default___*/
+    // using sizeof() function
+    int k;
+    char def_str_1[] = "Rugged Embedded System";
+    printf("%s\n", def_str);
+    k = sizeof(def_str_1) - 1;
+    printf("Length of the string = %d\n\n",k);
+
+
+    /*__Get input from user___*/
+    //using strlen() function
+    int l=0;
+    char user_str_1[100];
+    printf("Enter the string :\n");
+    gets(user_str_1);
+    printf("%s\n", user_str_1);
+    l = strlen(user_str_1);
+    printf("Length of the string = %d\n\n", l);
+
+    return 0;
+}
+
+
+
+/********************************************
+/////////////compiler output/////////////////
+Rugged Embedded System
+Length of the string = 22
+
+Enter the string :
+Rugged Embedded System
+Rugged Embedded System
+Length of the string = 22
+
+Rugged Embedded System
+Length of the string = 22
+
+Enter the string :
+Rugged Embedded System
+Rugged Embedded System
+Length of the string = 22
+
+
+Process returned 0 (0x0)   execution time : 10.237 s
+Press any key to continue.
+***********************************************/
