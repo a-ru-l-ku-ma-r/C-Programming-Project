@@ -27,26 +27,44 @@ void vowel_consonant_switch(char ch)
 {
     switch(ch)
     {
-        case('a' | 'A') :
+        case('a') :
             printf("The received character of '%c' is Vowel\n", ch);
             break;
             
-        case('e' | 'E') :
+        case('e') :
             printf("The received character of '%c' is Vowel\n", ch);
             break;
             
-        case('i' | 'I') :
+        case('i') :
             printf("The received character of '%c' is Vowel\n", ch);
             break;  
             
-        case('o' | 'O') :
+        case('o') :
             printf("The received character of '%c' is Vowel\n", ch);
             break;
             
-        case('u' | 'U') :
+        case('u') :
+            printf("The received character of '%c' is Vowel\n", ch);
+            break;
+         case('A') :
             printf("The received character of '%c' is Vowel\n", ch);
             break;
             
+        case('E') :
+            printf("The received character of '%c' is Vowel\n", ch);
+            break;
+            
+        case('I') :
+            printf("The received character of '%c' is Vowel\n", ch);
+            break;  
+            
+        case('O') :
+            printf("The received character of '%c' is Vowel\n", ch);
+            break;
+            
+        case('U') :
+            printf("The received character of '%c' is Vowel\n", ch);
+            break;           
         default :
             printf("The received character of '%c' is Consonant\n", ch);
             break;        
@@ -68,13 +86,26 @@ int main()
     vowel_consonant_if(in_char);
     
     //checking the received character using "switch" case
-    vowel_consonant_switch(in_char);   
+    vowel_consonant_switch(in_char); 
     
     return 0;
 }
 
-/***********************************************************************
-                    compiler output
+/************************************************************
+            Compiler Output
+Enter the input Character:
+A
+Received input character : A
+The received character of 'A' is Vowel
+The received character of 'A' is Vowel
+
+
+...Program finished with exit code 0
+Press ENTER to exit console.
+*************************************************************/
+
+/************************************************************
+            Compiler Output
 Enter the input Character:
 d
 Received input character : d
@@ -84,18 +115,5 @@ The received character of 'd' is Consonant
 
 ...Program finished with exit code 0
 Press ENTER to exit console.
+*************************************************************/
 
-************************************************************************/
-  
-/***********************************************************************
-                    compiler output  
-Enter the input Character:
-A
-Received input character : A
-The received character of 'A' is Vowel
-The received character of 'A' is Consonant
-
-
-...Program finished with exit code 0
-Press ENTER to exit console.
-************************************************************************/
