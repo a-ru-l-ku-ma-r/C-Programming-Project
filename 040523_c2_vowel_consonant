@@ -1,0 +1,101 @@
+/********************************************************
+    Check Whether a Character is Vowel or Consonant
+    vowel characters : a, e, i, o, u, A, E, I, O, U
+********************************************************/ 
+
+#include<stdio.h>
+
+void vowel_consonant_if(char);
+void vowel_consonant_switch(char);
+
+//using "if" condtion
+void vowel_consonant_if(char ch)
+{
+    if (ch=='a' || ch=='A' || ch=='e' || ch=='E' || ch=='i'|| ch=='I' || ch=='o' || ch=='O' || ch=='u'|| ch=='U')
+    {
+        printf("The received character of '%c' is Vowel\n", ch);
+    }
+    else
+    {
+        printf("The received character of '%c' is Consonant\n", ch);
+    }
+    
+}
+
+//using "switch" case
+void vowel_consonant_switch(char ch)
+{
+    switch(ch)
+    {
+        case('a' | 'A') :
+            printf("The received character of '%c' is Vowel\n", ch);
+            break;
+            
+        case('e' | 'E') :
+            printf("The received character of '%c' is Vowel\n", ch);
+            break;
+            
+        case('i' | 'I') :
+            printf("The received character of '%c' is Vowel\n", ch);
+            break;  
+            
+        case('o' | 'O') :
+            printf("The received character of '%c' is Vowel\n", ch);
+            break;
+            
+        case('u' | 'U') :
+            printf("The received character of '%c' is Vowel\n", ch);
+            break;
+            
+        default :
+            printf("The received character of '%c' is Consonant\n", ch);
+            break;        
+        
+    }
+}
+
+
+
+int main()
+{
+    char in_char;
+    
+    printf("Enter the input Character:\n");
+    scanf("%c", &in_char);
+    printf("Received input character : %c\n", in_char);
+    
+    //checking the received character using "if" condition
+    vowel_consonant_if(in_char);
+    
+    //checking the received character using "switch" case
+    vowel_consonant_switch(in_char);   
+    
+    return 0;
+}
+
+/***********************************************************************
+                    compiler output
+Enter the input Character:
+d
+Received input character : d
+The received character of 'd' is Consonant
+The received character of 'd' is Consonant
+
+
+...Program finished with exit code 0
+Press ENTER to exit console.
+
+************************************************************************/
+  
+/***********************************************************************
+                    compiler output  
+Enter the input Character:
+A
+Received input character : A
+The received character of 'A' is Vowel
+The received character of 'A' is Consonant
+
+
+...Program finished with exit code 0
+Press ENTER to exit console.
+************************************************************************/
