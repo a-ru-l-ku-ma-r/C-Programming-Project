@@ -1,0 +1,85 @@
+/****************************************************************
+   SWAP TWO NUMBERS WITHOUT USING TEMPORARY/THIRD VARIABLE
+****************************************************************/
+
+#include<stdio.h>
+
+void plus_minus_operator(int , int );
+void mul_div_operator(int , int );
+void xor_operator(int , int );
+
+
+//using arithmatic operator "+" and "-"
+void plus_minus_operator(int x, int y)
+{
+    x = x + y;
+    y = x - y;
+    x = x - y;
+
+    printf("After swap:\tFirst Number = %d\tSecond Number = %d\n", x, y);
+}
+
+
+//using arithmatic operator "*" and "/"
+void mul_div_operator(int x, int y)
+{
+    x = x * y;
+    y = x / y;
+    x = x / y;
+
+    printf("After swap:\tFirst Number = %d\tSecond Number = %d\n", x, y);
+}
+
+
+//using "XOR ^" operator
+void xor_operator(int x, int y)
+{
+    x = x ^ y;
+    y = x ^ y;
+    x = x ^ y;
+
+    printf("After swap:\tFirst Number = %d\tSecond Number = %d\n", x, y);
+}
+
+
+int main()
+{
+    int first_num, second_num;
+
+    printf("Enter the first number:\n");
+    scanf("%d", &first_num);
+    printf("Enter the second number:\n");
+    scanf("%d", &second_num);
+
+    printf("Before swap:\tFirst Number = %d\tSecond Number = %d\n", first_num, second_num);
+
+
+    //using arithmatic operator "+" and "-"
+    plus_minus_operator(first_num, second_num);
+
+    //using arithmatic operator "*" and "/"
+    mul_div_operator(first_num, second_num);
+
+     //using "XOR" operator
+    xor_operator(first_num, second_num);
+
+    return 0;
+}
+
+
+/*****************************************************************************
+             compiler output
+Enter the first number:
+8
+Enter the second number:
+5
+Before swap:    First Number = 8        Second Number = 5
+After swap:     First Number = 5        Second Number = 8
+After swap:     First Number = 5        Second Number = 8
+After swap:     First Number = 5        Second Number = 8
+
+Process returned 0 (0x0)   execution time : 4.308 s
+Press any key to continue.            
+             
+             
+*****************************************************************************/
