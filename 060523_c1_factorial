@@ -1,0 +1,93 @@
+/****************************************************************
+                    Factorial Number
+Definition : Factorial of 'n' is the product of all positive
+             descending order
+****************************************************************/
+
+#include <stdio.h>
+
+int for_loop(int );
+void while_loop(int );
+int recursion_fact(int );
+
+// using for loop
+// function return type with argument
+int for_loop(int n)
+{
+    int i, fact = 1;
+
+    for(i=1; i<=n; i++)
+    {
+        fact = fact * i; //fact *=i;
+    }
+
+    return fact;
+}
+
+
+// using while loop
+// function no return type with argument
+void while_loop(int n)
+{
+    int i=1, fact = 1;
+
+    while(i <= n)
+    {
+        fact *=i;  //fact = fact * i;
+        i++;
+    }
+
+    printf("The Factorial of given number %d is %d\n", n, fact);
+}
+
+
+
+// using for loop
+// function return type with argument
+int recursion_fact(int n)
+{
+    if(n == 0)
+        return 1;
+    else
+        return n*recursion_fact(n-1);
+
+}
+
+
+int main()
+{
+    int num, factorial;
+    printf("Enter a Number :\n");
+    scanf("%d", &num);
+
+
+    //using for loop function
+    factorial = for_loop(num);
+    printf("The Factorial of given number %d is %d\n", num, factorial);
+
+
+    //using while loop function
+    while_loop(num);
+
+
+    //using recursion function
+    factorial = recursion_fact(num);
+    printf("The Factorial of given number %d is %d\n", num, factorial);
+
+    return 0;
+}
+
+
+/**********************************************************************
+          Compiler Output
+          
+Enter a Number :
+5
+The Factorial of given number 5 is 120
+The Factorial of given number 5 is 120
+The Factorial of given number 5 is 120
+
+Process returned 0 (0x0)   execution time : 1.997 s
+Press any key to continue.
+
+**********************************************************************/
