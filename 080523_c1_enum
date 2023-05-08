@@ -1,0 +1,96 @@
+/*************************************************************
+                Enumeration in C
+*************************************************************/
+
+#include<stdio.h>
+
+#define zero    0
+#define ONE     1
+#define TWO     2
+#define THREE   3
+#define FOUR    4
+#define FIVE    5
+#define SIX     6
+#define SEVEN   7
+
+
+enum OR{
+    #if(ZERO || ONE)
+    ANS0_1 = 0,
+    #endif
+
+    #if(ONE || TWO)
+    ANS1_2 = 1,
+    #endif
+
+    #if(TWO || THREE)
+    ANS2_3 = 2,
+    #endif
+
+    #if(THREE || FOUR)
+    ANS3_4 = 3,
+    #endif
+
+    #if(FOUR || FIVE)
+    ANS4_5 = 4,
+    #endif
+
+    #if(FIVE || SIX)
+    ANS5_6 = 5,
+    #endif
+
+    #if(SIX || SEVEN)
+    ANS6_7 = 6,
+    #endif
+
+    #if(SEVEN|| ZERO)
+    ANS7_0 = 7
+    #endif
+};
+
+int main()
+{
+    enum OR check_OR;
+
+    check_OR = ANS0_1;
+    printf("verification order value = %d\n", check_OR);
+
+    check_OR = ANS1_2;
+    printf("verification order value = %d\n", check_OR);
+
+    check_OR = ANS2_3;
+    printf("verification order value = %d\n", check_OR);
+
+    check_OR = ANS3_4;
+    printf("verification order value = %d\n", check_OR);
+
+    check_OR = ANS4_5;
+    printf("verification order value = %d\n", check_OR);
+
+    check_OR = ANS5_6;
+    printf("verification order value = %d\n", check_OR);
+
+    check_OR = ANS6_7;
+    printf("verification order value = %d\n", check_OR);
+
+    check_OR = ANS7_0;
+    printf("verification order value = %d\n", check_OR);
+
+    return 0;
+}
+
+
+/****************************************************************
+                compiler output
+verification order value = 0
+verification order value = 1
+verification order value = 2
+verification order value = 3
+verification order value = 4
+verification order value = 5
+verification order value = 6
+verification order value = 7
+
+Process returned 0 (0x0)   execution time : 0.789 s
+Press any key to continue.
+*****************************************************************/
