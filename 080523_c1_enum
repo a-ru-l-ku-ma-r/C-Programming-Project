@@ -20,31 +20,31 @@ enum OR{
     #endif
 
     #if(ONE || TWO)
-    ANS1_2 = 1,
+    ANS1_2,
     #endif
 
     #if(TWO || THREE)
-    ANS2_3 = 2,
+    ANS2_3,
     #endif
 
     #if(THREE || FOUR)
-    ANS3_4 = 3,
+    ANS3_4,
     #endif
 
     #if(FOUR || FIVE)
-    ANS4_5 = 4,
+    ANS4_5,
     #endif
 
     #if(FIVE || SIX)
-    ANS5_6 = 5,
+    ANS5_6,
     #endif
 
     #if(SIX || SEVEN)
-    ANS6_7 = 6,
+    ANS6_7,
     #endif
 
     #if(SEVEN|| ZERO)
-    ANS7_0 = 7
+    ANS7_0
     #endif
 };
 
