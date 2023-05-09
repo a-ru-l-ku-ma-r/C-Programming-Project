@@ -1,0 +1,69 @@
+/********************************************************************
+        C Program for Checking Palindrome Number
+definition : Palindrome Numbers are those numbers, in which the
+             original number is equal to the reverse number
+********************************************************************/
+
+#include<stdio.h>
+
+int get_reverse(int , int );
+
+
+// using recursion
+int get_reverse(int num, int r_sum)
+{
+    int RemaindeR;
+
+    if(num == 0)
+        return 0;
+
+    RemaindeR = num % 10;
+    r_sum = (r_sum * 10)+ RemaindeR;
+
+    return get_reverse(num/10, r_sum);
+
+}
+
+
+int main()
+{
+   int input_num, sum = 0, remainder, temp;
+
+   printf("Enter the Number :\t");
+   scanf("%d", &input_num);
+
+   temp = input_num;
+
+   while(input_num > 0) // (input_num != 0)
+   {
+       remainder = input_num % 10 ;
+       sum = (sum * 10) + remainder;
+       input_num /= 10;
+   }
+
+    if(temp == sum)
+        printf("The given number is palindrome\n");
+    else
+        printf("The given number is not palindrome\n");
+
+
+
+     printf("Checking with recursion method :: \t");
+     if(input_num == get_reverse(input_num, sum))
+        printf("The given number is palindrome\n");
+     else
+        printf("The given number is not palindrome\n");
+
+}
+
+
+/*************************************************************************************
+                      compiler output
+Enter the Number :      782287
+The given number is palindrome
+Checking with recursion method ::       The given number is palindrome
+
+Process returned 0 (0x0)   execution time : 24.408 s
+Press any key to continue.
+*************************************************************************************/
+                      
