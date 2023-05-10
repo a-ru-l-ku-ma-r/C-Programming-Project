@@ -5,10 +5,12 @@
 #include<stdio.h>
 #include<math.h>
 
-
-/*  Functions prototype Declarations  */
-/***************************************/
+/***************************************
+ *  Functions prototype Declarations   *
+***************************************/
 int bin_dec_while(long long );
+int bin_dec_for(long long );
+
 
 int main()
 {
@@ -17,26 +19,59 @@ int main()
     printf("Enter the Binary Number : ");
     scanf("%lld", &BINARY);
 
-    printf("COnverted Decimal Number : %d", bin_dec_while(BINARY));
+    printf("COnverted Decimal Number using while loop : %d\n", bin_dec_while(BINARY));
+
+    printf("COnverted Decimal Number using for loop : %d\n", bin_dec_for(BINARY));
 
     return 0;
 }
 
 
-/***************************************
+/*******************************************************
  *      Functions Definitions          *
-***************************************/
+*******************************************************/
 
+
+/************************************************
+ * @using a while loop to convert the given input
+ *        binary into decimal
+ *
+ * @param n - getting input binary number from
+                user
+************************************************/
 int bin_dec_while(long long n)
 {
     int decimal = 0, i = 0, remainder;
+    //int base  = 1;
 
-    while(n != 0)
+    while(n != 0)   // (n > 0)
+    {
+        remainder = n % 10;
+        n /= 10;
+        decimal += remainder * pow(2, i);   //decimal += remainder * base ;
+        i++;    //base = base * 2;
+    }
+
+    return decimal;
+}
+
+
+/************************************************
+ * @using a for loop to convert the given input
+ *        binary into decimal
+ *
+ * @param n - getting input binary number from
+                user
+************************************************/
+int bin_dec_for(long long n)
+{
+    int decimal = 0, i = 0, remainder;
+
+    for(i = 0; n != 0; i++)
     {
         remainder = n % 10;
         n /= 10;
         decimal += remainder * pow(2, i);
-        i++;
     }
 
     return decimal;
@@ -45,8 +80,10 @@ int bin_dec_while(long long n)
 
 /*****************************************************************************
           Compiler Output
-Enter the Binary Number : 1110100011
-COnverted Decimal Number : 931
-Process returned 0 (0x0)   execution time : 9.207 s
+Enter the Binary Number : 1110101110
+COnverted Decimal Number using while loop : 942
+COnverted Decimal Number using for loop : 942
+
+Process returned 0 (0x0)   execution time : 6.783 s
 Press any key to continue.
 *****************************************************************************/          
