@@ -1,0 +1,52 @@
+/***********************************************************
+        Binary to Decimal Conversion
+***********************************************************/
+
+#include<stdio.h>
+#include<math.h>
+
+
+/*  Functions prototype Declarations  */
+/***************************************/
+int bin_dec_while(long long );
+
+int main()
+{
+    long long BINARY;
+
+    printf("Enter the Binary Number : ");
+    scanf("%lld", &BINARY);
+
+    printf("COnverted Decimal Number : %d", bin_dec_while(BINARY));
+
+    return 0;
+}
+
+
+/***************************************
+ *      Functions Definitions          *
+***************************************/
+
+int bin_dec_while(long long n)
+{
+    int decimal = 0, i = 0, remainder;
+
+    while(n != 0)
+    {
+        remainder = n % 10;
+        n /= 10;
+        decimal += remainder * pow(2, i);
+        i++;
+    }
+
+    return decimal;
+}
+
+
+/*****************************************************************************
+          Compiler Output
+Enter the Binary Number : 1110100011
+COnverted Decimal Number : 931
+Process returned 0 (0x0)   execution time : 9.207 s
+Press any key to continue.
+*****************************************************************************/          
