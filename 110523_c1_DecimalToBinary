@@ -1,0 +1,128 @@
+/********************************************************
+*           Decimal to Binary Conversion                *
+********************************************************/
+#include<stdio.h>
+
+
+/***************************************
+ *  Functions prototype Declarations   *
+***************************************/
+void decimal_binary_array(int );
+long long decimal_binary_while(int );
+void decimal_binary_bitwise(int );
+
+
+
+int main()
+{
+    int decimal_num;
+
+    printf("Enter the Decimal Number :   ");
+    scanf("%d", &decimal_num);
+
+    //using array storage method
+    decimal_binary_array(decimal_num);
+
+    //using while loop
+    printf("\nThe binary representation of given decimal number : %lld\n", decimal_binary_while(decimal_num) );
+
+    //using bitwise operator
+    decimal_binary_bitwise(decimal_num);
+
+    return 0;
+}
+
+
+/************************************************
+ * @using using while loop to convert the given
+ *        input decimal into binary and stored in
+ *        array variable then displayed the array
+ *        reverse order
+ *
+ * @param n - getting input decimal number from
+                user
+************************************************/
+
+void decimal_binary_array(int n)
+{
+    int binary_num[32], i = 0, j;
+
+    while(n > 0)
+    {
+        binary_num[i] = n % 2;
+        n = n / 2;
+        i++;
+    }
+
+
+    printf("The binary representation of given decimal number : ");
+    for(j = i-1; j >= 0; j--)
+    {
+        printf("%d", binary_num[j]);
+    }
+
+}
+
+
+/************************************************
+ * @using while loop to convert the given input
+ *        decimal into binary
+ *
+ * @param n - getting input decimal number from
+                user
+************************************************/
+long long decimal_binary_while(int n)
+{
+    long long binary_num =0;
+    int remainder, i = 1;
+
+    while(n !=0)
+    {
+        remainder = n % 2;
+
+        n /= 2;
+
+        binary_num = binary_num + (remainder * i);
+
+        i = i * 10;
+    }
+
+    return binary_num;
+
+}
+
+/************************************************
+ * @using bitwise operator to convert the given input
+ *        decimal into binary
+ *
+ * @param n - getting input decimal number from
+                user
+************************************************/
+void decimal_binary_bitwise(int n)
+{
+    int mask;
+
+    printf("The binary representation of given decimal number : ");
+    for(int i=31; i >= 0; i--)
+    {
+        mask = (1 << i);
+
+        if(mask & n)
+            printf("1");
+        else
+            printf("0");
+    }
+}
+
+
+
+/************************************************************************************
+                     Compiler Output
+Enter the Decimal Number :   178
+The binary representation of given decimal number : 10110010
+The binary representation of given decimal number : 10110010
+The binary representation of given decimal number : 00000000000000000000000010110010
+Process returned 0 (0x0)   execution time : 5.487 s
+Press any key to continue.
+***************************************************************************************/
+                     
