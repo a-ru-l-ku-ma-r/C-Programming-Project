@@ -1,0 +1,104 @@
+/**************************************************************
+                    Quadratic Equation
+**************************************************************/
+
+#include<stdio.h>
+#include<math.h>
+
+
+
+
+/***************************************
+ *  Functions prototype Declarations   *
+***************************************/
+double cal_discriminant(double , double , double );
+double cal_root(double , double , double , double );
+
+
+
+
+/***************************************
+ *        Functions Definition         *
+***************************************/
+double cal_discriminant(double var1, double var2, double var3)
+{
+    double D;  // D -> Discriminant
+
+    D  = (var2 * var2) - (4 * var1 * var3);
+
+    return D;
+
+}
+
+
+double cal_root(double x, double y, double z, double cal_dist)
+{
+    double root1, root2, Real_Part, Img_Part;
+
+    //discriminant > 0, roots are real and different
+    if(cal_dist > 0)
+    {
+        root1 = ( -y + sqrt(cal_dist)) + (2 * x);
+        root2 = ( -y - sqrt(cal_dist)) + (2 * x);
+
+        printf("\nroots are real and different\n");
+        printf("root1 = %.2lf \t root2 = %.2lf", root1, root2);
+    }
+
+    //discriminant == 0, roots are real and equal
+    else if(cal_dist == 0)
+    {
+        root1 = root2 = -y / (2 * x);
+
+        printf("\nroots are real and equal\n");
+        printf("root1 = %.2lf \t root2 = %.2lf", root1, root2);
+    }
+
+    //discriminant < 0, roots are complex and different
+    else
+    {
+       Real_Part= -y /  (2 * x);
+       Img_Part = sqrt(-cal_dist) / (2 * x);
+
+       printf("\nroots are complex and different\n");
+       printf("root1 = %.2lf + %.2lfi \t root2 = %.2lf - %.2lfi", Real_Part,Img_Part,Real_Part,Img_Part);
+    }
+
+}
+
+
+int main()
+{
+    double a, b, c, Discriminant;
+
+
+    printf("Enter the co-efficients values:\n");
+    printf("a = ");
+    scanf("%lf", &a);
+    printf("b = ");
+    scanf("%lf", &b);
+    printf("c = ");
+    scanf("%lf", &c);
+
+    Discriminant = cal_discriminant(a, b, c);
+    printf("\nDiscriminant = %f\n", Discriminant);
+
+    cal_root(a, b, c, Discriminant);
+
+    return 0;
+}
+
+/****************************************************************************
+              Compiler Output
+Enter the co-efficients values:
+a = 2.3
+b = 4
+c = 5.6
+
+Discriminant = -35.520000
+
+roots are complex and different
+root1 = -0.87 + 1.30i    root2 = -0.87 - 1.30i
+Process returned 0 (0x0)   execution time : 28.956 s
+Press any key to continue.
+*****************************************************************************/
