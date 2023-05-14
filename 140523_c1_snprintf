@@ -1,0 +1,35 @@
+/* create an example to use the snprintf function in c. */  
+
+#include <stdio.h>  
+
+#include <conio.h>  
+
+  
+
+int main ()  
+
+{  
+
+    // declare and initialize the char variable  
+
+    char *r = "Javatpoint.com";  
+
+    char buf[100]; // define the size of character type buffer   
+
+      
+
+    /* use the snprintf() function to return the no. of character founded in the buffer area */  
+
+     int n = snprintf (buf, 34, "%s \n", r); // 34 represents the size of buffer to store max characters  
+
+      
+
+    // display the string stored in the buffer and count each character of the buffer area.  
+
+    printf (" The given string is: %s \n Count the stored character: %d \n", buf, n);  
+
+      
+
+    return 0;      
+
+}    
