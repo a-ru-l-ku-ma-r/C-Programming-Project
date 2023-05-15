@@ -1,4 +1,7 @@
-/* snprintf example */
+/***************************************************************
+//                    snprintf example                        //
+***************************************************************/
+
 #include <stdio.h>
 
 int main ()
@@ -16,3 +19,11 @@ int main ()
 
   return 0;
 }
+
+/****************************************************************
+          Compiler Output
+The half of 60 is 30, and the half of that is 15.
+
+Process returned 0 (0x0)   execution time : 1.581 s
+Press any key to continue.
+*****************************************************************/
