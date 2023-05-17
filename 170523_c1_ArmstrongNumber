@@ -1,0 +1,86 @@
+/////////////////////////////////////////////////////////////////
+/*                  Armstrong Number                           */
+/////////////////////////////////////////////////////////////////
+
+#include <stdio.h>
+#include <math.h>
+
+/* function prototype declaration */
+int find_no_digits(int );
+int sum_power_digit(int, int );
+void declare_Armstrong(int , int );
+
+int main()
+{
+    int input, digit_cnt, given_input, sum ;
+
+    printf("Enter the positive integer number : \n");
+    scanf("%d", &input);
+
+    given_input = input;
+
+    digit_cnt = find_no_digits(given_input);
+    printf("Total number of digits in given input = %d\n", digit_cnt);
+
+    sum = sum_power_digit(given_input, digit_cnt);
+    printf("sum of each digit with power of digit count = %d\n", sum);
+
+    declare_Armstrong(input, sum);
+
+    return 0;
+}
+
+
+/* function definitions */
+
+/* find total of number of digits in given input */
+int find_no_digits(int n)
+{
+    int i=0;
+
+    while(n != 0){
+        n = n / 10;
+        i++;
+    }
+
+    return i;
+}
+
+
+/* calculate the sum of each digit with the power of total digits */
+int sum_power_digit(int n, int power_value)
+{
+    int remainder, sum_t = 0;
+
+    while(n != 0)
+    {
+        remainder = n % 10;
+
+        sum_t = sum_t + pow(remainder, power_value);
+
+        n /= 10;
+    }
+
+    return sum_t;
+
+}
+
+
+/* declare either given number is Armstrong or not */
+void declare_Armstrong(int n, int sum_t)
+{
+    // conditional operator
+    (n == sum_t) ? printf("The given number is Armstrong Number\n") : printf("The given number is not Armstrong Number\n");
+}
+
+/********************************************************************************************
+                      Compiler Output
+Enter the positive integer number :
+1634
+Total number of digits in given input = 4
+sum of each digit with power of digit count = 1634
+The given number is Armstrong Number
+
+Process returned 0 (0x0)   execution time : 20.142 s
+Press any key to continue.
+*********************************************************************************************/
