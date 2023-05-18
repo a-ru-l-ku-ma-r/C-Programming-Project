@@ -1,0 +1,42 @@
+/**********************************************************************
+#####              Maximum Number of Handshakes                    ####
+______________________________________________________________________
+# definition : There are N persons in a room. Find the maximum number # 
+# of Handshakes possible. Given the fact that any two persons shake   #
+# hand exactly once.                                                  #
+**********************************************************************/
+
+#include <stdio.h>
+
+/* function declaration */
+int maxHandshake(int );
+
+
+/* function definition */
+int maxHandshake(int n)
+{
+     return (n * (n - 1)) / 2;  // nC2
+}
+
+
+int main()
+{
+    int Number;
+
+    printf("Enter the input number : ");
+    scanf("%d", &Number);
+
+    printf("Maximum number of handshake = %d\n", maxHandshake(Number));
+
+    return 0;
+}
+
+/*********************************************************************
+                Compiler Output
+Enter the input number : 25
+
+Maximum number of handshake = 300
+Process returned 0 (0x0)   execution time : 7.202 s
+Press any key to continue.                
+                
+*********************************************************************/                
