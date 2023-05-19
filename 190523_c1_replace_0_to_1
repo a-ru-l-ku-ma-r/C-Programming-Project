@@ -1,0 +1,73 @@
+/***************************************************************************/
+/******* Replace all Zeros with One in a given Integer Number **************/
+/***************************************************************************/
+
+#include <stdio.h>
+
+/* function prototypedeclaration */
+int replace(long int );
+
+
+int main()
+{
+    long int number;
+
+    printf("Enter the integer number :  \n");
+    scanf("%d", &number);
+
+    printf("After replacement the given Integer Number : %d ", replace(number));
+
+
+    return 0;
+}
+
+
+/*** function definition ***/
+
+int replace(int n)
+{
+    long int num = 0, remainder;
+
+    if(n == 0)
+    {
+        num = 0;
+    }
+
+    while(n > 0)
+    {
+        remainder = n % 10;
+
+        if(remainder == 0)
+            remainder = 1 ;
+
+        n /= 10;
+
+        num = (num * 10) + remainder ;
+    }
+
+    n = 0;
+
+    while(num > 0)
+    {
+        remainder = num % 10;
+
+        if(remainder == 0)
+            remainder = 1 ;
+
+        num /= 10;
+
+        n = (n * 10) + remainder ;
+    }
+
+    return n;
+}
+
+/**************************************************************************************
+                            compiler output 
+Enter the integer number :
+9111056
+After replacement the given Integer Number : 9111156
+Process returned 0 (0x0)   execution time : 4.003 s
+Press any key to continue.
+**************************************************************************************/
+
