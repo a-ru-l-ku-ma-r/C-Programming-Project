@@ -1,0 +1,108 @@
+/**********************************************************
+$$$$$$$$$$$$$$$ Print Number into words $$$$$$$$$$$$$$$$$$$
+**********************************************************/
+
+#include <stdio.h>
+#include <math.h>
+
+
+/* function prototype declaration */
+void num_to_word(long int );
+
+int main()
+{
+    long int input_number;
+
+    printf("Enter the number : ");
+    scanf("%ld", &input_number);
+
+    num_to_word(input_number);
+
+
+    return 0;
+}
+
+
+/* function definition */
+void num_to_word(long int n)
+{
+    int digits, num = 0;
+
+    /* Find the total number of digits in given input number */
+    digits = (int) log10(n);
+
+    /* store reverse of n into num */
+    while(n != 0)
+    {
+        num = (num * 10) + (n % 10);
+        n /= 10;
+    }
+
+    /* find total trailing zeros in given input*/
+    digits -=((int) log10(num));
+
+    /* print number into words */
+    while(num)
+    {
+        switch(num % 10)
+        {
+        case 0:
+            printf("zero ");
+            break;
+
+        case 1:
+            printf("one ");
+            break;
+
+        case 2:
+            printf("two ");
+            break;
+
+        case 3:
+            printf("three ");
+            break;
+
+        case 4:
+            printf("four ");
+            break;
+
+        case 5:
+            printf("five ");
+            break;
+
+        case 6:
+            printf("six ");
+            break;
+
+        case 7:
+            printf("seven ");
+            break;
+
+        case 8:
+            printf("eight ");
+            break;
+
+        case 9:
+            printf("nine ");
+            break;
+        }
+
+        num /= 10;
+    }
+
+    while(digits)
+    {
+        printf("zero ");
+        digits--;
+    }
+
+}
+
+/**********************************************************************************
+                            compiler output
+Enter the number : 78456000
+seven eight four five six zero zero zero
+Process returned 0 (0x0)   execution time : 4.157 s
+Press any key to continue.
+*********************************************************************************/                        
+                                                        
