@@ -1,0 +1,54 @@
+/***********************************************************************
+*             Count Possible Decoding of Given Digit                   *
+***********************************************************************/
+
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+
+/* function prototype */
+int decoding(char *, int );
+
+int main()
+{
+    char input_digit[15];
+    int length ;
+
+    printf("Enter the sequence of digit: ");
+    gets(input_digit);
+
+    length = strlen(input_digit);
+
+    printf("\nPossible count of decoding sequence : %d", decoding(input_digit, length));
+
+    return 0;
+}
+
+
+/* function definition */
+int decoding(char *digit, int n)
+{
+    int count[n+1];
+    count[0] = 1;
+    count[1] = 1;
+
+    for(int i = 2; i <= n; i++){ count[i] = 0;
+
+
+        count[i] = count[i-1];
+
+        if(digit[i-2] == '1' || digit[i-2] == '2' && digit[i-1] < '7')
+            count[i] += count[i-2];
+    }
+
+    return count[n];
+
+}
+/******************************************************************************
+                    compiler output
+Enter the sequence of digit: 1235
+
+Possible count of decoding sequence : 3
+Process returned 0 (0x0)   execution time : 4.313 s
+Press any key to continue.
+*******************************************************************************/
