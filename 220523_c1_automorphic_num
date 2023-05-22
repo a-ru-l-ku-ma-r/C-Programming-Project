@@ -1,0 +1,108 @@
+/*****************************************************************
+***************** Automorphic Number *****************************
+Definition : An Automorphic number is a number whose square ends 
+with the same digits as the original number. 
+E.g – 5, 6, 76 etc.
+*****************************************************************/
+#include <stdio.h>
+#include <math.h>
+
+
+/* function prototype declaration */
+void math_automorphic(int );
+int loop_automorphic(int );
+
+int main()
+{
+    int Number;
+
+    printf("Enter the Number : ");
+    scanf("%d", &Number);
+
+    // using some math funtion
+    math_automorphic(Number);
+
+    /* using loop function */
+    if(loop_automorphic(Number))
+        printf("It is Automorphic Number \n");
+    else
+        printf("It is not Automorphic Number \n");
+
+
+    return 0;
+}
+
+/* function definitions */
+
+// using some math function
+void math_automorphic(int n)
+{
+    long int square, temp, mul_count;
+    int count = 0, last;
+
+    square = n * n;
+    printf("square of the given number : %ld\n", square);
+
+    temp = n;
+
+    // count total number of digits in given number
+    while(temp > 0)
+    {
+        count++;
+        temp /= 10;
+    }
+
+    mul_count = floor(pow(10, count));
+    last = square % mul_count ;
+
+    if(last == n)
+        printf("It is Automorphic Number \n");
+    else
+        printf("It is not Automorphic Number \n");
+
+}
+
+
+/* using loop function */
+int loop_automorphic(int n)
+{
+    long int square = n * n;
+    printf("square of the given number : %ld\n", square);
+
+    while(n != 0)
+    {
+        if(n%10 != square%10)
+        {
+            return 0;
+        }
+
+        n /= 10;
+        square /= 10;
+    }
+
+    return 1;
+}
+
+
+/***********************************************************************
+                  Compiler Output 1
+ Enter the Number : 25
+square of the given number : 625
+It is Automorphic Number
+square of the given number : 625
+It is Automorphic Number
+
+Process returned 0 (0x0)   execution time : 3.297 s
+Press any key to continue.                 
+
+                  Compiler Output 2
+Enter the Number : 72
+square of the given number : 5184
+It is not Automorphic Number
+square of the given number : 5184
+It is not Automorphic Number
+
+Process returned 0 (0x0)   execution time : 2.396 s
+Press any key to continue.
+
+*************************************************************************/
