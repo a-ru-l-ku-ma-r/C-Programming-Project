@@ -1,0 +1,51 @@
+/***************************************************************
+                      Permutation
+Definition : nPr = n! / (n-r)!
+***************************************************************/
+#include <stdio.h>
+
+/* function prototype declaration */
+int cal_factorial(int );
+
+
+int main()
+{
+    int n, r, permutation;
+
+    printf("Enter the number of people :\n");
+    scanf("%d", &n);
+
+    printf("Enter the number of seats :\n");
+    scanf("%d", &r);
+
+    permutation = cal_factorial(r) / cal_factorial(r-n);
+    printf("Total possible arrangements : %d\n", permutation);
+
+}
+
+
+/* function definition */
+int cal_factorial(int f)
+{
+    int i=0, factorial = 1;
+
+    while(f)
+    {
+        factorial *= f;
+        f--;
+    }
+
+    return factorial;
+}
+
+/***********************************************************************************
+                              compiler output
+Enter the number of people :
+5
+Enter the number of seats :
+9
+Total possible arrangements : 15120
+
+Process returned 0 (0x0)   execution time : 4.466 s
+Press any key to continue.
+***********************************************************************************/
