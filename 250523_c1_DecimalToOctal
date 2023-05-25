@@ -1,0 +1,51 @@
+/***************************************************************/
+//               Decimal to Octal Conversion                   //
+/***************************************************************/
+
+#include <stdio.h>
+#include <math.h>
+
+/* function prototype declaration */
+void decimal_to_octal(int );
+
+
+int main()
+{
+    int dec_num;
+
+    printf("Enter the decimal Number : \n");
+    scanf("%d", &dec_num);
+
+    decimal_to_octal(dec_num);
+
+    return 0;
+}
+
+
+/* function definition */
+void decimal_to_octal(int n)
+{
+    int i, remainder, oct_num=0;
+
+    for(i =0; n != 0; i++)
+    {
+        remainder = n % 8;
+
+        oct_num = oct_num + (remainder * pow(10, i));
+
+        n /= 8;
+    }
+
+    printf("The corresponding Octal Number : %d\n", oct_num);
+}
+
+/********************************************************************************
+                    Compiler Output
+Enter the decimal Number :
+262
+The corresponding Octal Number : 406
+
+Process returned 0 (0x0)   execution time : 1.509 s
+Press any key to continue.
+
+********************************************************************************/
