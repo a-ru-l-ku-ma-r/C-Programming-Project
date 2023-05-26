@@ -1,0 +1,127 @@
+/*********************************************************************
+************************ CHECKSUM ************************************
+*********************************************************************/
+
+
+#include <stdio.h>
+
+// function prototype declaration //
+int checksum_generator(int , int , int );
+void checksum_checker(int );
+
+
+int main()
+{
+    int A, B, C;
+
+    printf("Enter the value of 'A' : \n");
+    scanf("%X", &A);
+
+    printf("Enter the value of 'B' : \n");
+    scanf("%X", &B);
+
+    printf("Enter the value of 'C' : \n");
+    scanf("%X", &C);
+
+    int checksum_generator_value;
+
+    checksum_generator_value = checksum_generator(A, B, C);
+
+    printf("Please enter the checksum generator data packet value = ");
+    scanf("%X", &checksum_generator_value);
+
+    checksum_checker(checksum_generator_value);
+
+    return 0;
+}
+
+
+// function definition //
+/* Checksum generator function */
+int checksum_generator(int a, int b, int c)
+{
+    int sum_t =0;
+
+    sum_t = a + b + c; printf("\nsum = %X\n", sum_t);
+
+    int remainder_t = 0;
+
+    remainder_t = sum_t % 0xFF; printf("\nremainder = %X\n", remainder_t);
+
+    int checksum_packet_t = 0;
+
+    checksum_packet_t = 0xFF - remainder_t ; printf("\nchecksum_packet = %X\n", checksum_packet_t);
+
+    int data_packet_t = 0;
+
+    data_packet_t = a + b + c + checksum_packet_t ;  printf("\ndata_packet = %X\n\n", data_packet_t);
+
+    return data_packet_t;
+}
+
+
+/* Checksum checker function */
+void checksum_checker(int data_packet)
+{
+    int check_remainder_t = 0;
+
+    check_remainder_t = data_packet % 0xFF;
+
+    if(check_remainder_t == 0)
+        printf("\nChecksum is validated. Received valid DATA PACKET\n");
+    else
+        printf("\nChecksum is validated. Received invalid DATA PACKET. Be Alert ...\n");
+
+}
+
+
+/**************************************************************************************************
+                      output : 1
+Enter the value of 'A' :
+AE
+Enter the value of 'B' :
+C7
+Enter the value of 'C' :
+48
+
+sum = 1BD
+
+remainder = BE
+
+checksum_packet = 41
+
+data_packet = 1FE
+
+Please enter the checksum generator data packet value = 1FE
+
+Checksum is validated. Received valid DATA PACKET
+
+Process returned 0 (0x0)   execution time : 17.252 s
+Press any key to continue.
+
+
+                      
+                      output : 2
+Enter the value of 'A' :
+AD
+Enter the value of 'B' :
+C6
+Enter the value of 'C' :
+85
+
+sum = 1F8
+
+remainder = F9
+
+checksum_packet = 6
+
+data_packet = 1FE
+
+Please enter the checksum generator data packet value = 12F
+
+Checksum is validated. Received invalid DATA PACKET. Be Alert ...
+
+Process returned 0 (0x0)   execution time : 16.588 s
+Press any key to continue.
+
+**************************************************************************************************/
