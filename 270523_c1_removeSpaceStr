@@ -1,0 +1,46 @@
+/********************************************************
+*********    Remove the space in String         *********.
+********************************************************/
+
+#include<stdio.h>
+
+
+/**********Function Prototype***************/
+char * removeSpacesFromStr(char *);
+
+
+
+/**********Function Definition***************/
+char * removeSpacesFromStr(char *string)
+{
+
+    int non_space_count = 0;
+
+    for (int i = 0; string[i] != '\0'; i++)
+    {
+        if (string[i] != ' ')
+        {
+            string[non_space_count] = string[i];
+            non_space_count++;
+        }
+    }
+
+    string[non_space_count] = '\0';
+    return string;
+}
+
+int main()
+{
+    char string[] = "Ru g g  ed_  _  Em b e    dded   _  _S ys  t        e m";
+    printf("%s \n",string);
+    printf("%s",removeSpacesFromStr(string));
+    return 0;
+}
+
+/*******************************************************************************************
+                            Compiler Output
+Ru g g  ed_  _  Em b e    dded   _  _S ys  t        e m
+Rugged__Embedded__System
+Process returned 0 (0x0)   execution time : 1.015 s
+Press any key to continue.
+*******************************************************************************************/
