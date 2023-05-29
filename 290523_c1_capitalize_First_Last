@@ -1,0 +1,93 @@
+/*********************************************************************
+/////////// Capitalize First and Last letters of a string  ///////////
+*********************************************************************/
+
+#include <stdio.h>
+#include <string.h>
+
+
+//function prototype declaration
+int find_length(char letters[]);
+
+int main()
+{
+    char Letters[150];
+
+    int first_letter = 0, last_letter, i;
+
+    printf("Enter the string of word : \n");
+    gets(Letters);
+
+    //calculate the length of the string
+    int length = 0;
+    length = find_length(Letters);
+    printf("length = %d\n\n", length);
+
+    for(i=0; i<length; ++i)
+    {
+        if(Letters[i] == ' ')
+        {
+            last_letter = i - 1;
+
+            if(last_letter == first_letter)
+            {
+                Letters[last_letter] = Letters[last_letter] - 32;
+                printf("Single letter word = %c\n\n", Letters[last_letter]);
+            }
+            else
+            {
+                Letters[last_letter] = Letters[last_letter] - 32;
+                printf("LAST  Letter  = %c\n", Letters[last_letter]);
+                Letters[first_letter] = Letters[first_letter] - 32;
+                printf("FIRST  Letter  = %c\n\n", Letters[first_letter]);
+            }
+
+            first_letter = i+1;
+
+        }
+
+    }
+
+    Letters[i-1] = Letters[i-1] - 32;
+    printf("Last word last letter  = %c\n", Letters[i-1]);
+
+    Letters[first_letter] = Letters[first_letter] - 32;
+    printf("Last word first letter = %c\n\n", Letters[first_letter]);
+
+    printf("After changing the string of word : %s \n", Letters);
+
+
+    return 0;
+}
+
+
+//function definition
+/* find the length of the given string */
+int find_length(char letters[])
+{
+    int n = strlen(letters);
+    return n;
+}
+
+
+/*************************************************************************************
+                        compiler output
+Enter the string of word :
+rugged embedded system
+length = 22
+
+LAST  Letter  = D
+FIRST  Letter  = R
+
+LAST  Letter  = D
+FIRST  Letter  = E
+
+Last word last letter  = M
+Last word first letter = S
+
+After changing the string of word : RuggeD EmbeddeD SysteM
+
+Process returned 0 (0x0)   execution time : 7.405 s
+Press any key to continue.
+
+**************************************************************************************/
