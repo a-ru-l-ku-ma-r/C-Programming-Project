@@ -1,0 +1,79 @@
+/**********************************************************************
+*******                PASCAL TRIANGLE                          *******
+**********************************************************************/
+
+#include <stdio.h>
+
+/* function prototype declaration */
+int factorial(int );
+int combination(int , int );
+
+
+int main()
+{
+    int rows, i, j;
+
+    printf("Enter the number of ROW : ");
+    scanf("%d", &rows);
+
+    for(i=0; i <= rows; i++)
+    {
+        for(j=0; j <= rows-i; j++)
+        {
+            printf("  ");
+        }
+
+        for(j=0; j <= i; j++)
+        {
+            printf(" %3d", combination(i, j));
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+//////// function definition /////////////
+
+/* calculate the factorial of a number */
+int factorial(int n)
+{
+    int fact_n = 1;
+
+    while(n>1)
+    {
+        fact_n *= n;
+        n--;
+    }
+
+    return fact_n;
+}
+
+
+/* make triangle combination using binomial formula */
+int combination(int n, int r)
+{
+    return factorial(n) / (factorial(n-r) * factorial(r));
+}
+
+
+/******************************************************************************
+                        Compiler Output
+Enter the number of ROW : 10
+                         1
+                       1   1
+                     1   2   1
+                   1   3   3   1
+                 1   4   6   4   1
+               1   5  10  10   5   1
+             1   6  15  20  15   6   1
+           1   7  21  35  35  21   7   1
+         1   8  28  56  70  56  28   8   1
+       1   9  36  84 126 126  84  36   9   1
+     1  10  45 120 210 252 210 120  45  10   1
+
+Process returned 0 (0x0)   execution time : 3.080 s
+Press any key to continue.
+*******************************************************************************/
