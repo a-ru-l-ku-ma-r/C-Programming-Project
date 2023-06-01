@@ -1,1 +1,63 @@
+/***************************************************************************************************************************
+**********************                               Create a Structure                               **********************
+***************************************************************************************************************************/
 
+#include <stdio.h>
+
+struct resistor
+{
+    char type[30];
+    float resistance;
+    float tolerance;
+    int series;
+    int number_of_termination;
+    char application[30];
+
+};
+
+int main()
+{
+    struct resistor RES;
+
+    printf("Enter the resistance details: \n");
+    scanf("%s %f %f %d %d %s",
+                                RES.type,
+                                &RES.resistance,
+                                &RES.tolerance,
+                                &RES.series,
+                                &RES.number_of_termination,
+                                RES.application);
+
+
+    printf("\n Type = %s \n Resistance=  %fK \n Tolerance = %f\n Series = %d \n Number of termination = %d \n Application = %s \n",
+                                RES.type,
+                                RES.resistance,
+                                RES.tolerance,
+                                RES.series,
+                                RES.number_of_termination,
+                                RES.application);
+
+
+    return 0;
+}
+
+/****************************************************************************************************************************************
+                                                        Compiler Output
+Enter the resistance details:
+SMD
+1.05
+0.3
+8054
+2
+Automatic
+
+ Type = SMD
+ Resistance=  1.050000K
+ Tolerance = 0.300000
+ Series = 8054
+ Number of termination = 2
+ Application = Automatic
+
+Process returned 0 (0x0)   execution time : 24.838 s
+Press any key to continue.
+****************************************************************************************************************************************/
