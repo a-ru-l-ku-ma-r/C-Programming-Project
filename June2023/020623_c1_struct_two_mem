@@ -1,0 +1,53 @@
+/****************************************************************************
+////////// Structure - same member, different variable  /////////////////////
+****************************************************************************/
+
+#include <stdio.h>
+
+struct passive_component
+{
+    char type[30];
+    float value;
+    float tolerence;
+    char mounting_type[30];
+    int footprint;
+    char application[30];
+};
+
+
+int main()
+{
+    struct passive_component RES = {"chip_resistor", 12.7, 0.05, "SMD", 0402, "Automatic"}, CAP, IND;
+
+    printf("Enter the Capacitor details : \n");
+    scanf("%s", CAP.type);
+    scanf("%f", &CAP.value);
+    scanf("%f", &CAP.tolerence);
+    scanf("%s", CAP.mounting_type);
+    scanf("%d", &CAP.footprint);
+    scanf("%s", CAP.application);
+
+    printf("\nResistor details : %s, %fK, %f%, %s, %d, %s\n", RES.type, RES.value, RES.tolerence, RES.mounting_type, RES.footprint, RES.application);
+    printf("\nCapacitor details : %s, %fuf, %f%, %s, %d, %s\n", CAP.type, CAP.value, CAP.tolerence, CAP.mounting_type, CAP.footprint, CAP.application);
+
+    return 0;
+}
+
+/*********************************************************************************
+                    Compiler Output
+Enter the Capacitor details :
+tantalum_capacitor
+27
+0.05
+Through_hole
+0
+RF
+
+Resistor details : chip_resistor, 12.700000K, 0.050000, SMD, 258, Automatic
+
+Capacitor details : tantalum_capacitor, 27.000000uf, 0.050000, Through_hole, 0, RF
+
+Process returned 0 (0x0)   execution time : 91.484 s
+Press any key to continue.
+                   
+*********************************************************************************/
