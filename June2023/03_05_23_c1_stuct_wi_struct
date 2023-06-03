@@ -1,0 +1,78 @@
+/*************************************************************************
+************        Structure within structure          ******************
+*************************************************************************/
+
+#include <stdio.h>
+
+struct parameter{
+    float value;
+    float tolerance;
+    char application[30];
+};
+
+
+struct passive{
+    char resistor[30];
+    char capacitor[30];
+    char inductor[30];
+    struct parameter R, C, L;
+};
+
+int main()
+{
+    struct passive RES, CAP, IND;
+
+    printf("Enter the details of Resistor type and parameter details: \n");
+    scanf("%s", RES.resistor);
+    scanf("%f", &RES.R.value);
+    scanf("%f", &RES.R.tolerance);
+    scanf("%s", RES.R.application);
+
+    printf("Enter the details of Capacitor type and parameter details: \n");
+    scanf("%s", CAP.capacitor);
+    scanf("%f", &CAP.C.value);
+    scanf("%f", &CAP.C.tolerance);
+    scanf("%s", CAP.C.application);
+
+    printf("Enter the details of Inductor type and parameter details: \n");
+    scanf("%s", IND.inductor);
+    scanf("%f", &IND.L.value);
+    scanf("%f", &IND.L.tolerance);
+    scanf("%s", IND.L.application);
+
+
+    printf("\nResistor : Type - %s;\tResistance - %fK;\tTolerance - %f;\tApplication - %s;\n", RES.resistor,RES.R.value,RES.R.tolerance,RES.R.application);
+    printf("\nCapacitor : Type - %s;\tResistance - %fuF;\tTolerance - %f;\tApplication - %s;\n", CAP.capacitor,CAP.C.value,CAP.C.tolerance,CAP.C.application);
+    printf("\nResistor : Type - %s;\tResistance - %fnH;\tTolerance - %f;\tApplication - %s;\n", IND.inductor,IND.L.value,IND.L.tolerance,IND.L.application);
+
+    return 0;
+}
+
+
+/**********************************************************************************************
+                        Compiler Output
+Enter the details of Resistor type and parameter details:
+Chip_Resistor
+5.6
+5
+Automative
+Enter the details of Capacitor type and parameter details:
+Ceramic_Capacitor
+4.7
+10
+Bypass
+Enter the details of Inductor type and parameter details:
+Fixed_Inductor
+33
+30
+RF
+
+Resistor : Type - Chip_Resistor;        Resistance - 5.600000K; Tolerance - 5.000000;   Application - Automative;
+
+Capacitor : Type - Ceramic_Capacitor;   Resistance - 4.700000uF;        Tolerance - 10.000000;  Application - Bypass;
+
+Resistor : Type - Fixed_Inductor;       Resistance - 33.000000nH;       Tolerance - 30.000000;  Application - RF;
+
+Process returned 0 (0x0)   execution time : 145.307 s
+Press any key to continue.
+************************************************************************************************/
