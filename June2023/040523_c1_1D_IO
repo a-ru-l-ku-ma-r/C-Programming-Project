@@ -1,0 +1,55 @@
+/******************************************************
+                1-D Array Input/Output
+******************************************************/
+#include <stdio.h>
+
+int main()
+{
+    int current[5], i, sum=0;
+    float avg_ct;
+
+    printf("Enter the value of current : \n");
+    for(i=0; i<5; i++)
+        scanf("%d", &current[i]);
+
+
+    printf("\nDisplay the current value : \n");
+    for(i=0; i<5; i++)
+        printf("%dA\n", current[i]);
+
+    printf("\nSum of current : \n");
+    for(i=0; i<5; i++)
+        sum += current[i];
+    printf("%d\n", sum);
+
+    printf("\nAVerage value of current :\n");
+    avg_ct = (float) sum / 5;
+    printf("%f", avg_ct);
+
+    return 0;
+}
+
+/**************************************************************************
+                            Compiler Output
+Enter the value of current :
+8
+6
+9
+4
+1
+
+Display the current value :
+8A
+6A
+9A
+4A
+1A
+
+Sum of current :
+28
+
+AVerage value of current :
+5.600000
+Process returned 0 (0x0)   execution time : 6.226 s
+Press any key to continue.
+*****************************************************************************/
