@@ -1,0 +1,89 @@
+/*********************************************************
+           Insert Element in 1-D Array
+*********************************************************/
+
+#include <stdio.h>
+
+
+int get_size_array(void);
+void get_array_element(int t_size, int t_arr[]);
+int get_insert_element(void);
+int get_pos_insert_element(void);
+void insert_element(int t_size, int t_arr[], int t_position, int t_element);
+
+int main()
+{
+    int arr[50];
+
+    int size, in_element, pos_element;
+
+    size = get_size_array();
+    printf("verify the size of array = %d\n", size);
+
+
+    get_array_element(size, arr);
+
+    in_element = get_insert_element();
+    printf("verify the insert element : %d\n", in_element);
+
+    pos_element = get_pos_insert_element();
+    printf("verify the insert element : %d\n", pos_element);
+
+    insert_element(size, arr,pos_element, in_element);
+
+    return 0;
+}
+
+int get_size_array(void)
+{
+    int t_size;
+
+    printf("Enter the size of Array: \n");
+    scanf("%d", &t_size);
+
+    return t_size;
+}
+
+void get_array_element(int t_size, int t_arr[])
+{
+    int i;
+
+    for(int i=0; i<t_size; i++)
+        scanf("%d", &t_arr[i]);
+
+    printf("List the element before insertion:\n");
+    for(i=0; i<t_size; i++)
+        printf("%d\n", t_arr[i]);
+}
+
+int get_insert_element(void)
+{
+    int t_element;
+
+    printf("Enter the insert element :\n");
+    scanf("%d", t_element);
+}
+
+int get_pos_insert_element(void)
+{
+    int t_position;
+
+    printf("Enter the insert element :\n");
+    scanf("%d", t_position);
+}
+
+void insert_element(int t_size, int t_arr[], int t_position, int t_element)
+{
+    int i;
+
+    t_position--;
+
+    for(i=t_size-1; i>=t_position; i--)
+        t_arr[i+1] = t_arr[i];
+
+    t_arr[t_position] = t_element;
+
+    printf("List the element after insertion:\n");
+    for(i=0; i<t_size+1; i++)
+        printf("%d\n", t_arr[i]);
+}
