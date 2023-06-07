@@ -20,7 +20,6 @@ int main()
     size = get_size_array();
     printf("verify the size of array = %d\n", size);
 
-
     get_array_element(size, arr);
 
     in_element = get_insert_element();
