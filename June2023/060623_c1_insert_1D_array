@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 
-
+/*__ function prototype __*/
 int get_size_array(void);
 void get_array_element(int t_size, int t_arr[]);
 int get_insert_element(void);
@@ -34,6 +34,8 @@ int main()
     return 0;
 }
 
+
+/* _________________function definitions________________________ */
 int get_size_array(void)
 {
     int t_size;
@@ -48,6 +50,7 @@ void get_array_element(int t_size, int t_arr[])
 {
     int i;
 
+    printf("Enter the element of array : \n");
     for(int i=0; i<t_size; i++)
         scanf("%d", &t_arr[i]);
 
@@ -61,15 +64,19 @@ int get_insert_element(void)
     int t_element;
 
     printf("Enter the insert element :\n");
-    scanf("%d", t_element);
+    scanf("%d", &t_element);
+
+    return t_element;
 }
 
 int get_pos_insert_element(void)
 {
     int t_position;
 
-    printf("Enter the insert element :\n");
-    scanf("%d", t_position);
+    printf("Enter the element position into the array :\n");
+    scanf("%d", &t_position);
+
+    return t_position;
 }
 
 void insert_element(int t_size, int t_arr[], int t_position, int t_element)
@@ -87,3 +94,37 @@ void insert_element(int t_size, int t_arr[], int t_position, int t_element)
     for(i=0; i<t_size+1; i++)
         printf("%d\n", t_arr[i]);
 }
+
+/*********************************************************************************************
+                                Compiler Output
+verify the size of array = 5
+Enter the element of array :
+1
+2
+3
+5
+6
+List the element before insertion:
+1
+2
+3
+5
+6
+Enter the insert element :
+4
+verify the insert element : 4
+Enter the element position into the array :
+4
+verify the insert element : 4
+List the element after insertion:
+1
+2
+3
+4
+5
+6
+
+Process returned 0 (0x0)   execution time : 32.785 s
+Press any key to continue.
+                                
+*********************************************************************************************/
