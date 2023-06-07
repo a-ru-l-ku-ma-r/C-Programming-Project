@@ -1,0 +1,120 @@
+/*********************************************************
+           Delete Element in 1-D Array
+*********************************************************/
+
+#include <stdio.h>
+
+/*__ function prototype __*/
+int get_size_array(void);
+void get_array_element(int t_size, int t_arr[]);
+int get_delete_element(void);
+void delete_element(int t_size, int t_arr[], int t_element);
+
+int main()
+{
+    int arr[50];
+
+    int size, del_element, pos_element;
+
+    size = get_size_array();
+    printf("verify the size of array = %d\n", size);
+
+
+    get_array_element(size, arr);
+
+    del_element = get_delete_element();
+    printf("verify the delete element : %d\n", del_element);
+
+    delete_element(size, arr, del_element);
+
+    return 0;
+}
+
+
+/* _________________function definitions________________________ */
+int get_size_array(void)
+{
+    int t_size;
+
+    printf("Enter the size of Array: \n");
+    scanf("%d", &t_size);
+
+    return t_size;
+}
+
+void get_array_element(int t_size, int t_arr[])
+{
+    int i;
+
+    printf("Enter the element of array : \n");
+    for(int i=0; i<t_size; i++)
+        scanf("%d", &t_arr[i]);
+
+    printf("List the element before deletion :\n");
+    for(i=0; i<t_size; i++)
+        printf("%d\n", t_arr[i]);
+}
+
+int get_delete_element(void)
+{
+    int t_element;
+
+    printf("Enter the delete element :\n");
+    scanf("%d", &t_element);
+
+    return t_element;
+}
+
+void delete_element(int t_size, int t_arr[], int t_element)
+{
+    int i, j;
+
+    for(i=0; i<t_size; i++)
+    {
+        if(t_arr[i] == t_element)
+        {
+            for(j=i; (j<t_size-1); j++)
+            {
+                t_arr[j] = t_arr[j+1];
+            }
+            break;
+        }
+
+    }
+
+    printf("List the element after deletion:\n");
+    for(i=0; (i<t_size-1); i++)
+        printf("%d\n", t_arr[i]);
+}
+
+
+/********************************************************************************************************
+                      Compiler Output
+Enter the size of Array:
+5
+verify the size of array = 5
+Enter the element of array :
+1
+2
+3
+4
+5
+List the element before deletion :
+1
+2
+3
+4
+5
+Enter the delete element :
+4
+verify the delete element : 4
+List the element after deletion:
+1
+2
+3
+5
+
+Process returned 0 (0x0)   execution time : 35.091 s
+Press any key to continue.
+
+********************************************************************************************************/
