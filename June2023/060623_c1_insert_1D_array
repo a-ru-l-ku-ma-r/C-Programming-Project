@@ -96,6 +96,8 @@ void insert_element(int t_size, int t_arr[], int t_position, int t_element)
 
 /*********************************************************************************************
                                 Compiler Output
+Enter the size of Array:
+5
 verify the size of array = 5
 Enter the element of array :
 1
