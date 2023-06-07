@@ -20,13 +20,14 @@ int main()
     size = get_size_array();
     printf("verify the size of array = %d\n", size);
 
+
     get_array_element(size, arr);
 
     in_element = get_insert_element();
     printf("verify the insert element : %d\n", in_element);
 
     pos_element = get_pos_insert_element();
-    printf("verify the insert element : %d\n", pos_element);
+    printf("verify the insert element position : %d\n", pos_element);
 
     insert_element(size, arr,pos_element, in_element);
 
@@ -94,6 +95,7 @@ void insert_element(int t_size, int t_arr[], int t_position, int t_element)
         printf("%d\n", t_arr[i]);
 }
 
+
 /*********************************************************************************************
                                 Compiler Output
 Enter the size of Array:
@@ -116,7 +118,7 @@ Enter the insert element :
 verify the insert element : 4
 Enter the element position into the array :
 4
-verify the insert element : 4
+verify the insert element position : 4
 List the element after insertion:
 1
 2
@@ -125,7 +127,7 @@ List the element after insertion:
 5
 6
 
-Process returned 0 (0x0)   execution time : 32.785 s
+Process returned 0 (0x0)   execution time : 29.770 s
 Press any key to continue.
                                 
 *********************************************************************************************/
