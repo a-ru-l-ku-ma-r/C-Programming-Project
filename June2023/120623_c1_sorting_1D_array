@@ -1,0 +1,100 @@
+/****************************************************************
+                    Sorting 1D Array
+****************************************************************/
+
+#include <stdio.h>
+
+/* function prototype */
+void swap(int *, int *);
+void sorting(int t_arr[], int t_n);
+void print_array(int t_arr[], int t_n);
+void get_array(int t_arr[], int t_n);
+
+
+/* function definition */
+void swap(int *x_ptr, int *y_ptr)
+{
+    int temp_var;
+
+    temp_var = *x_ptr;
+    *x_ptr   = *y_ptr;
+    *y_ptr   = temp_var;
+}
+
+
+void sorting(int t_arr[], int t_n)
+{
+    int i, j, index;
+
+    for(i=0; i<t_n; i++)
+    {
+        for(j=i+1; j<t_n; j++)
+        {
+            if(t_arr[i] > t_arr[j])
+            {
+               // index = i;
+
+                swap(&t_arr[i], &t_arr[j]);
+            }
+        }
+    }
+}
+
+
+void print_array(int t_arr[], int t_n)
+{
+    for(int i=0; i<t_n; i++)
+        printf("%d  ", t_arr[i]);
+}
+
+void get_array(int t_arr[], int t_n)
+{
+    for(int i=0; i<t_n; i++)
+        scanf("%d", &t_arr[i]);
+}
+
+
+
+/***********************************************************/
+
+int main()
+{
+    int arr[100], n;
+
+    printf("Enter the size of the Array : \n");
+    scanf("%d", &n);
+
+    printf("Enter the element of Array : \n");
+    get_array(arr, n);
+
+    printf("Before sorting the element of Array : \n");
+    print_array(arr, n);
+
+    sorting(arr, n);
+
+    printf("\nBefore sorting the element of Array in Ascending Order : \n");
+    print_array(arr, n);
+
+    return 0;
+}
+
+
+/**********************************************************************************
+                        Compiler Output
+Enter the size of the Array :
+7
+Enter the element of Array :
+89
+64
+52
+12
+3
+2
+112
+Before sorting the element of Array :
+89  64  52  12  3  2  112
+Before sorting the element of Array in Ascending Order :
+2  3  12  52  64  89  112
+Process returned 0 (0x0)   execution time : 24.864 s
+Press any key to continue.
+**********************************************************************************/
