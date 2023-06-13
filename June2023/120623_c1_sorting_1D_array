@@ -24,7 +24,7 @@ void swap(int *x_ptr, int *y_ptr)
 
 void sorting(int t_arr[], int t_n)
 {
-    int i, j, index;
+    int i, j;
 
     for(i=0; i<t_n; i++)
     {
@@ -32,7 +32,6 @@ void sorting(int t_arr[], int t_n)
         {
             if(t_arr[i] > t_arr[j])
             {
-               // index = i;
 
                 swap(&t_arr[i], &t_arr[j]);
             }
