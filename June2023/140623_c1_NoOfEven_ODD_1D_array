@@ -1,0 +1,155 @@
+/*******************************************************************
+            No.Of Even & Odd Numbers in 1-D Array
+*******************************************************************/
+
+#include <stdio.h>
+
+
+/* Function prototype declaration */
+void get_array(int t_size, int t_arr[]);
+void print_array(int t_size, int t_arr[]);
+void arithmatic_operator(int t_size, int t_arr[]);
+void bitwise_operator(int t_size, int t_arr[]);
+
+
+
+int main()
+{
+    int arr[100], size;
+
+
+    printf("Enter the size of Array : \n");
+    scanf("%d", &size);
+
+    get_array(size, arr);
+    print_array(size, arr);
+
+    printf("\n________Using arithmetic operator Method___________\n") ;
+    arithmatic_operator(size, arr);
+    printf("\n________Using bitwise operator Method___________\n") ;
+    bitwise_operator(size, arr);
+
+    return 0;
+}
+
+
+
+/* Function definitions */
+void get_array(int t_size, int t_arr[])
+{
+    int i;
+
+    printf("Enter the element of Array: \n");
+    for(i=0; i<t_size; i++)
+        scanf("%d", &t_arr[i]);
+
+}
+
+void print_array(int t_size, int t_arr[])
+{
+    int i;
+
+    printf("Entered elements : \n");
+    for(i=0; i<t_size; i++)
+        printf("%d\t", t_arr[i]);
+}
+
+/* using arithmatic operator */
+void arithmatic_operator(int t_size, int t_arr[])
+{
+    int i,t_odd=0, t_even=0;
+
+    printf("\nOdd number elements in the Array : \n");
+    for(i=0; i<t_size; i++)
+    {
+       if(t_arr[i]%2)
+       {
+           t_odd++;
+           printf("%d\t", t_arr[i]);
+       }
+    }
+    printf("\nNumber of Odd number elements in the Array : %d\n", t_odd);
+
+
+    printf("\nEven number elements in the Array : \n");
+    for(i=0; i<t_size; i++)
+    {
+       if(t_arr[i]%2 == 0)
+       {
+           t_even++;
+           printf("%d\t", t_arr[i]);
+       }
+    }
+    printf("\nNumber of Even number elements in the Array : %d\n", t_even);
+}
+
+/* using bitwise operator */
+void bitwise_operator(int t_size, int t_arr[])
+{
+    int i,t_odd=0, t_even=0;
+
+    printf("\nOdd number elements in the Array : \n");
+    for(i=0; i<t_size; i++)
+    {
+       if(t_arr[i]&1 == 1)
+       {
+           t_odd++;
+           printf("%d\t", t_arr[i]);
+       }
+    }
+    printf("\nNumber of Odd number elements in the Array : %d\n", t_odd);
+
+
+    printf("\nEven number elements in the Array : \n");
+    for(i=0; i<t_size; i++)
+    {
+       if(t_arr[i]&1 == 1);
+       else{
+           t_even++;
+           printf("%d\t", t_arr[i]);
+       }
+    }
+    printf("\nNumber of Even number elements in the Array : %d\n", t_even);
+}
+
+
+/****************************************************************************************
+                    Compiler Output
+Enter the size of Array :
+10
+Enter the element of Array:
+2
+85
+411
+58
+63
+12
+09
+78
+115
+256
+Entered elements :
+2       85      411     58      63      12      9       78      115     256
+________Using arithmetic operator Method___________
+
+Odd number elements in the Array :
+85      411     63      9       115
+Number of Odd number elements in the Array : 5
+
+Even number elements in the Array :
+2       58      12      78      256
+Number of Even number elements in the Array : 5
+
+________Using bitwise operator Method___________
+
+Odd number elements in the Array :
+85      411     63      9       115
+Number of Odd number elements in the Array : 5
+
+Even number elements in the Array :
+2       58      12      78      256
+Number of Even number elements in the Array : 5
+
+Process returned 0 (0x0)   execution time : 25.599 s
+Press any key to continue.
+****************************************************************************************/
