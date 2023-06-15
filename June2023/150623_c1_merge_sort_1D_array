@@ -1,0 +1,97 @@
+/**********************************************************
+             Merge two sorted array
+**********************************************************/
+
+#include<stdio.h>
+
+/* Function prototype declaration */
+void get_array(int t_size, int t_arr[]);
+void print_array(int t_size, int t_arr[]);
+void merge(int *t_arr1, int *t_arr2, int *t_merge, int t_arr1_size, int t_arr2_size);
+
+int main()
+{
+    int arr1_size, arr2_size, arr1[arr1_size], arr2[arr2_size], merge_size = arr1_size + arr2_size, merge_arr[merge_size];
+
+    printf("Enter the size of First Array : \n");
+    scanf("%d", &arr1_size);
+    get_array(arr1_size, arr1);
+    print_array(arr1_size, arr1);
+    printf("\n\n");
+
+    printf("\nEnter the size of Second Array : \n");
+    scanf("%d", &arr2_size);
+    get_array(arr2_size, arr2);
+    print_array(arr2_size, arr2);
+    printf("\n\n");
+
+    printf("The merged array before Sorting : \n");
+    merge(arr1, arr2, merge_arr, arr1_size, arr2_size);
+    print_array(merge_size, merge_arr);
+    printf("\n\n");
+
+
+
+
+    return 0;
+}
+
+/* Function definitions */
+void get_array(int t_size, int t_arr[])
+{
+    int i;
+
+    printf("Enter the element of Array: \n");
+    for(i=0; i<t_size; i++)
+        scanf("%d", &t_arr[i]);
+
+}
+
+void print_array(int t_size, int t_arr[])
+{
+    int i;
+
+    printf("Entered elements : \n");
+    for(i=0; i<t_size; i++)
+        printf("%d\t", t_arr[i]);
+}
+
+
+void merge(int t_arr1[], int t_arr2[], int t_merge[], int t_arr1_size, int t_arr2_size)
+{
+    int i, j, k;
+
+    while(i<t_arr1_size && j<t_arr2_size)
+    {
+        if(t_arr1[i] < t_arr2[j])
+        {
+            t_merge[k] = t_arr1[i];
+            i++;
+        }
+        else
+        {
+            t_merge[k] = t_arr2[j];
+            j++;
+        }
+
+        k++;
+    }
+
+    while(i<t_arr1_size)
+    {
+        t_merge[k] = t_arr1[i];
+        i++;
+        k++;
+    }
+
+    while(j<t_arr2_size)
+    {
+        t_merge[k] = t_arr2[i];
+        j++;
+        k++;
+    }
+
+
+    for(int ij=0; ij<=k; ij++)
+    printf("\n%d\n", t_merge[ij]);
+}
