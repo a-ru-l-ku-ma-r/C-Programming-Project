@@ -7,11 +7,13 @@
 /* Function prototype declaration */
 void get_array(int t_size, int t_arr[]);
 void print_array(int t_size, int t_arr[]);
-void merge(int *t_arr1, int *t_arr2, int *t_merge, int t_arr1_size, int t_arr2_size);
+void swap(int *x_ptr, int *y_ptr);
+void sorting(int t_n, int t_arr[]);
+void merge(int t_arr1[], int t_arr2[], int t_merge[], int t_arr1_size, int t_arr2_size);
 
 int main()
 {
-    int arr1_size, arr2_size, arr1[arr1_size], arr2[arr2_size], merge_size = arr1_size + arr2_size, merge_arr[merge_size];
+    int arr1_size, arr2_size, arr1[100], arr2[100], merge_size, merge_arr[100];
 
     printf("Enter the size of First Array : \n");
     scanf("%d", &arr1_size);
@@ -25,13 +27,13 @@ int main()
     print_array(arr2_size, arr2);
     printf("\n\n");
 
-    printf("The merged array before Sorting : \n");
+    sorting(arr1_size, arr1);
+    sorting(arr2_size, arr2);
+
+
+    printf("The merged array : \n");
     merge(arr1, arr2, merge_arr, arr1_size, arr2_size);
-    print_array(merge_size, merge_arr);
     printf("\n\n");
-
-
-
 
     return 0;
 }
@@ -57,11 +59,38 @@ void print_array(int t_size, int t_arr[])
 }
 
 
+void swap(int *x_ptr, int *y_ptr)
+{
+    int temp_var;
+
+    temp_var = *x_ptr;
+    *x_ptr   = *y_ptr;
+    *y_ptr   = temp_var;
+}
+
+
+void sorting(int t_n, int t_arr[])
+{
+    int i, j;
+
+    for(i=0; i<t_n; i++)
+    {
+        for(j=i+1; j<t_n; j++)
+        {
+            if(t_arr[i] > t_arr[j])
+            {
+
+                swap(&t_arr[i], &t_arr[j]);
+            }
+        }
+    }
+}
+
 void merge(int t_arr1[], int t_arr2[], int t_merge[], int t_arr1_size, int t_arr2_size)
 {
-    int i, j, k;
+    int i=0, j=0, k=0;
 
-    while(i<t_arr1_size && j<t_arr2_size)
+    while((i<t_arr1_size) && (j<t_arr2_size))
     {
         if(t_arr1[i] < t_arr2[j])
         {
@@ -86,12 +115,63 @@ void merge(int t_arr1[], int t_arr2[], int t_merge[], int t_arr1_size, int t_arr
 
     while(j<t_arr2_size)
     {
-        t_merge[k] = t_arr2[i];
+        t_merge[k] = t_arr2[j];
         j++;
         k++;
     }
 
 
-    for(int ij=0; ij<=k; ij++)
+    for(int ij=0; ij<k; ij++)
     printf("\n%d\n", t_merge[ij]);
 }
+
+
+/**********************************************************************************************
+                Compiler Output
+Enter the size of First Array :
+5
+Enter the element of Array:
+8
+5
+9
+41
+99
+Entered elements :
+8       5       9       41      99
+
+
+Enter the size of Second Array :
+4
+Enter the element of Array:
+56
+1
+90
+45
+Entered elements :
+56      1       90      45
+
+The merged array :
+
+1
+
+5
+
+8
+
+9
+
+41
+
+45
+
+56
+
+90
+
+99
+
+
+
+Process returned 0 (0x0)   execution time : 19.107 s
+Press any key to continue.
+**********************************************************************************************/
