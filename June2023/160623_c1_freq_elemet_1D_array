@@ -1,0 +1,105 @@
+/**********************************************************
+        Frequency of each element of an array
+**********************************************************/
+
+#include<stdio.h>
+
+/* Function prototype declaration */
+void get_array(int t_size, int t_arr[]);
+void print_array(int t_size, int t_arr[]);
+void freq_element(int t_size, int t_arr[]);
+
+
+int main()
+{
+    int arr_size, arr[100];
+
+    printf("Enter the size of First Array : \n");
+    scanf("%d", &arr_size);
+    get_array(arr_size, arr);
+    print_array(arr_size, arr);
+    printf("\n\n");
+
+    freq_element(arr_size, arr);
+
+
+    return 0;
+}
+
+/* Function definitions */
+void get_array(int t_size, int t_arr[])
+{
+    int i;
+
+    printf("Enter the element of Array: \n");
+    for(i=0; i<t_size; i++)
+        scanf("%d", &t_arr[i]);
+
+}
+
+void print_array(int t_size, int t_arr[])
+{
+    int i;
+
+    printf("Entered elements : \n");
+    for(i=0; i<t_size; i++)
+        printf("%d\t", t_arr[i]);
+}
+
+void freq_element(int t_size, int t_arr[])
+{
+    int freq[t_size], count, i, j, visited = -1;
+
+    for(i=0; i<t_size; i++)
+    {
+        count = 1;
+
+        for(j=i+1; j<t_size; j++)
+        {
+            if(t_arr[i] == t_arr[j])
+            {
+                count++;
+                freq[j] = visited;
+            }
+        }
+
+        if(freq[i] != visited)
+        {
+            freq[i] = count;
+            printf("\n Element = %d \t Frequency = %d\n", t_arr[i], freq[i]);
+        }
+    }
+}
+
+/**************************************************************************************
+                        Compiler Output
+Enter the size of First Array :
+10
+Enter the element of Array:
+8
+9
+8
+4
+2
+2
+2
+8
+9
+6
+Entered elements :
+8       9       8       4       2       2       2       8       9       6
+
+
+ Element = 8     Frequency = 3
+
+ Element = 9     Frequency = 2
+
+ Element = 4     Frequency = 1
+
+ Element = 2     Frequency = 3
+
+ Element = 6     Frequency = 1
+
+Process returned 0 (0x0)   execution time : 13.694 s
+Press any key to continue.
+**************************************************************************************/
