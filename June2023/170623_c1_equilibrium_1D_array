@@ -1,0 +1,98 @@
+/**********************************************************
+            Equilibrium Index of 1D array
+**********************************************************/
+#include <stdio.h>
+
+/* function prototype */
+void get_array(int t_size, int t_arr[]);
+void print_array(int t_size, int t_arr[]);
+int find_equilibrium(int t_size, int t_arr[]);
+
+
+
+
+/* function definition */
+void get_array(int t_size, int t_arr[])
+{
+    int i;
+
+    printf("Enter the element of Array: \n");
+    for(i=0; i<t_size; i++)
+        scanf("%d", &t_arr[i]);
+
+}
+
+void print_array(int t_size, int t_arr[])
+{
+    int i;
+
+    printf("Entered elements : \n");
+    for(i=0; i<t_size; i++)
+        printf("%d\t", t_arr[i]);
+}
+
+
+int find_equilibrium(int t_size, int t_arr[] )
+{
+    int i, j, leftsum, rightsum;
+
+    for(i=0; i<t_size; ++i)
+    {
+        leftsum = 0;
+        for(j=0; j<i; j++)
+            leftsum += t_arr[j];
+
+        rightsum = 0;
+        for(j=i+1; j<t_size; j++)
+            rightsum += t_arr[j];
+
+        if(leftsum == rightsum)
+            return i;
+    }
+
+    return -1;
+}
+
+
+
+int main()
+{
+    int arr_size, arr[100], equilibrium;
+
+    printf("Enter the size of First Array : \n");
+    scanf("%d", &arr_size);
+
+    get_array(arr_size, arr);
+    print_array(arr_size, arr);
+
+    equilibrium = find_equilibrium(arr_size, arr);
+
+    if(equilibrium != -1)
+        printf("\nequilibrium = %d",equilibrium);
+    if(equilibrium == -1)
+        printf("\nequilibrium is not there");
+
+
+
+    return 0;
+}
+
+
+/*****************************************************************
+              Compiler Output
+Enter the size of First Array :
+7
+Enter the element of Array:
+-7
+1
+5
+2
+-4
+3
+0
+Entered elements :
+-7      1       5       2       -4      3       0
+equilibrium = 3
+Process returned 0 (0x0)   execution time : 23.630 s
+Press any key to continue.
+*****************************************************************/
