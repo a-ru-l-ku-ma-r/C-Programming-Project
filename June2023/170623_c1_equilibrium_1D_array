@@ -9,8 +9,6 @@ void print_array(int t_size, int t_arr[]);
 int find_equilibrium(int t_size, int t_arr[]);
 
 
-
-
 /* function definition */
 void get_array(int t_size, int t_arr[])
 {
