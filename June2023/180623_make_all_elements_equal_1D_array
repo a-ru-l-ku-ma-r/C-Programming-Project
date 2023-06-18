@@ -1,0 +1,106 @@
+/**********************************************************
+        Make all Elements equal in 1D array
+**********************************************************/
+#include <stdio.h>
+
+/* function prototype */
+void get_array(int t_size, int t_arr[]);
+void print_array(int t_size, int t_arr[]);
+int find_average(int t_size, int t_arr[]);
+void make_equal_element(int t_size, int t_arr[], int t_average);
+
+
+/* function definition */
+void get_array(int t_size, int t_arr[])
+{
+    int i;
+
+    printf("Enter the element of Array: \n");
+    for(i=0; i<t_size; i++)
+        scanf("%d", &t_arr[i]);
+
+}
+
+void print_array(int t_size, int t_arr[])
+{
+    int i;
+
+    for(i=0; i<t_size; i++)
+        printf("%d\t", t_arr[i]);
+}
+
+
+int find_average(int t_size, int t_arr[])
+{
+    int t_sum = 0;
+    int t_average;
+
+    for(int i=0; i<t_size; i++)
+        t_sum += t_arr[i];
+
+    printf("\nsum = %d\n", t_sum);
+
+    t_average = (t_sum / t_size) ;
+    printf("\naverage = %d\n", t_average);
+
+    return t_average;
+
+}
+
+void make_equal_element(int t_size, int t_arr[], int t_average)
+{
+    for(int i=0; i<t_size; i++)
+    {
+        if(t_arr[i] > t_average)
+            t_arr[i] = t_arr[i] - (t_arr[i] - t_average);
+        else
+            t_arr[i] = (t_average - t_arr[i]) + t_arr[i] ;
+    }
+
+}
+
+int main()
+{
+    int arr_size, arr[100], average;
+
+    printf("Enter the size of First Array : \n");
+    scanf("%d", &arr_size);
+
+    get_array(arr_size, arr);
+    printf("\nEntered elements : \n");
+    print_array(arr_size, arr);
+
+    average = find_average(arr_size, arr);
+
+    make_equal_element(arr_size, arr, average);
+
+    printf("\nAfter made the all elements equal : \n");
+    print_array(arr_size, arr);
+
+    return 0;
+}
+
+/****************************************************************
+              Compiler Output
+Enter the size of First Array :
+7
+Enter the element of Array:
+52
+68
+01
+5
+101
+32
+8
+
+Entered elements :
+52      68      1       5       101     32      8
+sum = 267
+
+average = 38
+
+After made the all elements equal :
+38      38      38      38      38      38      38
+Process returned 0 (0x0)   execution time : 13.702 s
+Press any key to continue.
+****************************************************************/
