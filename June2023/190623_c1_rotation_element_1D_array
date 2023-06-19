@@ -9,13 +9,13 @@
 void get_array(int t_size, int t_arr[]);
 void print_array(int t_size, int t_arr[]);
 int find_odd_even(int t_size);
-int find_remainder(int t_size);
-void shift(int t_size, int t_arr[], int t_odd_even, int t_remainder);
+int find_quotient(int t_size);
+void shift(int t_size, int t_arr[], int t_odd_even, int t_quotient);
 
 
 int main()
 {
-    int size, arr[100], odd_even, remainder;
+    int size, arr[100], odd_even, quotient;
 
     printf("Enter the size of array : \n");
     scanf("%d", &size);
@@ -27,9 +27,9 @@ int main()
 
     odd_even = find_odd_even(size);
 
-    remainder = find_remainder(size);
+    quotient = find_quotient(size);
 
-    shift(size, arr, odd_even, remainder);
+    shift(size, arr, odd_even, quotient);
 
     return 0;
 }
@@ -60,28 +60,28 @@ int find_odd_even(int t_size)
     return (t_size%2);
 }
 
-int find_remainder(int t_size)
+int find_quotient(int t_size)
 {
     return (t_size/2);
 }
 
-void shift(int t_size, int t_arr[], int t_odd_even, int t_remainder)
+void shift(int t_size, int t_arr[], int t_odd_even, int t_quotient)
 {
     int dup_arr[t_size];
     int i, j, k;
 
 
-    if(t_odd_even && t_remainder)
+    if(t_odd_even && t_quotient)
     {
         j = 1; k=0;
 
-        for(i=0; i<t_remainder; i++)
+        for(i=0; i<t_quotient; i++)
         {
-            dup_arr[i] = t_arr[t_remainder + j];
+            dup_arr[i] = t_arr[t_quotient + j];
             j++;
         }
 
-        dup_arr[i] = t_arr[t_remainder];
+        dup_arr[i] = t_arr[t_quotient];
         i++;
 
         for( ; i<t_size; i++)
@@ -94,9 +94,9 @@ void shift(int t_size, int t_arr[], int t_odd_even, int t_remainder)
     {
         j = 0; k=0;
 
-        for(i=0; i<t_remainder; i++)
+        for(i=0; i<t_quotient; i++)
         {
-            dup_arr[i] = t_arr[t_remainder + j];
+            dup_arr[i] = t_arr[t_quotient + j];
             j++;
         }
 
