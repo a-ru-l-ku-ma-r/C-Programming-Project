@@ -1,0 +1,99 @@
+/***********************************************************************
+            Number of Distinct Elements in 1D Array
+***********************************************************************/
+
+#include <stdio.h>
+
+
+/* function prototype declaration */
+void get_array(int t_size, int t_arr[]);
+void print_array(int t_size, int t_arr[]);
+int count_distinct(int t_size, int t_arr[]);
+/*__________________________________________*/
+
+
+int main()
+{
+    int size, arr[100], count;
+
+    printf("Enter the size of array : \n");
+    scanf("%d", &size);
+
+    get_array(size, arr);
+
+    printf("\nEntered array elements are as follows : \n");
+    print_array(size, arr);
+
+    count = count_distinct(size, arr);
+    printf("\nThe number of distinct elements is %d\n", count);
+
+
+    return 0;
+}
+
+
+
+/////////////////////////* function definition */////////////////////////
+
+void get_array(int t_size, int t_arr[])
+{
+    printf("\nEnter the elements of array:\n");
+
+    for(int i=0; i<t_size; i++)
+        scanf("%d", &t_arr[i]);
+}
+
+void print_array(int t_size, int t_arr[])
+{
+    for(int i=0; i<t_size; i++)
+        printf("%d\t", t_arr[i]);
+
+    printf("\n");
+}
+
+int count_distinct(int t_size, int t_arr[])
+{
+    int i, j, t_count=1;
+
+    for(i=1; i<t_size; i++)
+    {
+        for(j=0; j<i; j++)
+        {
+            if(t_arr[i] == t_arr[j])
+            {
+                break;
+            }
+        }
+
+        if(i == j)
+            t_count++;
+    }
+
+    return t_count;
+}
+/******************************************************************************
+                  Compiler Output
+Enter the size of array :
+10
+
+Enter the elements of array:
+2
+5
+6
+8
+2
+54
+8
+6
+1
+2
+
+Entered array elements are as follows :
+2       5       6       8       2       54      8       6       1       2
+
+The number of distinct elements is 6
+
+Process returned 0 (0x0)   execution time : 13.007 s
+Press any key to continue.
+
+******************************************************************************/
