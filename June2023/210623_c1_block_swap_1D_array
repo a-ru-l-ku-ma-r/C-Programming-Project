@@ -1,0 +1,114 @@
+/*************************************************************
+                Block Swap in 1D Array
+*************************************************************/
+
+#include <stdio.h>
+
+/* function prototype declaration */
+void get_input_array(int t_size, int t_arr[]);
+void print_array(int t_size, int t_arr[]);
+void swap(int *t_arr, int left, int right, int t_size);
+void rotate_array(int *t_arr, int t_position, int t_size);
+
+
+/*______Function Definition_________*/
+void get_input_array(int t_size, int t_arr[])
+{
+    for(int i=0; i<t_size; i++)
+        scanf("%d", &t_arr[i]);
+}
+
+void print_array(int t_size, int t_arr[])
+{
+    for(int i=0; i<t_size; i++)
+        printf("%d\t", t_arr[i]);
+}
+
+void swap(int *t_arr, int left, int right, int t_size)
+{
+    int temp, i;
+
+    for(i=0; i<t_size; i++)
+    {
+        temp           = t_arr[left+i];
+        t_arr[left+i]  = t_arr[right+i];
+        t_arr[right+i] = temp;
+    }
+}
+
+
+void rotate_array(int *t_arr, int t_position, int t_size)
+{
+    if(t_arr == NULL || t_size == 0 || t_position == 0 || t_size == t_position)
+        return;
+
+    if(t_size - t_position == t_position)
+    {
+        swap(t_arr, 0, t_size-t_position, t_position);
+        return;
+    }
+
+    if(t_position < t_size-t_position)
+    {
+        swap(t_arr, 0, t_size-t_position, t_position);
+        rotate_array(t_arr, t_position, t_size-t_position);
+    }
+    else
+    {
+        swap(t_arr, 0, t_position, t_size-t_position);
+        rotate_array(t_arr+t_size-t_position, 2*t_position-t_size, t_position);
+    }
+
+}
+
+int main()
+{
+    int size, position;
+    printf("Enter the Size of Array : \n");
+    scanf("%d", &size);
+
+    int arr[size];
+
+    printf("\nEnter the input elements of array : \n");
+    get_input_array(size, arr);
+
+    printf("\nThe entered elements of array is \n");
+    print_array(size, arr);
+
+    printf("\nEnter the Size of position : \n");
+    scanf("%d", &position);
+
+    rotate_array(arr, position, size);
+
+    printf("\nAfter shifting the elements of array is \n");
+    print_array(size, arr);
+
+
+    return 0;
+}
+/****************************************************************************************
+                      Compiler Output
+Enter the Size of Array :
+8
+
+Enter the input elements of array :
+1
+2
+3
+4
+5
+6
+7
+8
+
+The entered elements of array is
+1       2       3       4       5       6       7       8
+Enter the Size of position :
+3
+
+After shifting the elements of array is
+4       5       6       7       8       1       2       3
+Process returned 0 (0x0)   execution time : 13.423 s
+Press any key to continue.
+
+*****************************************************************************************/
