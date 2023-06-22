@@ -1,0 +1,89 @@
+/*************************************************************
+            Knapsack in 1D Array
+*************************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    int n, m, i, j, temp;
+
+    printf("Enter the number of object : \n");
+    scanf("%d", &n);
+
+    printf("\nEnter the maximum weight of the bag : \n");
+    scanf("%d", &m);
+
+    int p[n], w[n], temp_p[n], temp_w[n];
+    float x[n], y[n], sum_m = 0;
+
+    printf("\n\nEnter the profit of each object:\n");
+    for(i=0; i<n; i++)
+        scanf("%d", &p[i]);
+
+    printf("\nEntered profit details as follow as :\n");
+    for(i=0; i<n; i++)
+        printf("%d\t", p[i]);
+
+    printf("\n\nEnter the weight of each object:\n");
+    for(i=0; i<n; i++)
+        scanf("%d", &w[i]);
+
+    printf("\nEntered weight details as follow as :\n");
+    for(i=0; i<n; i++)
+        printf("%d\t", w[i]);
+
+    printf("\n\n\nFind greedy value i.e., profit/weight\n");
+    for(i=0; i<n; i++)
+    {
+        printf("p=%d\n", p[i]);
+        printf("w= %d\n", w[i]);
+        x[i] = (float) (p[i]) / (float) (w[i]);
+        printf("x=%f\n\n", x[i]);
+    }
+
+    //find descending order
+    for(i=0; i<n; i++)
+    {
+        for(j=i+1; j<n; j++)
+        {
+            if(x[i] < x[j])
+            {
+                temp = x[i];
+                x[i] = x[j];
+                x[j] = temp;
+
+                temp_p[i] = p[j];
+                temp_w[i] = w[j];
+            }
+
+
+        }
+
+        temp_p[i] = p[i];
+        temp_w[i] = w[i];
+
+
+    }
+
+    printf("\nDescending order of greedy value i.e., profit/weight :\n");
+    for(i=0; i<n; i++)
+    {
+        printf("temp_p=%d\n", temp_p[i]);
+        printf("temp_w=%d\n", temp_w[i]);
+        printf("x=%f\n\n", x[i]);
+    }
+
+/*
+    for(i=0; i<n; i++)
+    {
+        if(sum_m <= m)
+        {
+            sum_m = sum_m + x[i];
+        }
+    }
+
+    printf("\n\nBag weight value = %f\n\n", sum_m); */
+
+    return 0;
+}
