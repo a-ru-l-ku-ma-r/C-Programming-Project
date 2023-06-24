@@ -1,0 +1,67 @@
+/**********************************************************
+      Sum of positive square elements in an array
+**********************************************************/
+
+#include <stdio.h>
+#include <math.h>
+
+
+/* Function Prototype Declaration */
+void get_element_array(int t_size, int t_arr[]);
+void print_array(int t_size, int t_arr[]);
+int sum_positive_square(int t_size, int t_arr[]);
+
+int main()
+{
+    int size, sum;
+
+    printf("Enter the size of Array : \n");
+    scanf("%d", &size);
+
+    int arr[size];
+
+    printf("Enter the elements of Array : \n");
+    get_element_array(size, arr);
+
+    printf("\nEntered elements of array : \n");
+    print_array(size, arr);
+
+
+    sum = sum_positive_square(size, arr);
+    printf("\nSum of positive square elements in array : %d", sum);
+
+    return 0;
+}
+
+
+
+/* Function Definition */
+void get_element_array(int t_size, int t_arr[])
+{
+    for(int i=0; i<t_size; i++)
+        scanf("%d", &t_arr[i]);
+}
+
+void print_array(int t_size, int t_arr[])
+{
+    for(int i=0; i<t_size; i++)
+        printf("%d\t", t_arr[i]);
+}
+
+
+int sum_positive_square(int t_size, int t_arr[])
+{
+    int i, t_sum=0, f_s; // f_s -> find square root of number
+
+    for(i=0; i<t_size; i++)
+    {
+        f_s = sqrt(t_arr[i]);
+
+        if(pow(f_s, 2) == t_arr[i])
+        {
+            t_sum += t_arr[i];
+        }
+    }
+
+    return t_sum;
+}
