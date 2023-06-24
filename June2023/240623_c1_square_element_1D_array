@@ -65,3 +65,22 @@ int sum_positive_square(int t_size, int t_arr[])
 
     return t_sum;
 }
+
+
+/****************************************************************************
+                  Compiler Output
+Enter the size of Array :
+5
+Enter the elements of Array :
+36
+9
+24
+99
+12
+
+Entered elements of array :
+36      9       24      99      12
+Sum of positive square elements in array : 45
+Process returned 0 (0x0)   execution time : 22.410 s
+Press any key to continue.
+****************************************************************************/
