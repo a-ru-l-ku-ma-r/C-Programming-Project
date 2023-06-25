@@ -1,5 +1,5 @@
 /**********************************************************
-      Sum of positive square elements in an array
+      Sum of positive square elements in an 1D array
 **********************************************************/
 
 #include <stdio.h>
