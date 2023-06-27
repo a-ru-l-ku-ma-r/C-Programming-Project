@@ -1,0 +1,94 @@
+/***********************************************************************
+            Circular rotation in 1D Array
+***********************************************************************/
+#include <stdio.h>
+
+
+/* Function prototype declaration */
+void get_element(int t_size, int t_arr[]);
+void print_array(int t_size, int t_arr[]);
+void circular_rotation(int t_size, int t_arr[], int t_position);
+
+
+/* function definitions */
+void get_element(int t_size, int t_arr[])
+{
+    for(int i=0; i<t_size; i++)
+        scanf("%d", &t_arr[i]);
+}
+
+void print_array(int t_size, int t_arr[])
+{
+    for(int i=0; i<t_size; i++)
+        printf("%d\t", t_arr[i]);
+}
+
+void circular_rotation(int t_size, int t_arr[], int t_position)
+{
+    for(int i=0; i<t_position; i++)
+    {
+        int j, temp;
+
+        temp = t_arr[t_size-1];
+
+        for(j=t_size-1; j>0; j--)
+        {
+            t_arr[j] = t_arr[j-1];
+        }
+
+        t_arr[0] = temp;
+    }
+}
+
+int main()
+{
+    int size, position;
+
+    printf("Enter the size of the array :\n");
+    scanf("%d", &size);
+
+    int arr[size];
+
+    printf("\nEnter the elements of array :\n");
+    get_element(size, arr);
+
+    printf("\nEntered elements of array as follows as: \n");
+    print_array(size, arr);
+
+    printf("\n\nEnter the index position of circular rotation:\n");
+    scanf("%d", &position);
+
+    circular_rotation(size, arr, position);
+
+    printf("\nArray after the circular rotation : \n");
+    print_array(size, arr);
+
+
+    return 0;
+}
+
+/***************************************************************************************
+            Compiler Output
+Enter the size of the array :
+7
+
+Enter the elements of array :
+1
+2
+3
+4
+5
+6
+7
+
+Entered elements of array as follows as:
+1       2       3       4       5       6       7
+
+Enter the index position of circular rotation:
+3
+
+Array after the circular rotation :
+5       6       7       1       2       3       4
+Process returned 0 (0x0)   execution time : 6.510 s
+Press any key to continue.
+***************************************************************************************/
