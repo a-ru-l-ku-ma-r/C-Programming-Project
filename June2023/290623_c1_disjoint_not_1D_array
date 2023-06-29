@@ -25,11 +25,11 @@ int main()
     printf("\nEnter element of first array : \n");
     get_element_array(size1, arr1);
 
-    printf("\nThe element of First array : \n");
-    print_array(size1, arr1);
-
     printf("\n\nEnter element of Second array : \n");
     get_element_array(size2, arr2);
+
+    printf("\nThe element of First array : \n");
+    print_array(size1, arr1);
 
     printf("\nThe element of Second array : \n");
     print_array(size2, arr2);
@@ -93,8 +93,6 @@ Enter element of first array :
 4
 5
 
-The element of First array :
-1       2       3       4       5
 
 Enter element of Second array :
 6
@@ -103,6 +101,9 @@ Enter element of Second array :
 9
 10
 11
+
+The element of First array :
+1       2       3       4       5
 
 The element of Second array :
 6       7       8       9       10      11
@@ -124,8 +125,6 @@ Enter element of first array :
 4
 5
 
-The element of First array :
-1       2       3       4       5
 
 Enter element of Second array :
 4
@@ -134,6 +133,9 @@ Enter element of Second array :
 7
 8
 9
+
+The element of First array :
+1       2       3       4       5
 
 The element of Second array :
 4       5       6       7       8       9
