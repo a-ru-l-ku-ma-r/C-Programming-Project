@@ -1,5 +1,5 @@
 /****************************************************************************
-            Disjoint or Not in 1D Array
+                  Disjoint or Not in 1D Array
 ****************************************************************************/
 
 #include<stdio.h>
@@ -77,6 +77,8 @@ int disjoint(int t_size1, int t_arr1[], int t_size2, int t_arr2[])
     return 1;
 }
 
+
+
 /******************************************************************************************
                             Compiler Output : 1
   Enter the size of First Array :
@@ -108,7 +110,7 @@ Output: Yes, Disjoint
 
 Process returned 0 (0x0)   execution time : 12.924 s
 Press any key to continue.
-
+_____________________________________________________________________________________
                             Compiler Output : 2
 Enter the size of First Array :
 5
@@ -140,5 +142,5 @@ Output: Not Disjoint
 Process returned 0 (0x0)   execution time : 11.889 s
 Press any key to continue.
 
-*****************************************************************************************************/
+****************************************************************************************/
                                   
