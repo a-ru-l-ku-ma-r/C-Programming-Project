@@ -9,6 +9,8 @@
 /* function prototype declaration */
 void get_element(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum_size]);
 void print_array(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum_size]);
+int sum(int t_row_size, int t_colum_size, int t_arr1[t_row_size][t_colum_size], int t_arr2[t_row_size][t_colum_size]);
+
 
 int main()
 {
@@ -20,7 +22,7 @@ int main()
     printf("\nEnter the Column size of the Array:\n");
     scanf("%d", &column_size);
     
-    int arr1[row_size][column_size], arr2[row_size][column_size];
+    int arr1[row_size][column_size], arr2[row_size][column_size], res[row_size][column_size];
     
     printf("\nEnter the element of first array:\n");
     get_element(row_size, column_size, arr1);
@@ -30,7 +32,12 @@ int main()
     printf("\nThe element of first array:\n");
     print_array(row_size, column_size, arr1);
     printf("\nThe element of second array:\n");
-    print_array(row_size, column_size, arr2);    
+    print_array(row_size, column_size, arr2); 
+    
+    
+    printf("\nThe sum of Array : \n");
+    res = sum(row_size, column_size, arr1, arr2);
+    print_array(row_size, column_size, res); 
     
 
     return 0;
@@ -64,7 +71,17 @@ void print_array(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum
     }
 }
 
+int sum(int t_row_size, int t_colum_size, int t_arr1[t_row_size][t_colum_size], int t_arr2[t_row_size][t_colum_size])
+{
+    int i, j, t_res[t_row_size][t_colum_size];
+    
+    for(i=0; i<t_row_size; i++)
+        for(j=0; j<t_colum_size; j++)
+           t_res[i][j] = t_arr1[i][j] + t_arr2[i][j];  
+    
+    return  t_res;
 
+}
 
 
 
