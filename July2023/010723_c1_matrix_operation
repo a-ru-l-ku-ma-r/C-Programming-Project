@@ -9,8 +9,9 @@
 /* function prototype declaration */
 void get_element(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum_size]);
 void print_array(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum_size]);
-int sum(int t_row_size, int t_colum_size, int t_arr1[t_row_size][t_colum_size], int t_arr2[t_row_size][t_colum_size]);
-
+int sum(int t_row_size, int t_colum_size, int t_arr1[t_row_size][t_colum_size], int t_arr2[t_row_size][t_colum_size], int t_res[t_row_size][t_colum_size]);
+int difference(int t_row_size, int t_colum_size, int t_arr1[t_row_size][t_colum_size], int t_arr2[t_row_size][t_colum_size], int t_res[t_row_size][t_colum_size]);
+int multiply(int t_row_size, int t_colum_size, int t_arr1[t_row_size][t_colum_size], int t_arr2[t_row_size][t_colum_size], int t_res[t_row_size][t_colum_size]);
 
 int main()
 {
@@ -36,10 +37,17 @@ int main()
     
     
     printf("\nThe sum of Array : \n");
-    res = sum(row_size, column_size, arr1, arr2);
+    sum(row_size, column_size, arr1, arr2, res);
+    print_array(row_size, column_size, res); 
+
+    printf("\nThe differnce of Array : \n");
+    difference(row_size, column_size, arr1, arr2, res);
+    print_array(row_size, column_size, res);    
+    
+    printf("\nThe multiplication of Array : \n");
+    multiply(row_size, column_size, arr1, arr2, res);
     print_array(row_size, column_size, res); 
     
-
     return 0;
 }
 
@@ -71,18 +79,105 @@ void print_array(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum
     }
 }
 
-int sum(int t_row_size, int t_colum_size, int t_arr1[t_row_size][t_colum_size], int t_arr2[t_row_size][t_colum_size])
+int sum(int t_row_size, int t_colum_size, int t_arr1[t_row_size][t_colum_size], int t_arr2[t_row_size][t_colum_size], int t_res[t_row_size][t_colum_size])
 {
-    int i, j, t_res[t_row_size][t_colum_size];
+    int i, j;
     
     for(i=0; i<t_row_size; i++)
         for(j=0; j<t_colum_size; j++)
            t_res[i][j] = t_arr1[i][j] + t_arr2[i][j];  
+
+}
+
+int difference(int t_row_size, int t_colum_size, int t_arr1[t_row_size][t_colum_size], int t_arr2[t_row_size][t_colum_size], int t_res[t_row_size][t_colum_size])
+{
+    int i, j;
     
-    return  t_res;
+    for(i=0; i<t_row_size; i++)
+        for(j=0; j<t_colum_size; j++)
+           t_res[i][j] = t_arr1[i][j] - t_arr2[i][j];  
+
+}
+
+
+int multiply(int t_row_size, int t_colum_size, int t_arr1[t_row_size][t_colum_size], int t_arr2[t_row_size][t_colum_size], int t_res[t_row_size][t_colum_size])
+{
+    int i, j, k;
+    
+    for(i=0; i<t_row_size; i++)
+    {
+        for(j=0; j<t_colum_size; j++)
+        {
+            t_res[i][j] =0;
+            
+            for(k=0; k<t_colum_size; k++)
+            {
+                t_res[i][j] += t_arr1[i][k] * t_arr2[k][j];
+            }
+        }
+    }         
 
 }
 
 
 
+
+/******************************************************************************************************************************************
+                                Compiler Output
+Enter the Row size of the Array:
+3
+
+Enter the Column size of the Array:
+3
+
+Enter the element of first array:
+12
+10
+8
+9
+7
+15
+18
+10
+13
+
+Enter the element of second array:
+5
+4
+6
+3
+2
+7
+8
+6
+4
+
+The element of first array:
+12      10      8
+9       7       15
+18      10      13
+
+The element of second array:
+5       4       6
+3       2       7
+8       6       4
+
+The sum of Array : 
+17      14      14
+12      9       22
+26      16      17
+
+The differnce of Array : 
+7       6       2
+6       5       8
+10      4       9
+
+The multiplication of Array : 
+154     116     174
+186     140     163
+224     170     230
+
+
+...Program finished with exit
+******************************************************************************************************************************************/
 
