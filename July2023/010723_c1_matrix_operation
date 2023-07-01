@@ -5,8 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define ROW
-#define COLUMN
 
 /* function prototype declaration */
 void get_element(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum_size]);
@@ -24,6 +22,15 @@ int main()
     
     int arr1[row_size][column_size], arr2[row_size][column_size];
     
+    printf("\nEnter the element of first array:\n");
+    get_element(row_size, column_size, arr1);
+    printf("\nEnter the element of second array:\n");
+    get_element(row_size, column_size, arr2);
+    
+    printf("\nThe element of first array:\n");
+    print_array(row_size, column_size, arr1);
+    printf("\nThe element of second array:\n");
+    print_array(row_size, column_size, arr2);    
     
 
     return 0;
@@ -39,7 +46,7 @@ void get_element(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum
     
     for(i=0; i<t_row_size; i++)
         for(j=0; j<t_colum_size; j++)
-            scanf("%d", t_arr[i][j]);
+            scanf("%d", &t_arr[i][j]);
 }
 
 void print_array(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum_size])
