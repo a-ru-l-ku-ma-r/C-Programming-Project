@@ -1,0 +1,64 @@
+/******************************************************************************
+                        MATRIX OPERATIONS
+*******************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define ROW
+#define COLUMN
+
+/* function prototype declaration */
+void get_element(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum_size]);
+void print_array(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum_size]);
+
+int main()
+{
+    int row_size, column_size;
+    
+    printf("Enter the Row size of the Array:\n");
+    scanf("%d", &row_size);
+    
+    printf("\nEnter the Column size of the Array:\n");
+    scanf("%d", &column_size);
+    
+    int arr1[row_size][column_size], arr2[row_size][column_size];
+    
+    
+
+    return 0;
+}
+
+
+/*************************************************************************/
+        /*  function definition  */
+
+void get_element(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum_size])
+{
+    int i, j;
+    
+    for(i=0; i<t_row_size; i++)
+        for(j=0; j<t_colum_size; j++)
+            scanf("%d", t_arr[i][j]);
+}
+
+void print_array(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum_size])
+{
+    int i, j;
+    
+    for(i=0; i<t_row_size; i++)
+    {
+        for(j=0; j<t_colum_size; j++)
+        {
+           printf("%d\t", t_arr[i][j]);  
+        }
+        
+        printf("\n");       
+    }
+}
+
+
+
+
+
+
