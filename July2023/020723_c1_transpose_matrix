@@ -2,10 +2,87 @@
                      Transpose of Matrix
 **************************************************************************/
 
+/******************************************************************************
+                        MATRIX OPERATIONS
+*******************************************************************************/
+
 #include <stdio.h>
+
+
+
+/* function prototype declaration */
+void get_element(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum_size]);
+void print_array(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum_size]);
+int transpose_array(int t_row_size, int t_colum_size, int t_arr[][], int t_res[][]);
 
 
 int main()
 {
+    int row_size, column_size;
     
+    printf("Enter the Row size of the Array:\n");
+    scanf("%d", &row_size);
+    
+    printf("\nEnter the Column size of the Array:\n");
+    scanf("%d", &column_size);
+    
+    int arr[10][10], transpose[10][10];
+    
+    printf("\nEnter the element of array:\n");
+    get_element(row_size, column_size, arr);
+
+    
+    printf("\nThe element of array:\n");
+    print_array(row_size, column_size, arr);
+    
+    transpose_array(row_size, column_size, arr, transpose);
+
+    printf("\nAfter the transpose of array:\n");
+    print_array(row_size, column_size, transpose);    
+
+    
+    return 0;
 }
+
+
+/*************************************************************************/
+        /*  function definition  */
+
+void get_element(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum_size])
+{
+    int i, j;
+    
+    for(i=0; i<t_row_size; i++)
+        for(j=0; j<t_colum_size; j++)
+            scanf("%d", &t_arr[i][j]);
+}
+
+void print_array(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum_size])
+{
+    int i, j;
+    
+    for(i=0; i<t_row_size; i++)
+    {
+        for(j=0; j<t_colum_size; j++)
+        {
+           printf("%d\t", t_arr[i][j]);  
+        }
+        
+        printf("\n");       
+    }
+}
+
+
+
+int transpose_array(int t_row_size, int t_colum_size, int t_arr[][], int t_res[][])
+{
+    int i, j;
+    
+    for(i=0; i<t_row_size; i++)
+        for(j=0; j<t_colum_size; j++)
+           t_res[j][i] = t_arr[i][j];  
+
+}
+
+
+
