@@ -2,6 +2,10 @@
  *              Upper triangular matrix or not                      *      
 ********************************************************************/
 
+/********************************************************************
+ *              Upper triangular matrix or not                      *      
+********************************************************************/
+
 #include <stdio.h>
 
 
@@ -62,7 +66,6 @@ void print_array(int t_row_size, int t_colum_size, int t_arr[t_row_size][t_colum
         printf("\n");       
     }
 }
-
 
 
 
