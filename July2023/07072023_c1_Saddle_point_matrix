@@ -45,8 +45,8 @@ bool findSaddlePoint(int mat[MAX][MAX], int n)
 int main()
 {
 	int mat[MAX][MAX] = {{1, 2, 3},
-						{4, 5, 6},
-						{7, 8, 9}};
+			     {4, 5, 6},
+			     {7, 8, 9}};
 	int n = 3;
 	if (findSaddlePoint(mat, n) == false)
 	printf("No Saddle Point ");
