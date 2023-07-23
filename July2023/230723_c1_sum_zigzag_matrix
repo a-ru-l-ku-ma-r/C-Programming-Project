@@ -1,0 +1,44 @@
+/***************************************************************************************
+              Sum of Elements in the Zig Zag Sequence in given matrix
+***************************************************************************************/
+#include <stdio.h>
+#define MAX 100
+#define max(a, b)(((a) > (b)) ? (a) : (b))
+
+int zigZagSum(int arru[][MAX], int i, int j, int n) 
+{
+    if (i == n - 1)
+        return arru[i][j];
+
+    int zzs = 0;
+
+    for (int k = 0; k < n; k++)
+        if (k != j)
+            zzs = max(zzs, zigZagSum(arru, i + 1, k, n));
+
+    return zzs + arru[i][j];
+}
+
+int largestZigZag(int arru[][MAX], int n) 
+{
+    int res = 0;
+
+    for (int j = 0; j < n; j++)
+        res = max(res, zigZagSum(arru, 0, j, n));
+
+    return res;
+}
+
+int main() {
+    int n = 3;
+    int arru[][MAX] = {
+		{43, 23, 67, 41},
+        {15, 16, 17, 18},
+        {19, 10, 11, 21},
+        {23, 24, 25, 26}
+    };
+
+
+    printf("The largest zigzag sum of the matrix is: %d\n", largestZigZag(arru, n));
+    return 0;
+}
