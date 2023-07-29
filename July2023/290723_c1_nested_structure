@@ -3,6 +3,7 @@
 ************************************************************************/
 
 #include <stdio.h>
+
 struct stu_address
 {
   int street;
@@ -10,6 +11,8 @@ struct stu_address
   char *city;
   char *country;
 };
+
+
 struct stu_data
 {
   int stu_id;
@@ -17,6 +20,8 @@ struct stu_data
   char *stu_name;
   struct stu_address stuAddress;
 };
+
+
 int main(){
   struct stu_data mydata;
   mydata.stu_id = 1001;
