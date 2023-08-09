@@ -1,5 +1,5 @@
 /***************************************************************************************
-	Replace Bit in an Integer at Specified Position from another Integer
+	 Replace Bit in an Integer at Specified Position from another Integer
 ***************************************************************************************/
 #include <stdio.h>
 
