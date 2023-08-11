@@ -1,0 +1,51 @@
+/***************************************************************
+             swap two bits of a 32-bit integer number
+***************************************************************/
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char* argv[])
+{
+    int num = 0;
+    int pos1 = 0;
+    int pos2 = 0;
+
+    int i = 0;
+
+    printf("Enter Number: ");
+    scanf("%d", &num);
+
+    printf("Enter position1: ");
+    scanf("%d", &pos1);
+
+    printf("Enter position2: ");
+    scanf("%d", &pos2);
+
+    printf("Binary number before swapping bits: \n");
+    for (i = 31; i >= 0; i--) {
+        if (num & (1 << i))
+            printf("1");
+        else
+            printf("0");
+    }
+
+    if (((num & (1 << pos1)) >> pos1) ^ ((num & (1 << pos2)) >> pos2)) {
+        num ^= (1 << pos1);
+        num ^= (1 << pos2);
+    }
+
+    printf("\nResult is: %d\n", num);
+    printf("Binary number after swapping bits: \n");
+    for (i = 31; i >= 0; i--) {
+        if (num & (1 << i))
+            printf("1");
+        else
+            printf("0");
+    }
+
+    printf("\n");
+
+    return 0;
+}
