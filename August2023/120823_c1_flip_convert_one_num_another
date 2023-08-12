@@ -1,6 +1,6 @@
-// C program to print bits that need to be flipped
-// to convert a number to another number
-
+/********************************************************************************************
+        Find bits that need to be flipped to convert a number to another number
+********************************************************************************************/
 #include <stdio.h>
 #include <string.h>
 
