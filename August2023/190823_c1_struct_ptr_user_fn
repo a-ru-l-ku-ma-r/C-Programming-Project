@@ -4,6 +4,10 @@
 
 #include <stdio.h>
 
+void readItem(struct item* i);
+void printItem(struct item* i);
+
+
 struct item {
     char itemName[30];
     int qty;
