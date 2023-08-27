@@ -1,5 +1,6 @@
-
-* C Program to Sort Rows in Ascending and Cols in Descending Order  */
+/*******************************************************************************
+*       C Program to Sort Rows in Ascending and Cols in Descending Order       *
+*******************************************************************************/
 
 #include <stdio.h>
 
