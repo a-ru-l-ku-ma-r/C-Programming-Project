@@ -1,0 +1,58 @@
+/*****************************************************************************************
+              Cyclically Permute the Elements of an Array
+*****************************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+//function to print the array
+void print(int* a,int n){
+	printf("printing ........\n");
+	for(int i=0;i<n;i++)
+		printf("%d ",a[i]);
+	printf("\n");
+}
+
+int* cyclicallyPermute(int* a,int n){
+	int temp=a[0];//store a[0]
+
+	for(int i=0;i<n;i++){
+		//for the last element in the modified array 
+		//it will be starting elemnt    
+		if(i==n-1) 
+			a[i]=temp;
+		//for other element shift left    
+		else
+			a[i]=a[i+1];
+	}
+
+	return a;    
+}
+
+int main()
+{   
+	int n;
+	
+	printf("enter array length,n: ");
+	scanf("%d",&n);
+	
+	//allocating array dynamically
+	int* a=(int*)(malloc(sizeof(int)*n));
+
+	printf("enter elements: \n");
+	//taking input
+	for(int i=0;i<n;i++)
+		scanf("%d",&a[i]);
+
+	printf("array before permutation\n");
+	print(a,n);
+	
+	//function to permute cyclically
+	//returning base adress of modified array
+	a=cyclicallyPermute(a,n);
+
+	printf("array after permutation\n");
+	print(a,n);
+
+	return 0;
+}
