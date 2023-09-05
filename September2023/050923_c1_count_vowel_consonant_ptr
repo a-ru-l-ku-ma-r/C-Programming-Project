@@ -1,6 +1,6 @@
-
-
-/*  C program to count number of vowels and consonants in a string using pointer  */
+/*********************************************************************************
+         Count number of vowels and consonants in a string using pointer  
+*********************************************************************************/
 
 #include <stdio.h>
 int main()
