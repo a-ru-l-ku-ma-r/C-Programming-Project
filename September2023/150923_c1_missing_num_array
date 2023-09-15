@@ -1,0 +1,41 @@
+/*******************************************************************************
+                  Find missing number in Array
+*******************************************************************************/
+
+
+#include <stdio.h>
+
+int findMissingNumber(int arr[], int n) {
+
+    // Calculate the actual sum of the elements in the array
+    int actualSum = 0;
+    for (int i = 0; i < n; i++) {
+        actualSum += arr[i];
+    }
+
+    // Calculate the expected sum of consecutive integers from 1 to 500
+    int expectedSum = 0; //(500 * (500 + 1)) / 2; // Sum of an arithmetic series
+    for(int j=0; j<(n+1); j++)
+    {
+        expectedSum += arr[j];
+        //printf("add: %d\n", expectedSum);
+        arr[j+1] = arr[j] + 1; 
+        //printf("next: %d\n", arr[j+1]);
+    }
+
+
+    // The missing number is the difference between the expected sum and the actual sum
+    int missingNumber = expectedSum - actualSum;
+    return missingNumber;
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 11};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    int missingNumber = findMissingNumber(arr, n);
+
+    printf("Missing Number: %d\n", missingNumber);
+
+    return 0;
+}
