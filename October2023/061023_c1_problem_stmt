@@ -1,0 +1,72 @@
+/********************************************************************************************************
+Write a C program that reads a list of pairs of a word and a page number, and prints the word and a list 
+of the corresponding page numbers.              
+********************************************************************************************************/
+
+
+#include <stdio.h>
+#include<string.h>
+typedef struct{
+  int page_no;
+  char word[50];
+}STR;
+main(){
+  STR temp,str[10000];
+  int i=0,j,k;
+  int count=0;
+  printf("Input pairs of a word and a page_no number:\n"); 
+  while(scanf("%s %d",str[i].word,&str[i].page_no)!=EOF){
+    i++;
+  }
+  for(j=0;j<i;j++){
+    for(k=i-1;0<k;k--){
+      if(strcmp(str[k].word,str[k-1].word)<0){
+	temp=str[k];
+	str[k]=str[k-1];
+	str[k-1]=temp;
+      }
+      else if(strcmp(str[k].word,str[k-1].word)==0){
+	if(str[k].page_no<str[k-1].page_no){
+	  temp=str[k];
+	  str[k]=str[k-1];
+	  str[k-1]=temp;
+	}
+      }
+    }
+  }
+  printf("\nWord and page_no number in alphabetical order:\n"); 
+  for(j=0;j<i;j++){
+    if(j!=0){
+      if(strcmp(str[j].word,str[j-1].word)==0){
+	printf(" %d",str[j].page_no);
+      }
+      else{
+	printf("\n%s\n%d",str[j].word,str[j].page_no);
+      }
+    }
+    else{
+      printf("%s\n%d",str[j].word,str[j].page_no);
+    }
+  }
+  printf("\n");
+  return 0;
+}
+
+
+/***************************************************************************************************************
+                                        Output
+Input pairs of a word and a page_no number:
+dog 78
+apple 25
+cat 42
+
+Word and page_no number in alphabetical order:
+→
+0
+apple
+25
+cat
+42
+dog
+78
+***************************************************************************************************************/
