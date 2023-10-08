@@ -80,3 +80,14 @@ void removeAll(char * string, const char toRemove, int index)
         i++;
     }
 }
+
+
+/**************************************************************************************************************
+                                             Output
+Enter any string: Rugged Embedded System
+
+String before removing duplicates: Rugged Embedded System
+
+String after removing duplicates: Ruged EmbdSyst
+
+**************************************************************************************************************/
