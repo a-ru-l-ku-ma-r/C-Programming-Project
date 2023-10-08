@@ -1,0 +1,37 @@
+/*******************************************************************
+ *  C Program to convert string into integer using for loop 
+ ******************************************************************/ 
+
+#include <stdio.h> 
+#include <string.h> 
+
+int main() 
+{ 
+	char* str; 
+	int num = 0; 
+
+    printf("Get the string format of number :\n");
+    gets(str);
+
+	// converting string to number 
+    // decimal  hex     char
+    // 48       30      0
+	for (int i = 0; str[i] != '\0'; i++) 
+  { 
+		num = num * 10 + (str[i] - 48);
+	} 
+
+	// string converted into number format
+  printf("\nAfter the string into interger format of number: ");
+	printf("\n%d\n", num); 
+	return 0; 
+}
+
+/*******************************************************************
+                    Output
+Get the string format of number :
+78254
+
+After the string into interger format of number:
+78254
+*******************************************************************/
