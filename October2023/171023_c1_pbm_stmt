@@ -1,0 +1,50 @@
+/*******************************************************************************************
+            Write a C program to generate attractive numbers up to 100
+*******************************************************************************************/
+
+#include <stdio.h>
+#define MAX 100
+
+
+int PrimeOrNot(int n1)
+{
+    int i=2;
+    while(i<=n1/2)
+    {
+         if(n1%i==0)
+             return 0;
+         else
+             i++;
+    }
+    return 1;
+}
+
+int no_of_prime_factors(int n) {
+    int ctr = 0, nn = 2;
+    if (n == 1) return 0;
+    if (PrimeOrNot(n)) return 1;
+    while (1) {
+        if (!(n % nn)) {
+            ctr++;
+            n /= nn;
+            if (n == 1) return ctr;
+            if (PrimeOrNot(n)) nn = n;
+        } 
+        else if (nn >= 3) nn += 2;
+        else nn = 3;
+    }
+}
+
+int main() {    
+    int i, n, ctr = 0;
+    printf("The attractive numbers up to and including %d are:\n\n", MAX);
+    for (i = 1; i <= MAX; ++i) {
+        n = no_of_prime_factors(i);
+        if (PrimeOrNot(n)) {
+            printf("%4d", i);
+            if (!(++ctr % 10)) printf("\n");
+        }
+    }
+    printf("\n");
+    return 0;  
+}
