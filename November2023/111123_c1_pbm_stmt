@@ -1,0 +1,30 @@
+/*****************************************************************************************************************
+        Write a C program that accepts three integers: A, B, and X. Find the smallest absolute value of the 
+                          difference between X and the integers between A and B.
+*****************************************************************************************************************/
+#include <stdio.h>
+	
+	int main()
+	{
+	   int A, B, X;
+	   printf("Input A: ");
+	   scanf("%d", &A);
+	   printf("Input B: ");
+	   scanf("%d", &B);
+	   printf("\nInput X: ");
+	   scanf("%d", &X);
+	  
+	   printf("Smallest absolute value of difference between X and integers between A and B (inclusive):\n");
+	  
+	   if (X < A){
+	       printf("%d\n", A);
+	   }
+	   else if (X > B){
+	       printf("%d\n", B);
+	   }
+	   else {
+	       printf("%d\n", X);
+	   }
+	  
+	   return 0;
+	}
