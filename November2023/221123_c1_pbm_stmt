@@ -1,0 +1,83 @@
+/**********************************************************************************
+              Write a C program to delete the nth element of a queue
+**********************************************************************************/
+
+#include <stdio.h>
+
+#define MAX_SIZE 100
+
+int queue[MAX_SIZE];
+int front = -1, back = -1;
+
+// Function to insert an element into the queue
+void enqueue(int item) {
+    if (back == MAX_SIZE - 1) {
+        printf("Error: Queue is full\n");
+        return;
+    }
+    if (front == -1) {
+        front = 0;
+    }
+    back++;
+    queue[back] = item;
+}
+
+// Function to remove an element from a queue
+int dequeue() {
+    if (front == -1 || front > back) {
+        printf("Error: Queue is empty\n");
+        return -1;
+    }
+    int item = queue[front];
+    front++;
+    return item;
+}
+
+// Function to delete the nth element of a queue
+void delete_nth(int n) {
+    if (front == -1 || front > back) {
+        printf("Error: Queue is empty\n");
+        return;
+    }
+    if (n <= 0 || n > back - front + 1) {
+        printf("Error: Invalid position\n");
+        return;
+    }
+
+    // Delete the first n - 1 elements
+    for (int i = 1; i < n; i++) {
+        dequeue();
+    }
+
+    // Delete the nth element
+    dequeue();
+}
+display_elements()
+ {
+   // Display the elements in the queue.
+    printf("Queue elements are: ");
+    for (int i = front; i <= back; i++) {
+        printf("%d ", queue[i]);
+    }
+    printf("\n");
+ }
+
+int main() {
+    // Insert some elements into the queue.
+    printf("Insert some elements into the queue:\n");
+    enqueue(1);
+    enqueue(2);
+    enqueue(3);
+    enqueue(4);
+    enqueue(5);
+    display_elements();
+    // Delete the 7th element.
+    printf("\nDelete the 7th element of the said queue:\n");
+    delete_nth(7);
+    // Delete the 3rd element.
+    printf("\nDelete the 3rd element of the said queue:\n");
+    delete_nth(3);
+	display_elements();
+    
+    return 0;
+}
