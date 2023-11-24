@@ -1,0 +1,92 @@
+/***********************************************************************************************************
+                    Write a C program to find the median of the elements in a queue
+***********************************************************************************************************/
+
+#include <stdio.h>
+
+#define MAX_SIZE 100
+int queue[MAX_SIZE];
+int front = -1, back = -1;
+// Function to insert an element into the queue
+void enqueue(int item) {
+    if (back == MAX_SIZE - 1) {
+        printf("Error: Queue is full\n");
+        return;
+    }
+    if (front == -1) {
+        front = 0;
+    }
+    back++;
+    queue[back] = item;
+}
+
+// Function to remove an element from a queue
+int dequeue() {
+    if (front == -1 || front > back) {
+        printf("Error: Queue is empty\n");
+        return -1;
+    }
+    int item = queue[front];
+    front++;
+    return item;
+}
+
+// Function to find the median of the elements in the queue
+float find_median() {
+    // First, make a copy of the queue
+    int n = back - front + 1;
+    int temp[n];
+    for (int i = 0; i < n; i++) {
+        temp[i] = queue[front + i];
+    }
+    // Then, sort the copy in ascending order
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (temp[j] < temp[i]) {
+                int t = temp[i];
+                temp[i] = temp[j];
+                temp[j] = t;
+            }
+        }
+    }
+    // Calculate the median based on the sorted copy
+    if (n % 2 == 0) {
+        int m1 = temp[n/2 - 1];
+        int m2 = temp[n/2];
+        return (float)(m1 + m2) / 2;
+    } else {
+        int m = temp[n/2];
+        return (float)m;
+    }
+}
+
+// Function to display the elements in the queue
+void display_elements() {
+   for (int i = front; i <= back; i++) {
+        printf("%d ", queue[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    // Insert some elements into the queue.
+    printf("Input some elements into a queue:\n");
+    enqueue(1);
+    enqueue(2);
+    enqueue(3);
+    enqueue(4);
+    enqueue(5);
+    printf("Queue elements are:\n");
+    display_elements();
+    // Find the median of the elements in the queue.
+    float median = find_median();
+    printf("The median of the elements in the queue is %f\n", median);
+    printf("\nInput one more element:");
+    enqueue(6);
+	printf("\nQueue elements are:\n");
+    display_elements();
+    // Find the median of the elements in the queue.
+    median = find_median();
+    printf("The median of the elements in the queue is %f\n", median);	
+	return 0;
+}
