@@ -1,0 +1,80 @@
+/********************************************************************************************************************
+                  Write a C program to detect and remove a loop in a singly linked list
+********************************************************************************************************************/
+
+#include<stdio.h>
+#include <stdlib.h>
+
+// Node structure for the linked list
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+// Function to create a new node
+struct Node* newNode(int data) {
+    struct Node* node = (struct Node*) malloc(sizeof(struct Node));
+    node->data = data;
+    node->next = NULL;
+    return node;
+}
+
+// Function to detect and remove loop in a linked list
+void detect_and_remove_Loop(struct Node* head) {
+    struct Node* slow = head;
+    struct Node* fast = head;
+
+    // Use Floyd's cycle-finding algorithm to detect a loop
+    while (fast && fast->next) {
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast) break; // If a loop is detected, break the loop
+    }
+
+    // If a loop is detected
+    if (slow == fast) {
+        slow = head;
+        while (slow->next != fast->next) {
+            slow = slow->next;
+            fast = fast->next;
+        }
+
+        // Break the loop by setting the next pointer of the loop node to NULL
+        fast->next = NULL;
+    }
+}
+
+// Function to print a linked list
+void displayList(struct Node* head) {
+    while (head) {
+        printf("%d ", head->data);
+        head = head->next;
+    }
+    printf("\n");
+}
+
+int main() {
+    // Creating a singly linked list
+    struct Node* head = newNode(1);
+    head->next = newNode(2);
+    head->next->next = newNode(3);
+    head->next->next->next = newNode(4);
+    head->next->next->next->next = newNode(5);
+
+    printf("Original singly linked list:\n");
+    displayList(head);
+
+    // Creating a loop in the linked list
+    printf("\nCreate the loop:\n");
+	head->next->next->next->next->next = head->next->next;
+
+    // Displaying the loop (this line is commented out to avoid infinite loop in printing)
+    //printf("Following statement display the loop:\n");
+    //displayList(head);
+
+    // Removing the loop from the linked list
+	printf("\n\nAfter removing the said loop:\n");
+    detect_and_remove_Loop(head);
+    displayList(head);
+    return 0;
+}
