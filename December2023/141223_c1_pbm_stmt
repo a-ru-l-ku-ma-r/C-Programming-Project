@@ -1,0 +1,89 @@
+/********************************************************************************************
+    Write a C program to get the n number of nodes from the end of a singly linked list
+********************************************************************************************/
+#include<stdio.h>
+#include <stdlib.h>
+
+// Define a structure for a Node in a singly linked list
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+// Function to create a new node with given data
+struct Node* new_Node(int data) {
+    // Allocate memory for a new node
+    struct Node* node = (struct Node*) malloc(sizeof(struct Node));
+    // Set the data for the new node
+    node->data = data;
+    // Set the next pointer of the new node to NULL
+    node->next = NULL;
+    return node;
+}
+
+// Function to display the elements of a linked list
+void displayList(struct Node* head) {
+    while (head) {
+        printf("%d ", head->data);
+        head = head->next;
+    }
+    printf("\n");
+}
+
+// Function to find the Nth node from the end of a linked list
+struct Node* Nodes_From_End(struct Node* head, int n) {
+    struct Node *slow_ptr = head, *fast_ptr = head;
+    int ctr = 0;
+
+    // Move the fast pointer n positions ahead
+    while (fast_ptr != NULL) {
+        fast_ptr = fast_ptr->next;
+        // Once fast pointer is n nodes ahead, move the slow pointer
+        if (ctr >= n) {
+            slow_ptr = slow_ptr->next;
+        }
+        ctr++;
+    }
+
+    // If the number of nodes is less than N, return NULL
+    if (ctr < n)
+        return NULL;
+    return slow_ptr; // Return the node at Nth position from the end
+}
+
+// Main function where the execution starts
+int main() {
+    struct Node* result;
+    struct Node* list1 = new_Node(1);
+    list1->next = new_Node(3);
+    list1->next->next = new_Node(5);
+    list1->next->next->next = new_Node(7);  
+    list1->next->next->next->next = new_Node(9); 
+    list1->next->next->next->next->next = new_Node(11); 
+
+    printf("Original list:\n");
+    displayList(list1); // Display the original list
+
+    // Finding the last N nodes from the end of the list for different values of N
+    printf("Last 2 nodes from the end of the said singly list:\n");
+    result = Nodes_From_End(list1, 2);
+    displayList(result);
+
+    printf("Last 3 nodes from the end of the said singly list:\n");
+    result = Nodes_From_End(list1, 3);
+    displayList(result);
+
+    printf("Last 4 nodes from the end of the said singly list:\n");
+    result = Nodes_From_End(list1, 4);
+    displayList(result);
+
+    printf("Last 1 node from the end of the said singly list:\n");
+    result = Nodes_From_End(list1, 1);
+    displayList(result);
+
+    printf("Last 5 node from the end of the said singly list:\n");
+    result = Nodes_From_End(list1, 5);
+    displayList(result);
+
+    return 0; // Indicates successful completion of the program
+}
