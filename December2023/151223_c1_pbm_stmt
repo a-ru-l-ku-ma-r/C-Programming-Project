@@ -1,0 +1,95 @@
+/***************************************************************************************************************
+              Write a C program to partition a singly linked list based on a specific value
+***************************************************************************************************************/
+
+#include<stdio.h>
+#include <stdlib.h>
+
+// Define a structure for a Node in a singly linked list
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+// Function to create a new node with given data
+struct Node* new_Node(int data) {
+    // Allocate memory for a new node
+    struct Node* node = (struct Node*) malloc(sizeof(struct Node));
+    // Set the data for the new node
+    node->data = data;
+    // Set the next pointer of the new node to NULL
+    node->next = NULL;
+    return node;
+}
+
+// Function to partition a singly linked list around a given value x
+struct Node* partition_List(struct Node* head, int x) {
+    struct Node* before_start = NULL;
+    struct Node* before_end = NULL;
+    struct Node* after_start = NULL;
+    struct Node* after_end = NULL;
+    struct Node* current = head;
+
+    // Traverse the linked list and partition nodes based on the value x
+    while (current) {
+        if (current->data < x) {
+            // Nodes less than x are added to the "before" partition
+            if (!before_start) {
+                before_start = current;
+                before_end = before_start;
+            } else {
+                before_end->next = current;
+                before_end = current;
+            }
+        } else {
+            // Nodes greater than or equal to x are added to the "after" partition
+            if (!after_start) {
+                after_start = current;
+                after_end = after_start;
+            } else {
+                after_end->next = current;
+                after_end = current;
+            }
+        }
+        current = current->next;
+    }
+
+    // Connect the "before" and "after" partitions and return the head of the partitioned list
+    if (before_start) {
+        before_end->next = after_start;
+        after_end->next = NULL;
+        return before_start;
+    } else {
+        return after_start;
+    }
+}
+
+// Function to display the elements of a linked list
+void displayList(struct Node* head) {
+    while (head) {
+        printf("%d ", head->data);
+        head = head->next;
+    }
+    printf("\n");
+}
+
+// Main function where the execution starts
+int main() {
+    struct Node* list = new_Node(3);
+    list->next = new_Node(5);
+    list->next->next = new_Node(7);
+    list->next->next->next = new_Node(5);
+    list->next->next->next->next = new_Node(9);
+    list->next->next->next->next->next = new_Node(2);
+    list->next->next->next->next->next->next = new_Node(1);
+
+    int x = 5;
+    printf("Original list:\n");
+    displayList(list); // Display the original list
+
+    list = partition_List(list, x); // Partition the list around the value x
+    printf("Linked List after partition around %d:\n", x);
+    displayList(list); // Display the partitioned list
+
+    return 0; // Indicates successful completion of the program
+}
