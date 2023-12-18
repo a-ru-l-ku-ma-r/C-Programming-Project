@@ -1,0 +1,91 @@
+/**************************************************************************************************************************
+      Write a C program to swap Kth node from the beginning with Kth node from the end in a singly linked list
+**************************************************************************************************************************/
+
+#include<stdio.h>
+#include <stdlib.h>
+
+// Define a structure for a Node in a singly linked list
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+// Function to create a new node with given data
+struct Node* new_Node(int data) {
+    // Allocate memory for a new node
+    struct Node* node = (struct Node*) malloc(sizeof(struct Node));
+    // Set the data for the new node
+    node->data = data;
+    // Set the next pointer of the new node to NULL
+    node->next = NULL;
+    return node;
+}
+
+// Function to display the elements of a linked list
+void displayList(struct Node* head) {
+    while (head) {
+        printf("%d ", head->data);
+        head = head->next;
+    }
+    printf("\n");
+}
+
+// Function to swap kth node from beginning with kth node from end
+void swap_Kth_Node(struct Node** head, int k) {
+    if (*head == NULL) return; // If the list is empty, return
+
+    // Count the number of nodes in the list
+    int n = 0;
+    struct Node *temp = *head;
+    while (temp) {
+        n++;
+        temp = temp->next;
+    }
+
+    // Return if k is greater than the number of nodes or if k is same as the middle node
+    if (k > n) return;
+    if (2 * k - 1 == n) return;
+
+    // Initialize two pointers a and b to the kth nodes from the beginning and end respectively
+    struct Node *a = *head, *b = *head;
+    for (int i = 1; i < k; i++)
+        a = a->next;
+    for (int i = 1; i < n - k + 1; i++)
+        b = b->next;
+
+    // Swap the data of nodes at positions k and n-k+1
+    int t = a->data;
+    a->data = b->data;
+    b->data = t;
+}
+
+// Main function where the execution starts
+int main() {
+    // Creating a linked list
+    struct Node* list = new_Node(1);
+    list->next = new_Node(2);
+    list->next->next = new_Node(3);
+    list->next->next->next = new_Node(4);
+    list->next->next->next->next = new_Node(5);
+
+    printf("Original List: ");
+    displayList(list); // Display the original list
+
+    int k = 2;
+    swap_Kth_Node(&list, k); // Swap kth node from beginning with kth node from end
+    printf("\nList after swapping %dnd node from beginning and end: ", k);
+    displayList(list); // Display the modified list
+
+    k = 1;
+    swap_Kth_Node(&list, k);
+    printf("\nList after swapping %dst node from beginning and end: ", k);
+    displayList(list);
+
+    k = 3;
+    swap_Kth_Node(&list, k);
+    printf("\nList after swapping %drd node from beginning and end: ", k);
+    displayList(list);
+
+    return 0; // Indicates successful completion of the program
+}
