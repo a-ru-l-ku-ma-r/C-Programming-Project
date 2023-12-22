@@ -1,0 +1,84 @@
+/*****************************************************************************************************
+          Write a C program to remove the Nth node from the end of a singly linked list
+*****************************************************************************************************/
+
+#include<stdio.h>
+#include <stdlib.h>
+
+// Structure for defining a Node in a Singly Linked List
+struct Node {
+    int data; // Data stored in the node
+    struct Node* next; // Pointer to the next node
+};
+
+// Function to create a new node in the Singly Linked List
+struct Node* newNode(int data) {
+    struct Node* node = (struct Node*) malloc(sizeof(struct Node)); // Allocate memory for a new node
+    node->data = data; // Assign the data to the new node
+    node->next = NULL; // Initialize next pointer as NULL
+    return node; // Return the new node
+}
+
+// Function to remove the nth node from the end of a Singly Linked List
+void remove_Nth_From_End(struct Node* head, int n) {
+    struct Node *temp = head; // Initialize a temporary pointer to the head of the list
+    int len = 0; // Variable to store the length of the list
+
+    // Calculate the length of the linked list
+    while (temp != NULL) {
+        temp = temp->next;
+        len++;
+    }
+
+    // Check if the given position to remove is valid
+    if (len < n) {
+        return; // If position is invalid (beyond list length), exit the function
+    }
+
+    temp = head; // Reset the temporary pointer to the head of the list
+
+    // Traverse to the node just before the node to be removed
+    for (int i = 1; i < len - n; i++) {
+        temp = temp->next;
+    }
+
+    // Check if the node to be removed is the first node
+    if (temp->next == NULL) {
+        head = head->next; // Update head to the next node
+        return;
+    }
+
+    struct Node *temp2 = temp->next; // Store the node to be removed in temp2
+    temp->next = temp2->next; // Adjust pointers to remove the node
+    free(temp2); // Free memory occupied by the removed node
+}
+
+// Function to print a linked list
+void displayList(struct Node* head) {
+    while (head) {
+        printf("%d ", head->data); // Print the data of the current node
+        head = head->next; // Move to the next node
+    }
+    printf("\n");
+}
+
+// Main function
+int main() {
+    struct Node* head = newNode(1); // Create a Singly Linked List with nodes containing data
+    head->next = newNode(2);
+    head->next->next = newNode(3);
+    head->next->next->next = newNode(4);
+    head->next->next->next->next = newNode(5);
+    printf("Original Singly List:\n");
+    displayList(head); // Print the original list
+
+    printf("\nRemove 1st node from the end of a singly linked list:\n");
+    remove_Nth_From_End(head, 1); // Remove the 1st node from the end
+    displayList(head); // Print the updated list
+
+    printf("\nRemove 3rd node from the end of a singly linked list:\n");
+    remove_Nth_From_End(head, 3); // Remove the 3rd node from the end
+    displayList(head); // Print the updated list
+
+    return 0;
+}
