@@ -1,0 +1,63 @@
+/***********************************************************************************************************
+        Write a C program to create and reorder a linked list placing all even-numbered nodes ahead 
+                                      of all odd-numbered nodes
+***********************************************************************************************************/
+
+#include<stdio.h>
+#include <stdlib.h>
+
+// Structure defining a node in a singly linked list
+struct Node {
+    int data; // Data stored in the node
+    struct Node* next; // Pointer to the next node
+};
+
+// Function to create a new node in the singly linked list
+struct Node* newNode(int data) {
+    struct Node* node = (struct Node*) malloc(sizeof(struct Node)); // Allocate memory for a new node
+    node->data = data; // Assign data to the new node
+    node->next = NULL; // Initialize the next pointer as NULL
+    return node; // Return the new node
+}
+
+// Function to reorder a singly linked list placing all even-numbered nodes ahead of all odd-numbered nodes
+struct Node* odd_Even_List(struct Node* head) {
+    if (!head) return head; // If the list is empty or has only one element, return the list
+    struct Node *odd = head, *even = head->next, *even_Head = even; // Initialize odd and even pointers
+    while (even && even->next) {
+        odd->next = even->next; // Point odd nodes to the next odd node
+        odd = odd->next; // Move odd pointer
+        even->next = odd->next; // Point even nodes to the next even node
+        even = even->next; // Move even pointer
+    }
+    odd->next = even_Head; // Connect the odd nodes to the even nodes
+    return head; // Return the reordered list
+}
+
+// Function to print a linked list
+void displayList(struct Node* head) {
+    while (head) {
+        printf("%d ", head->data); // Print the data of the current node
+        head = head->next; // Move to the next node
+    }
+    printf("\n");
+}
+
+// Main function
+int main() {
+    struct Node* head = newNode(1); // Create and populate a singly linked list
+    head->next = newNode(2);
+    head->next->next = newNode(3);
+    head->next->next->next = newNode(4);
+    head->next->next->next->next = newNode(5);
+    head->next->next->next->next->next = newNode(6);
+    printf("Original Singly List:\n");
+    displayList(head); // Display the original list
+
+    struct Node* result; // Reorder the linked list placing all even-numbered nodes ahead of all odd-numbered nodes
+    result = odd_Even_List(head);
+    printf("\nReorder the said linked list placing all even-numbered \nnodes ahead of all odd-numbered nodes:\n");
+    displayList(result); // Display the reordered list
+
+    return 0;
+}
