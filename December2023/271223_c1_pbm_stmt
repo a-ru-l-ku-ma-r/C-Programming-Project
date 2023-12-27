@@ -1,0 +1,98 @@
+/***********************************************************************************************************
+              Write a C program to split a singly linked list into two halves
+***********************************************************************************************************/
+
+#include<stdio.h>
+#include<stdlib.h>
+
+// Structure defining a node in a singly linked list
+struct Node {
+    int data;           // Data stored in the node
+    struct Node *next;  // Pointer to the next node
+};
+
+// Function to create a new node in the singly linked list
+struct Node *newNode(int data) {
+    struct Node *temp = (struct Node *)malloc(sizeof(struct Node)); // Allocate memory for a new node
+    temp->data = data;  // Assign data to the new node
+    temp->next = NULL;  // Initialize the next pointer as NULL
+    return temp;  // Return the new node
+}
+
+// Function to print the elements of the linked list
+void printList(struct Node *head) {
+    while (head != NULL) {
+        printf("%d ", head->data);  // Print the data of the current node
+        head = head->next;  // Move to the next node
+    }
+    printf("\n");
+}
+
+// Function to split the singly linked list into two halves
+void splitList(struct Node *head, struct Node **front_ref, struct Node **back_ref) {
+    struct Node *slow = head;  // Initialize slow pointer to the head of the list
+    struct Node *fast = head->next;  // Initialize fast pointer to the second node
+
+    while (fast != NULL) {
+        fast = fast->next;  // Move fast pointer by one step
+        if (fast != NULL) {
+            slow = slow->next;  // Move slow pointer by one step
+            fast = fast->next;  // Move fast pointer by another step
+        }
+    }
+
+    *front_ref = head;  // Set front_ref to the original head of the list
+    *back_ref = slow->next;  // Set back_ref to the node next to the middle node
+    slow->next = NULL;  // Break the link between the two halves
+}
+
+int main() {
+    struct Node *temp;
+    struct Node *head = newNode(1);
+    head->next = newNode(2);
+    head->next->next = newNode(3);
+    head->next->next->next = newNode(4);
+    head->next->next->next->next = newNode(5);
+
+    printf("Original List: ");
+    printList(head);
+
+    struct Node *firstHalf = NULL;
+    struct Node *secondHalf = NULL;
+
+    // Calling the splitList method for the first list
+    splitList(head, &firstHalf, &secondHalf);
+    printf("Split the said singly linked list into halves:\n");
+    printf("First half: ");
+    temp = firstHalf;
+    printList(temp);
+    printf("Second half: ");
+    temp = secondHalf;
+    printList(temp);
+
+    // Creating a second list and performing the same splitting operation
+    struct Node *head1 = newNode(1);
+    head1->next = newNode(2);
+    head1->next->next = newNode(3);
+    head1->next->next->next = newNode(4);
+    head1->next->next->next->next = newNode(5);
+    head1->next->next->next->next->next = newNode(6);
+
+    printf("\nOriginal List: ");
+    printList(head1);
+
+    firstHalf = NULL;
+    secondHalf = NULL;
+
+    // Calling the splitList method for the second list
+    splitList(head1, &firstHalf, &secondHalf);
+    printf("Split the said singly linked list into halves:\n");
+    printf("First half: ");
+    temp = firstHalf;
+    printList(temp);
+    printf("Second half: ");
+    temp = secondHalf;
+    printList(temp);
+
+    return 0;
+}
