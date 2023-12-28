@@ -1,0 +1,64 @@
+/********************************************************************************************
+          Write a C program to delete alternate nodes of a singly linked list
+********************************************************************************************/
+
+#include<stdio.h>
+#include<stdlib.h>
+
+// Structure defining a node in a singly linked list
+struct Node {
+    int data;           // Data stored in the node
+    struct Node *next;  // Pointer to the next node
+};
+
+// Function to create a new node in the singly linked list
+struct Node *newNode(int data) {
+    struct Node *temp = (struct Node *) malloc(sizeof(struct Node));  // Allocate memory for a new node
+    temp->data = data;  // Assign data to the new node
+    temp->next = NULL;  // Initialize the next pointer as NULL
+    return temp;  // Return the new node
+}
+
+// Function to print the elements of the linked list
+void printList(struct Node *head) {
+    while (head != NULL) {
+        printf("%d ", head->data);  // Print the data of the current node
+        head = head->next;  // Move to the next node
+    }
+    printf("\n");
+}
+
+// Function to delete alternate nodes in a singly linked list
+void delete_Alternate_Nodes(struct Node** head) {
+    if (*head == NULL) return;  // If the list is empty, return
+
+    struct Node* prev = *head;  // Pointer to the current node
+    struct Node* curr = (*head)->next;  // Pointer to the next node
+
+    while (curr != NULL) {
+        prev->next = curr->next;  // Adjust the next pointer of the previous node
+        free(curr);  // Free the memory of the current node
+        prev = prev->next;  // Move to the next node (every alternate node)
+        if (prev != NULL)
+            curr = prev->next;  // Move to the node after the next node
+    }
+}
+
+int main() {
+    struct Node *head = newNode(1);  // Create a linked list
+    head->next = newNode(2);
+    head->next->next = newNode(3);
+    head->next->next->next = newNode(4);
+    head->next->next->next->next = newNode(5);
+    head->next->next->next->next->next = newNode(6);
+    head->next->next->next->next->next->next = newNode(7);
+
+    printf("Original List:\n");
+    printList(head);
+
+    delete_Alternate_Nodes(&head);  // Delete alternate nodes in the list
+    printf("\nDelete alternate nodes of the said singly linked list:\n");
+    printList(head);
+
+    return 0;
+}
