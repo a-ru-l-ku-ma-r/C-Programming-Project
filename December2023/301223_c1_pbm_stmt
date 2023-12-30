@@ -1,0 +1,78 @@
+/*************************************************************************************************************
+                Write a C program to to merge alternate nodes of two singly linked lists
+*************************************************************************************************************/
+
+#include<stdio.h>
+#include<stdlib.h>
+
+// Structure defining a node in a singly linked list
+struct Node {
+    int data;           // Data stored in the node
+    struct Node* next;  // Pointer to the next node
+};
+
+// Function to push a new node to the front of the linked list
+void push_node(struct Node** head_ref, int new_data) {
+    struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));  // Allocate memory for a new node
+    new_node->data = new_data;  // Assign data to the new node
+    new_node->next = (*head_ref);  // Make the new node point to the current head
+    (*head_ref) = new_node;  // Update the head to point to the new node
+}
+
+// Function to merge alternate nodes of two linked lists
+void merge_alternate_Nodes(struct Node** head1_ref, struct Node** head2_ref) {
+    struct Node* p1 = *head1_ref;  // Pointer for the first list
+    struct Node* p2 = *head2_ref;  // Pointer for the second list
+
+    while (p1 != NULL && p2 != NULL) {
+        struct Node* temp = p1->next;  // Store the next node of the first list
+        p1->next = p2;  // Make the current node of the first list point to the current node of the second list
+        p2 = p2->next;  // Move to the next node in the second list
+        p1->next->next = temp;  // Make the node from the second list point to the next node of the first list
+        p1 = temp;  // Move to the next node in the first list
+    }
+
+    *head2_ref = p2;  // Update the second list's head to the remaining nodes
+}
+
+// Function to print a linked list
+void displayList(struct Node* head) {
+    while (head) {
+        printf("%d ", head->data);  // Print the data of the current node
+        head = head->next;  // Move to the next node
+    }
+    printf("\n");
+}
+
+// Main function to demonstrate merging alternate nodes of two linked lists
+int main() {
+    struct Node* head1 = NULL;  // Initialize the first linked list as empty
+    struct Node* head2 = NULL;  // Initialize the second linked list as empty
+
+    // Push elements to the first linked list
+    push_node(&head1, 1);
+    push_node(&head1, 3);
+    push_node(&head1, 5);
+    push_node(&head1, 7);
+    push_node(&head1, 9);
+
+    // Push elements to the second linked list
+    push_node(&head2, 2);
+    push_node(&head2, 4);
+    push_node(&head2, 6);
+    push_node(&head2, 8);
+    push_node(&head2, 10);
+
+    printf("First linked list: ");
+    displayList(head1);  // Display the first linked list
+
+    printf("Second linked list: ");
+    displayList(head2);  // Display the second linked list
+
+    merge_alternate_Nodes(&head1, &head2);  // Merge alternate nodes of both lists
+
+    printf("Merged linked list: ");
+    displayList(head1);  // Display the merged linked list
+
+    return 0;
+}
