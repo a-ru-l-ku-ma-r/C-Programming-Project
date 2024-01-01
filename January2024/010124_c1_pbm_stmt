@@ -1,0 +1,109 @@
+/***********************************************************************************
+	Write a C program to remove duplicates from a sorted singly linked list
+***********************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+
+// structure defining a node in a singly linked list
+struct Node{
+	int data;		// Data stord in the node
+	struct Node* next;	// Pointer to the next node
+};
+
+
+// function to create a new node with given data
+struct Mode* newNode(int data)
+{	
+	// allocate memory for a new node
+	struct Node* node = (struct Node*)malloc(sizeof(struct Node));
+	
+	// assign data to the new node
+	node->data = data;
+
+	// set the next pointer to NULL
+	node->next = NULL;
+
+	// return the newly created node
+	return node;
+}
+
+
+// function to remove duplicates from a sorted linked list
+void remove_Duplicates(struct Node* head)
+{
+	if(head == NULL)
+	{
+		return; // If the list is empty, return
+	}	
+
+	struct Node* curr = head;	// current pointer initialized to the head
+	
+	// traverse the list until the end
+	while(curr-> != NULL)
+	{
+		//check if current node's data is the same as the next node's data
+		if(curr->data == curr->next->data)
+		{
+			// store the duplicate node in a temporary pointer
+			struct Node* temp = curr->next;
+			
+			// remove the duplicate node by skipping it
+			curr->next = curr->next->next;
+
+			// free the memory occupied by the duplicate code
+			free(temp);
+		}	
+		else
+		{	
+			// move to the next node if there are no duplicates
+			curr = curr->next;
+		}
+	}
+
+}
+
+
+
+// function to print the elements of a linked list
+void displayList(struct Node* head)
+{
+	while(head)
+	{
+		// print the data of the current node
+		printf("%d", head->data);
+
+		// move to the next node
+		head = head->next
+	}
+
+	printf("\n");
+}
+
+
+int main()
+{
+	// create a linked list with sample data
+	struct Node* head = newNode(1);
+
+	head->next = newNode(2);
+	head->next->next = newNode(3);
+	head->next->next->next = newNode(3);
+	head->next->next->next->next = newNode(5);
+	head->next->next->next->next->next = newNode(6);
+	head->next->next->next->next->next->next = newNode(6);
+
+	printf("Original sorted singly linked list : \n");
+
+	// Display the original list
+	displayList(head);
+
+	printf("\nAfter removing duplicates from the said sorted linked list :\n");
+	
+	// remove duplicates
+	remove_Duplicates(head);
+
+	// display the list after removing duplicates
+	displayList(head);
+
+	return 0;
+}
