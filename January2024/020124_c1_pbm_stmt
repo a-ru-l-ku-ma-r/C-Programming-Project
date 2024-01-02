@@ -1,0 +1,94 @@
+/*****************************************************************************************************
+              Write a C program to reverse a singly linked list starting at the 
+                          first position in blocks of size k
+*****************************************************************************************************/
+
+#include<stdio.h>
+#include<stdlib.h>
+
+// Structure defining a node in a singly linked list
+struct Node {
+    int data;           // Data stored in the node
+    struct Node* next;  // Pointer to the next node
+};
+
+// Function to add a new node at the beginning of the linked list
+void push_node(struct Node** head_ref, int new_data) 
+{
+    // Allocate memory for a new node
+    struct Node* new_node = (struct Node*)malloc(sizeof(struct Node)); 
+
+    // Assign data to the new node
+    new_node->data = new_data;  
+
+    // Make the new node point to the current head
+    new_node->next = (*head_ref); 
+
+    // Move the head to point to the new node
+    (*head_ref) = new_node;  
+}
+
+// Function to reverse the first k nodes of a linked list
+struct Node* reverse_k_nodes(struct Node* head, int k) 
+{
+    struct Node* current = head;  // Pointer to the current node
+    struct Node* next = NULL;  // Pointer to store the next node
+    struct Node* prev = NULL;  // Pointer to store the previous node
+    int count = 0;  // Counter to track the number of nodes reversed
+
+    /* Reverse the first k nodes of the linked list */
+    while (current != NULL && count < k) 
+    {
+        next = current->next;  // Store the next node
+        current->next = prev;  // Reverse the link of current node to the previous node
+        prev = current;  // Move the prev pointer to the current node
+        current = next;  // Move the current pointer to the next node
+        count++;  // Increment the count of nodes reversed
+    }
+
+    /* Call recursively for the remaining nodes and link the two lists */
+    if (next != NULL) 
+    {
+        head->next = reverse_k_nodes(next, k);  // Recursively reverse the next set of k nodes
+    }
+
+    /* prev is now the head of the reversed sub-list */
+    return prev;
+}
+
+// Function to print the elements of a linked list
+void printList(struct Node* node) {
+    while (node != NULL) {
+        printf("%d ", node->data);  // Print the data of the current node
+        node = node->next;  // Move to the next node
+    }
+}
+
+
+int main() {
+    // Initialize an empty linked list
+    struct Node* head = NULL;  
+
+    // Adding elements to the linked list
+    push_node(&head, 8);
+    push_node(&head, 7);
+    push_node(&head, 6);
+    push_node(&head, 5);
+    push_node(&head, 4);
+    push_node(&head, 3);
+    push_node(&head, 2);
+    push_node(&head, 1);
+
+    printf("Given linked list: \n");
+    printList(head);  // Display the original list
+
+    head = reverse_k_nodes(head, 3);  // Reverse the first 3 nodes of the list
+    printf("\nReverse the first 3 nodes of the said Linked list: \n");
+    printList(head);  // Display the modified list
+
+    head = reverse_k_nodes(head, 5);  // Reverse the first 5 nodes of the list
+    printf("\nReverse the first 5 nodes of the said Linked list: \n");
+    printList(head);  // Display the modified list
+
+    return 0;
+}
