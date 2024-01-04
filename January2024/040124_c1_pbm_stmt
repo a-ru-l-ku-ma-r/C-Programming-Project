@@ -1,0 +1,85 @@
+/*************************************************************************************************************
+Write a C program to find a pair in a singly linked list whose sum is equal to a given value
+*************************************************************************************************************/
+
+#include<stdio.h>
+#include<stdlib.h>
+
+// Structure defining a node in a singly linked list
+struct Node {
+    int data;           // Data stored in the node
+    struct Node* next;  // Pointer to the next node
+};
+
+// Function to create a new node with given data
+struct Node* newNode(int data) {
+    struct Node* node = (struct Node*) malloc(sizeof(struct Node)); // Allocate memory for a new node
+    node->data = data;  // Assign data to the new node
+    node->next = NULL;  // Initialize the next pointer as NULL
+    return node;  // Return the newly created node
+}
+
+// Function to find pairs in a linked list that sum up to a given value
+void pairSum(struct Node *head, int sum) {
+    struct Node *first = head;  // Pointer for the first node
+    struct Node *second = NULL; // Pointer for the second node
+    int flag = 0; // Flag to indicate if pairs are found
+
+    // Loop through the list
+    while (first != NULL && first->next != NULL) {
+        second = first->next; // Initialize second pointer to the node after the first
+
+        // Loop to compare each node's data with other nodes' data in the list
+        while (second != NULL) {
+            if ((first->data + second->data) == sum) { // Check if the sum matches the given value
+                printf("(%d,%d) ", first->data, second->data); // Print the pair
+                flag = 1; // Set the flag to indicate pair(s) found
+            }
+            second = second->next; // Move the second pointer to the next node
+        }
+
+        first = first->next; // Move the first pointer to the next node
+    }
+
+    if(flag==0)
+        printf("Pair not found.\n"); // If no pairs found, print message
+}
+
+// Function to print elements of a linked list
+void displayList(struct Node* head) {
+    while (head) {
+        printf("%d ", head->data);  // Print the data of the current node
+        head = head->next;  // Move to the next node
+    }
+    printf("\n");
+}
+
+// Main function to demonstrate finding pairs in a linked list that sum up to a given value
+int main() {
+    struct Node* head = newNode(1); // Create the linked list with some initial nodes
+    head->next = newNode(2);
+    head->next->next = newNode(3);
+    head->next->next->next = newNode(4);
+    head->next->next->next->next = newNode(5);
+    head->next->next->next->next->next = newNode(6);
+    head->next->next->next->next->next ->next = newNode(7);
+    printf("Original singly linked list:\n");
+    displayList(head); // Display the original list
+
+    int s = 4; // The sum value to find pairs
+    printf("\nFind a pair whose sum is equal to 4:\n");
+    pairSum(head, s); // Find pairs that sum up to 4
+
+    // Test with different sum values
+    s = 11;
+    printf("\n\nFind a pair whose sum is equal to 11:\n");
+    pairSum(head, s);
+    s = 5;
+    printf("\n\nFind a pair whose sum is equal to 5:\n");
+    pairSum(head, s);
+    s = 14;
+    printf("\n\nFind a pair whose sum is equal to 14:\n");
+    pairSum(head, s);
+
+    return 0;
+}
