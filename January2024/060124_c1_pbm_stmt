@@ -1,0 +1,83 @@
+/**************************************************************************************************
+        Write a C program to swap every two adjacent nodes of a given singly linked list
+**************************************************************************************************/
+
+#include<stdio.h>
+#include <stdlib.h>
+
+// Definition for singly-linked list
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+// Function to swap pairs of nodes in a linked list
+struct Node* swap_pairs(struct Node* head) {
+    // If the list is empty or has only one node, no swapping required
+    if (!head || !head->next) return head; 
+
+    // Update head to the new starting node after swapping
+    struct Node *prev = NULL, *curr = head, *next = head->next;
+    head = next; 
+
+    // Traverse through the list and swap pairs of nodes
+    while (next) {
+        // Adjust pointers for swapping
+        curr->next = next->next; 
+        next->next = curr;
+
+        // Connect the swapped pair with the previous node or the head if it's the first pair
+        if (prev) prev->next = next;
+        // Move to the next pair to be swapped
+        prev = curr; 
+        curr = curr->next;
+
+        // Update 'next' for the next pair of nodes to swap
+        if (curr) next = curr->next;
+    }
+
+    // Return the modified head of the list
+    return head; 
+}
+
+// Function to create a new node in the linked list
+struct Node* newNode(int data) {
+    // Allocate memory for a new node
+    struct Node* node = (struct Node*) malloc(sizeof(struct Node)); 
+
+    // Assign data to the new node
+    node->data = data; 
+
+    // Initialize the next pointer as NULL
+    node->next = NULL; 
+
+    // Return the newly created node
+    return node; 
+}
+
+// Function to print the linked list
+void printList(struct Node* node) {
+    while (node != NULL) {
+        printf("%d ", node->data); // Print the data of the current node
+        node = node->next; // Move to the next node
+    }
+}
+
+
+
+int main() {
+    // Create a sample linked list
+    struct Node* head = newNode(1);
+    head->next = newNode(2);
+    head->next->next = newNode(3);
+    head->next->next->next = newNode(4);
+    head->next->next->next->next = newNode(5);
+
+    printf("Original List:\n");
+    printList(head); // Display the original linked list
+    head = swap_pairs(head); // Swap pairs of nodes in the list
+    printf("\n\nUpdated List after swapping every two adjacent nodes:\n");
+    printList(head); // Display the modified linked list
+
+    return 0;
+}
