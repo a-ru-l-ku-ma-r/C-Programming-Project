@@ -1,0 +1,109 @@
+/**************************************************************************************************************
+              Write a C program to find the point at which two singly linked lists intersect
+**************************************************************************************************************/
+
+#include<stdio.h>
+#include <stdlib.h>
+
+// Node definition for a singly linked list
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+// Function to calculate the length of a linked list
+int length(struct Node* head) {
+    int len = 0;
+    while (head != NULL) {
+        len++;
+        head = head->next;
+    }
+    return len;
+}
+
+// Function to find the intersection point of two linked lists
+struct Node* findIntersection(struct Node* head1, struct Node* head2) {
+    // Find the lengths of the linked lists
+    int len1 = length(head1);
+    int len2 = length(head2);
+
+    // Traverse the longer linked list by the difference in length
+    if (len1 > len2) {
+        int diff = len1 - len2;
+        for (int i = 0; i < diff; i++) {
+            head1 = head1->next;
+        }
+    } else if (len2 > len1) {
+        int diff = len2 - len1;
+        for (int i = 0; i < diff; i++) {
+            head2 = head2->next;
+        }
+    }
+
+    // Traverse both lists until we find a node that is present in both lists
+    while (head1 != NULL && head2 != NULL) {
+        if (head1 == head2) {
+            return head1;
+        }
+        head1 = head1->next;
+        head2 = head2->next;
+    }
+
+    // If no intersection is found, return NULL
+    return NULL;
+}
+
+// Function to print the linked list
+void printList(struct Node* head) {
+    while (head != NULL) {
+        printf("%d ", head->data);
+        head = head->next;
+    }
+    printf("\n");
+}
+
+// Driver code
+int main() {
+    // Create two linked lists with a common node
+    struct Node* head1 = NULL;
+    struct Node* head2 = NULL;
+    struct Node* common = (struct Node*)malloc(sizeof(struct Node));
+    common->data = 7;
+    common->next = NULL;
+
+    // List 1
+    head1 = (struct Node*)malloc(sizeof(struct Node));
+    head1->data = 1;
+    head1->next = (struct Node*)malloc(sizeof(struct Node));
+    head1->next->data = 2;
+    head1->next->next = common;
+
+    printf("List-1: ");
+    printList(head1);
+
+    // List 2
+    head2 = (struct Node*)malloc(sizeof(struct Node));
+    head2->data = 3;
+    head2->next = (struct Node*)malloc(sizeof(struct Node));
+    head2->next->data = 4;
+    head2->next->next = (struct Node*)malloc(sizeof(struct Node));
+    head2->next->next->data = 5;
+    head2->next->next->next = common;
+
+    printf("List-2: ");
+    printList(head2);
+
+    // Find the intersection point
+    struct Node* intersection = findIntersection(head1, head2);
+    if (intersection == NULL) {
+        printf("No intersection found.\n");
+    } else {
+        printf("Intersection found at node with data: %d\n", intersection->data);
+    }
+
+    // Create two more linked lists without a common node
+    // (Simulating no intersection)
+    // ...
+
+    return 0;
+}
