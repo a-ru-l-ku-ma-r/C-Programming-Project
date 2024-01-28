@@ -1,0 +1,117 @@
+/*********************************************************************************************************
+                    Write a program in C to search an element in a circular linked list
+*********************************************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// Structure definition for a node in a circular linked list
+struct node {
+    int num;
+    struct node *nextptr;
+}*stnode, *ennode;
+
+// Function prototypes
+void ClListcreation(int n);
+int FindElement(int FindElem, int n);
+void displayClList();
+
+int main() {
+    int n, m;
+    int FindElem, FindPlc;
+    stnode = NULL;
+    ennode = NULL;
+
+    // User input for the number of nodes
+    printf("\n\n Circular Linked List : Search an element in a circular linked list :\n");
+    printf("-------------------------------------------------------------------------\n");
+    printf(" Input the number of nodes : ");
+    scanf("%d", &n);
+    m = n;
+
+    // Creating a circular linked list
+    ClListcreation(n);
+    displayClList();
+
+    // Input for the element to find in the list
+    printf(" Input the element you want to find : ");
+    scanf("%d", &FindElem);
+
+    // Searching for the element in the list
+    FindPlc = FindElement(FindElem, m);
+    if (FindPlc < n)
+        printf(" Element found at node %d \n\n", FindPlc);
+    else
+        printf(" This element does not exist in the linked list.\n\n");
+
+    return 0;
+}
+
+// Function to create a circular linked list
+void ClListcreation(int n) {
+    int i, num;
+    struct node *preptr, *newnode;
+
+    if (n >= 1) {
+        stnode = (struct node *)malloc(sizeof(struct node));
+
+        // Input for the first node
+        printf(" Input data for node 1 : ");
+        scanf("%d", &num);
+        stnode->num = num;
+        stnode->nextptr = NULL;
+        preptr = stnode;
+
+        // Loop to create subsequent nodes and link them to form a circular list
+        for (i = 2; i <= n; i++) {
+            newnode = (struct node *)malloc(sizeof(struct node));
+            printf(" Input data for node %d : ", i);
+            scanf("%d", &num);
+            newnode->num = num;
+            newnode->nextptr = NULL;
+            preptr->nextptr = newnode;
+            preptr = newnode;
+        }
+        preptr->nextptr = stnode; // Last node linking with the first node to form a circular list
+    }
+}
+
+// Function to find an element in the circular linked list
+int FindElement(int FindElem, int a) {
+    int ctr = 1;
+    ennode = stnode;
+
+    // Loop to search for the element
+    while (ennode->nextptr != NULL) {
+        if (ennode->num == FindElem)
+            break;
+        else {
+            ctr++;
+            ennode = ennode->nextptr;
+            if (ctr == a + 1)
+                break;
+        }
+    }
+    return ctr;
+}
+
+// Function to display the circular linked list
+void displayClList() {
+    struct node *tmp;
+    int n = 1;
+
+    if (stnode == NULL) {
+        printf(" No data found in the List yet.");
+    } else {
+        tmp = stnode;
+        printf("\n\n Data entered in the list are :\n");
+
+        // Loop to display nodes in the circular list
+        do {
+            printf(" Data %d = %d\n", n, tmp->num);
+            tmp = tmp->nextptr;
+            n++;
+        } while (tmp != stnode);
+    }
+}
+
