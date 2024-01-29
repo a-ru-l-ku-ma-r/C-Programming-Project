@@ -1,0 +1,70 @@
+/***************************************************************************************************************
+                        Write a C program to sort a given linked list by bubble sort
+***************************************************************************************************************/
+
+
+#include<stdio.h>
+#include <stdlib.h>
+
+// Structure for a node in a linked list
+struct node {
+  int data;
+  struct node *next;
+};
+
+int main() {
+    struct node *temp1, *temp2, *t, *newNode, *startList;
+    int n, k, i, j;
+
+    startList = NULL; // Initializing the start of the linked list to NULL
+
+    // Asking user to input the number of elements in the linked list
+    printf("Input number of elements in the linked list?");
+    scanf("%d", &n);
+
+    // Asking user to input the elements in the linked list
+    printf("Input the elements in the linked list:\n");
+    for (i = 1; i <= n; i++) {
+        if (startList == NULL) {
+            // Creating a new node if the list is empty
+            newNode = (struct node *)malloc(sizeof(struct node));
+            scanf("%d", &newNode->data);
+            newNode->next = NULL;
+            startList = newNode;
+            temp1 = startList;
+        } else {
+            // Creating a new node if the list is not empty
+            newNode = (struct node *)malloc(sizeof(struct node));
+            scanf("%d", &newNode->data);
+            newNode->next = NULL;
+            temp1->next = newNode;
+            temp1 = newNode;
+        }
+    }
+
+    // Sorting the elements in ascending order using bubble sort
+    for (i = n - 2; i >= 0; i--) {
+        temp1 = startList;
+        temp2 = temp1->next;
+        for (j = 0; j <= i; j++) {
+            if (temp1->data > temp2->data) {
+                // Swapping data if the current node has a greater value than the next node
+                k = temp1->data;
+                temp1->data = temp2->data;
+                temp2->data = k;
+            }
+            temp1 = temp2;
+            temp2 = temp2->next;
+        }
+    }
+
+    // Displaying the sorted linked list
+    printf("Sorted order is: \n");
+    t = startList;
+    while (t != NULL) {
+        printf("%d\t", t->data);
+        t = t->next;
+    }
+
+    return 0;
+}
