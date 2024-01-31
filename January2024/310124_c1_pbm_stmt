@@ -1,0 +1,109 @@
+/*******************************************************************************************************************
+                Write a C program to convert a doubly linked list into an array and return it
+*******************************************************************************************************************/
+
+#include<stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Structure to define a doubly linked list node
+struct node {
+  int num;
+  struct node *preptr;
+  struct node *nextptr;
+} *stnode, *ennode;
+
+// Function prototypes
+void DlListcreation(int n);
+void display_DlList_str();
+void DlList_array(int n);
+
+int main() {
+  int n, num1, a, insPlc;
+  stnode = NULL;
+  ennode = NULL;
+
+  printf(" Input the number of nodes: ");
+  scanf("%d", &n);
+
+  // Function call to create a doubly linked list
+  DlListcreation(n);
+
+  // Function calls to display the doubly linked list as string and array
+  display_DlList_str();
+  DlList_array(n);
+}
+
+// Function to create a doubly linked list
+void DlListcreation(int n) {
+  int i, num;
+  struct node *fnNode;
+
+  if (n >= 1) {
+    stnode = (struct node *) malloc(sizeof(struct node));
+    if (stnode != NULL) {
+      printf(" Input data for node 1 : "); // Assigning data in the first node
+      scanf("%d", &num);
+      stnode->num = num;
+      stnode->preptr = NULL;
+      stnode->nextptr = NULL;
+      ennode = stnode;
+
+      // Loop to create subsequent nodes and link them in the list
+      for (i = 2; i <= n; i++) {
+        fnNode = (struct node *) malloc(sizeof(struct node));
+        if (fnNode != NULL) {
+          printf(" Input data for node %d : ", i);
+          scanf("%d", &num);
+          fnNode->num = num;
+          fnNode->preptr = ennode;
+          fnNode->nextptr = NULL;
+          ennode->nextptr = fnNode;
+          ennode = fnNode;
+        } else {
+          printf(" Memory can not be allocated.");
+          break;
+        }
+      }
+    } else {
+      printf(" Memory can not be allocated.");
+    }
+  }
+}
+
+// Function to display the doubly linked list as a string
+void display_DlList_str() {
+  struct node *current;
+  current = stnode;
+  char text_str[100] = "";
+
+  // Loop through the list and concatenate node data to a string
+  while (current != NULL) {
+    char str[10];
+    sprintf(str, "%d", current->num);
+    strcat(text_str, str);
+    strcat(text_str, " ");
+    current = current->nextptr;
+  }
+
+  // Display the doubly linked list in string format
+  printf("\nThe doubly linked list in string format: %s\n", text_str);
+}
+
+// Function to convert the doubly linked list to an array
+void DlList_array(int n) {
+  int arr[n];
+  struct node *temp = stnode;
+  int i;
+
+  // Loop to store node data in an array
+  for (i = 0; i < n; i++) {
+    arr[i] = temp->num;
+    temp = temp->nextptr;
+  }
+
+  // Display the doubly linked list in array format
+  printf("\nDoubly linked list in array format:\n");
+  for (i = 0; i < n; i++)
+    printf("%d ", arr[i]);
+}
