@@ -1,0 +1,124 @@
+/****************************************************************************************************************
+          Write a C program that extends the binary tree program to perform a level-order traversal. 
+                              Print the nodes at each level from top to bottom
+****************************************************************************************************************/
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+// Structure for a binary tree node
+struct TreeNode {
+    int data;
+    struct TreeNode* left;
+    struct TreeNode* right;
+};
+
+// Function to create a new node
+struct TreeNode* createNode(int value) {
+    struct TreeNode* newNode = (struct TreeNode*)malloc(sizeof(struct TreeNode));
+    if (newNode != NULL) {
+        newNode->data = value;
+        newNode->left = NULL;
+        newNode->right = NULL;
+    }
+    return newNode;
+}
+
+// Function to insert a node into the binary tree
+struct TreeNode* insertNode(struct TreeNode* root, int value) {
+    if (root == NULL) {
+        return createNode(value);
+    }
+
+    if (value < root->data) {
+        root->left = insertNode(root->left, value);
+    } else if (value > root->data) {
+        root->right = insertNode(root->right, value);
+    }
+
+    return root;
+}
+
+// Function to perform in-order traversal and print elements in sorted order
+void inOrderTraversal(struct TreeNode* root) {
+    if (root != NULL) {
+        inOrderTraversal(root->left);
+        printf("%d ", root->data);
+        inOrderTraversal(root->right);
+    }
+}
+
+// Function to perform level-order traversal and print nodes at each level
+void levelOrderTraversal(struct TreeNode* root) {
+    if (root == NULL) {
+        printf("The tree is empty.\n");
+        return;
+    }
+
+    // Create a queue for level-order traversal
+    struct TreeNode* queue[1000];
+    int front = -1, rear = -1;
+
+    // Enqueue the root node
+    queue[++rear] = root;
+
+    while (front != rear) {
+        // Dequeue a node and print its value
+        struct TreeNode* current = queue[++front];
+        printf("%d ", current->data);
+
+        // Enqueue the left child if exists
+        if (current->left != NULL) {
+            queue[++rear] = current->left;
+        }
+
+        // Enqueue the right child if exists
+        if (current->right != NULL) {
+            queue[++rear] = current->right;
+        }
+    }
+
+    printf("\n");
+}
+
+// Function to free the memory allocated for the binary tree
+void freeTree(struct TreeNode* root) {
+    if (root != NULL) {
+        freeTree(root->left);
+        freeTree(root->right);
+        free(root);
+    }
+}
+
+int main() {
+    struct TreeNode* root = NULL;
+    int nodeValue;
+    char choice;
+
+    // Insert nodes into the binary tree
+    do {
+        printf("Input a value to insert into the binary tree (enter 0 to stop): ");
+        scanf("%d", &nodeValue);
+
+        if (nodeValue != 0) {
+            root = insertNode(root, nodeValue);
+        }
+
+    } while (nodeValue != 0);
+
+    // Perform in-order traversal and print elements in sorted order
+    printf("\nIn-order Traversal (Sorted Order) of the Binary Tree: ");
+    inOrderTraversal(root);
+    printf("\n");
+
+    // Perform level-order traversal and print nodes at each level
+    printf("\nLevel-order Traversal of the Binary Tree:\n");
+    levelOrderTraversal(root);
+
+    // Free allocated memory
+    freeTree(root);
+
+    return 0;
+}
