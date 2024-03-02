@@ -1,0 +1,21 @@
+/* Write a program in C language to find the size of a given file */
+
+
+#include <stdlib.h>
+#include <stdio.h>
+
+long getFileSize(const char *filename)
+{
+  long result;
+  FILE *fh = fopen("i.txt", "rb");
+  fseek(fh, 0, SEEK_END);
+  result = ftell(fh);
+  fclose(fh);
+  return result;
+}
+int main(void)
+{
+  printf("Size of the said File: %ld bytes.", getFileSize("input.txt"));
+  return 0;
+}
+
