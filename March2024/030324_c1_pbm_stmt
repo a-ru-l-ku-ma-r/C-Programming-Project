@@ -1,0 +1,14 @@
+/* Write a program in C to display the last modification time of a file */
+
+
+#include <time.h>
+#include <sys\stat.h>
+#include <stdio.h>
+int main(){
+    struct stat status;
+    FILE *fp;
+    fp=fopen("i.txt","r");
+    fstat(fileno(fp),&status);
+    printf("Last date of File modification : %s",ctime(&status.st_ctime));
+    return 0;
+}
