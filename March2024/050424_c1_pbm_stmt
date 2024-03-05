@@ -1,0 +1,30 @@
+/********************************************************************************************************/
+/*               C Program To read text file and print it on screen using File Handling                 */
+/********************************************************************************************************/
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+        FILE *fp;
+        char s;
+        fp=fopen("C:\\Users\\acer\\Documents\\file4.txt","r");
+        if(fp==NULL)
+        {
+                printf("\nCAN NOT OPEN FILE");
+                exit(1);
+        }
+        do
+{
+                s=getc(fp);
+                printf("%c",s);
+        }
+        while(s!=EOF);
+        fclose(fp);
+
+        return 0;
+
+}
