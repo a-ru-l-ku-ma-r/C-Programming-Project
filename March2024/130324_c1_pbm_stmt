@@ -1,0 +1,36 @@
+/****************************************************************************************************
+                            Implementing a custom abs() function
+****************************************************************************************************/
+
+#include <stdio.h>
+
+int custom_abs_0(unsigned int n)
+{
+    return (n < 0) ? -n : n;
+}
+
+int custom_abs_1(int n)
+{
+    return (n < 0) ? -n : n;
+}
+
+int main() 
+{
+    unsigned int x = 100, y = -100;
+    
+    printf("Value of x = %d and y = %d", x, y);
+    
+    printf("\nAbsolute Value of x = %d and y = %d", custom_abs_0(x), custom_abs_0(y));    
+
+    printf("\nAbsolute Value of x = %d and y = %d", custom_abs_1(x), custom_abs_1(y));
+    
+    return 0;
+}
+
+// *********************************************************************
+/*  Output :
+    Value of x = 100 and y = -100
+    Absolute Value of x = 100 and y = -100
+    Absolute Value of x = 100 and y = 100
+*/
+// *********************************************************************
