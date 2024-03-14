@@ -1,0 +1,29 @@
+/**********************************************************************************************/
+                    convert a character to an integer, float in C
+/**********************************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    
+    // char to integer conversion
+    char str[] = "1234";
+    int x = atoi(str);
+    printf("The integer value of the string is: %d\n", x);
+    
+    char str1[] = "*1234";
+    x = atoi(str1);
+    printf("The integer value of the string is: %d\n", x);
+    
+    // char to float conversion    
+    char char_array1[] = "45.82734";
+    float float_value = atof(char_array1);
+    printf("The converted value of float is: %f\n", float_value);
+    
+    return 0;
+}
+
+// **********************************************************************************************
+Output :
+The integer value of the string is: 1234
+The integer value of the string is: 0
+The converted value of float is: 45.827339
