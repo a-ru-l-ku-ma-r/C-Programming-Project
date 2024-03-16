@@ -1,0 +1,25 @@
+/******************************************************************************************************************
+          Write a C program to compute the area of a circle given its radius using inline functions
+******************************************************************************************************************/
+
+#include <stdio.h>
+
+// Inline function to compute area of a circle
+static inline double circle_area(double radius) {
+  return 3.14159265358979323846 * radius * radius;
+}
+
+int main() 
+{
+  double radius = 5.0;
+  printf("The area of the circle (radius = %f) is %f", radius, circle_area(radius));
+  radius = 12.0;
+  printf("\nThe area of the circle (radius = %f) is %f", radius, circle_area(radius));
+  return 0;
+}
+
+
+// *******************************************************************************************************************
+Output :
+   The area of the circle (radius = 5.000000) is 78.539816
+   The area of the circle (radius = 12.000000) is 452.389342
