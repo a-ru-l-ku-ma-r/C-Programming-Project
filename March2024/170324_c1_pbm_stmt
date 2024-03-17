@@ -1,0 +1,28 @@
+/************************************************************************************************************
+      Write a C program to compute absolute difference between two integers using inline functions
+************************************************************************************************************/
+
+#include <stdio.h>
+
+static inline int absolute_difference(int a, int b) 
+{
+  return (a > b) ? (a - b) : (b - a);
+}
+
+int main() 
+{
+  int x = 100, y = 200;
+  
+  int diff = absolute_difference(x, y);
+  
+  printf("Absolute difference between %d and %d is %d\n", x, y, diff);
+  printf("\nAbsolute difference between %d and %d is %d\n", y, x, diff);
+  
+  return 0;
+}
+
+// ***********************************************************************************************************
+Output : 
+  Absolute difference between 100 and 200 is 100
+
+  Absolute difference between 200 and 100 is 100
