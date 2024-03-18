@@ -1,0 +1,22 @@
+/*******************************************************************************************************
+          Write a C program to compute the minimum of two integers using inline function
+*******************************************************************************************************/
+
+#include <stdio.h>
+
+inline int min(int x, int y) {
+  return (x < y) ? x : y;
+}
+
+int main() {
+  int a = 110, b = 120;
+  printf("Minimum of %d and %d is %d\n", a, b, min(a, b));
+  a = -110, b = -120;
+  printf("Minimum of %d and %d is %d\n", a, b, min(a, b));
+  return 0;
+}
+
+// ******************************************************************************************************
+Output :
+Minimum of 110 and 120 is 110
+Minimum of -110 and -120 is -120
