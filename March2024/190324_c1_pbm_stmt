@@ -1,0 +1,26 @@
+/*******************************************************************************************************
+            Write a C program to compute the maximum of two integers using inline function
+*******************************************************************************************************/
+
+#include <stdio.h>
+
+static inline int max(int x, int y) 
+{
+  return x > y ? x : y;
+}
+
+int main() 
+{
+  int a = 110, b = 120;
+  printf("Maximum of %d and %d is %d\n", a, b, max(a, b));
+  
+  a = -110, b = -120;
+  printf("Maximum of %d and %d is %d\n", a, b, max(a, b));
+  
+  return 0;
+}
+
+// ******************************************************************************************************
+Output :
+Maximum of 110 and 120 is 120
+Maximum of -110 and -120 is -110
