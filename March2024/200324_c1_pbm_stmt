@@ -1,0 +1,34 @@
+/**************************************************************************************************
+          Write a C program to compute the length of a given string using inline function
+**************************************************************************************************/
+
+#include <stdio.h>
+
+#include <stdlib.h>
+
+static inline int string_length(char * str) 
+{
+  int len = 0;
+  while ( * str++) {
+    len++;
+  }
+  return len;
+}
+
+int main() 
+{
+  char str[] = "w3resource.com";
+  int len = string_length(str);
+  printf("The length of the string '%s' is %d\n", str, len);
+  
+  char str1[] = "Learn C Programming";
+  len = string_length(str1);
+  printf("\nThe length of the string '%s' is %d\n", str1, len);
+  return 0;
+}
+
+// **************************************************************************************************
+Output :
+The length of the string 'w3resource.com' is 14
+
+The length of the string 'Learn C Programming' is 19
