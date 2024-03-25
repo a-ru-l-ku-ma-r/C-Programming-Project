@@ -1,0 +1,40 @@
+/********************************************************************************************************
+                Write a C program to reverse a given string using an inline function
+********************************************************************************************************/
+#include <stdio.h>
+
+#include <string.h>
+
+static inline void reverse_string(char * str) 
+{
+  int len = strlen(str);
+  
+  for (int i = 0; i < len / 2; i++) 
+  {
+    char temp = str[i];
+    str[i] = str[len - i - 1];
+    str[len - i - 1] = temp;
+  }
+}
+
+int main() 
+{
+  char str[100];
+  
+  printf("Input a string: ");
+  fgets(str, 100, stdin);
+  
+  // remove newline character from input
+  str[strcspn(str, "\n")] = '\0'; 
+ 
+  printf("Before reverse: %s\n", str);
+  reverse_string(str);
+  printf("After reverse: %s\n", str);
+  return 0;
+}
+
+// ********************************************************************************
+Output :
+Input a string: Rugged Embedded System
+Before reverse: Rugged Embedded System
+After reverse: metsyS deddebmE degguR
