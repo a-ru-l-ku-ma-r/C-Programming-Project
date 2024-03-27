@@ -1,0 +1,45 @@
+/****************************************************************************************************
+Write a C program to find the sum of a variable number of integers passed as arguments to a function 
+                                  using variadic functions
+****************************************************************************************************/
+
+#include <stdio.h>
+
+#include <stdarg.h>
+
+int sum_nums(int ctr, ...) 
+{
+  int sum_nums_all = 0;
+  
+  va_list args;
+  
+  va_start(args, ctr);
+  
+  for (int i = 0; i < ctr; i++) 
+  {
+    int n = va_arg(args, int);
+    sum_nums_all += n;
+  }
+  va_end(args);
+  
+  return sum_nums_all;
+}
+
+
+int main() 
+{
+  int s1 = sum_nums(3, 1, 2, 3); // returns 6
+  
+  int s2 = sum_nums(5, 1, 2, 3, 4, 5); // returns 15
+  
+  int s3 = sum_nums(3, -1, -2, -3); // returns -6
+  
+  printf("s1 = %d, s2 = %d, s3 = %d", s1, s2, s3);
+  
+  return 0;
+}
+
+
+
+// ********************************************************************************************
+s1 = 6, s2 = 15, s3 = -6
