@@ -1,4 +1,6 @@
 /*********************************************************************************************************
+            Write a C program to compute the sum of a variable number of integers passed as 
+                                  arguments using an inline function
 *********************************************************************************************************/
 
 #include <stdio.h>
