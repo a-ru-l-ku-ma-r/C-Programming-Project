@@ -1,0 +1,71 @@
+/******************************************************************************************************
+            Write a C program to find the maximum and minimum values of a variable number of 
+                    integers passed as arguments to a function using variadic functions
+******************************************************************************************************/
+
+#include <stdio.h>
+
+#include <stdarg.h>
+
+int max(int count, ...) 
+{
+  va_list args;
+  
+  int i, max, num;
+
+  /* Initialize the argument list */
+  va_start(args, count);
+
+  /* Get the first argument and set it as the maximum value */
+  max = va_arg(args, int);
+
+  /* Compare the remaining arguments to the current maximum value */
+  for (i = 1; i < count; i++) 
+  {
+    num = va_arg(args, int);
+    if (num > max) {
+      max = num;
+    }
+  }
+
+  /* Clean up the argument list */
+  va_end(args);
+
+  return max;
+}
+
+int min(int count, ...) 
+{
+  va_list args;
+  int i, min, num;
+
+  /* Initialize the argument list */
+  va_start(args, count);
+
+  /* Get the first argument and set it as the minimum value */
+  min = va_arg(args, int);
+
+  /* Compare the remaining arguments to the current minimum value */
+  for (i = 1; i < count; i++) {
+    num = va_arg(args, int);
+    if (num < min) {
+      min = num;
+    }
+  }
+
+  /* Clean up the argument list */
+  va_end(args);
+
+  return min;
+}
+
+int main() 
+{
+  int max_val = max(6, 1, 5, 7, 2, 9, 16);
+  int min_val = min(6, 1, 5, 7, 2, 9, 16);
+  
+  printf("Maximum value: %d\n", max_val);
+  printf("Minimum value: %d\n", min_val);
+  
+  return 0;
+}
