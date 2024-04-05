@@ -132,3 +132,10 @@ int main()
 
     return 0;
 }
+
+
+// ***********************************************************************************************
+Output :
+Enter any hexadecimal number: A
+Hexadecimal number = A
+Octal number = 12
