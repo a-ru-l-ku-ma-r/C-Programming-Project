@@ -32,7 +32,8 @@ int calculateMedian(int arr1[], int arr2[], int size)
     if (m1 == m2)
         return m1;
 
-    if (m1 < m2) {
+    if (m1 < m2) 
+    {
         if (size % 2 == 0)
             return calculateMedian(arr1 + size / 2 - 1, arr2, size - size / 2 + 1);
 
@@ -53,7 +54,8 @@ int main()
     int size1 = sizeof(arr1) / sizeof(arr1[0]);
     int size2 = sizeof(arr2) / sizeof(arr2[0]);
 
-    if (size1 != size2) {
+    if (size1 != size2) 
+    {
         printf("Size of both arrays are different\n");
         return 0;
     }
@@ -62,3 +64,7 @@ int main()
 
     return 0;
 }
+
+// ***************************************************************************************
+Output :
+Median is: 17
