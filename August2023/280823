@@ -35,3 +35,15 @@ int main()
     printf("\n");
     return 0;
 }
+
+
+// ******************************************************************************************
+Output :
+Enter the array elements: 5
+4
+8
+6
+9
+1
+Even elements: 4 8 6 
+Odd elements: 5 9 1 
