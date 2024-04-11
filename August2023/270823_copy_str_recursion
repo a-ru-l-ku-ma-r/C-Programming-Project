@@ -32,3 +32,10 @@ int main()
 
     return 0;
 }
+
+
+// ****************************************************************************************************
+Output :
+Enter string: Rugged Embedded System
+Str1: Rugged Embedded System
+Str2: Rugged Embedded System
