@@ -34,3 +34,18 @@ int main()
 	//Return to the system
 	return 0;
 }
+
+
+
+// ****************************************************************************************************
+Output :
+Enter number of strings to input
+3
+Enter Strings one by one: 
+Rugged
+Embedded
+System
+The length of each string: 
+Rugged  6
+Embedded  8
+System  6
