@@ -55,3 +55,11 @@ int main()
 
     return 0;
 }
+
+
+// ********************************************************************************************************
+Output :
+Enter string: Rugged Embedded Engineering System
+Enter word: System     
+Result is:
+Rugged Embedded Engineering 
