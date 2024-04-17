@@ -13,7 +13,8 @@ int main()
     gets(str);
 
     // toggle each string characters
-    for (counter = 0; str[counter] != NULL; counter++) {
+    for (counter = 0; str[counter] != NULL; counter++) 
+    {
         if (str[counter] >= 'A' && str[counter] <= 'Z')
             str[counter] = str[counter] + 32; //convert into lower case
         else if (str[counter] >= 'a' && str[counter] <= 'z')
@@ -24,3 +25,9 @@ int main()
  
     return 0;
 }
+
+
+// ****************************************************************************************
+Output :
+Enter a string: Rugged Embedded System
+String after toggle each characters: rUGGED eMBEDDED sYSTEM
