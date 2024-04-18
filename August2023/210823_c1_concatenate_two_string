@@ -47,3 +47,15 @@ void stringCat (char *s1,char *s2)
     }
     s1[len+i]='\0'; /* terminates by NULL*/
 }
+// ***************
+Output :
+
+Enter  string 1 : Rugged Embedded 
+Enter  string 2 : System
+
+After concatenate strings are :
+String 1: Rugged Embedded System 
+String 2: System
+
+
+
