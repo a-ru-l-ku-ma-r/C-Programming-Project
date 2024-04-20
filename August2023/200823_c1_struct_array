@@ -38,6 +38,16 @@ int main()
     return 0;
 }
 
-// **************************""*"
+// *****************************************************************************
 Output:
+Enter name: RES  
+Enter marks:
+Marks in subject 1 ?: 47
+Marks in subject 2 ?: 48
+Marks in subject 3 ?: 47
+Marks in subject 4 ?: 49
+Marks in subject 5 ?: 50
 
+Name: RES 
+Total: 241 
+Percentage: 48.20
