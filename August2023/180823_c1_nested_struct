@@ -36,3 +36,13 @@ int main()
 
     return 0;
 }
+
+// ************************************************************************************
+Output :
+Enter name: RES
+Enter roll number: 007
+Enter Date of Birth [DD MM YY] format: 02 02 2000
+
+Name : RES 
+RollNo : 7 
+Date of birth : 02/02/2000
