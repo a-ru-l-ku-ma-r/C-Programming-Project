@@ -34,3 +34,18 @@ int main()
 
     return 0;
 }
+
+// ****************************************************************************
+
+Output1 :
+enter the no ( max range 255)
+127
+binary representation is: 01111111
+Not palindrome
+
+
+Output2 :
+enter the no ( max range 255)
+153
+binary representation is: 10011001
+it's palindrome
