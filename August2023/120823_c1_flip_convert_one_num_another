@@ -42,3 +42,10 @@ int main()
 
     return 0;
 }
+
+// *****************************************************************************************************
+Output :
+Enter number1: 7
+Enter number2: 4
+Bits needs to be changed are:
+0 1 
