@@ -49,3 +49,15 @@ int main(int argc, char* argv[])
 
     return 0;
 }
+
+
+// ********************************************************************************************
+Output :
+Enter Number: 4272464256
+Enter position1: 16
+Enter position2: 8
+Binary number before swapping bits: 
+11111110101010001010000110000000
+Result is: -22437760
+Binary number after swapping bits: 
+11111110101010011010000010000000
