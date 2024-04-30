@@ -42,3 +42,15 @@ int main()
 
     return 0;
 }
+
+
+// ******************************************************************
+Output 1:
+Enter number: 170
+Binary Number: 10101010
+Alternate BIT pattern exists
+
+Output 2:
+Enter number: 27
+Binary Number: 11011
+Alternate BIT pattern does not exist
