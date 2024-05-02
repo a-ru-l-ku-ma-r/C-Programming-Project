@@ -17,11 +17,13 @@ int main()
 	int temp=(second>>pos)&1;
 
 	//if bit at specified position is 1
-	if(temp==1){
+	if(temp==1)
+	{
 		temp=temp<<pos;
 		first|=temp;
 	}
-	else{ //if bit at specified position is 0
+	else
+	{ //if bit at specified position is 0
 		int flag=255;//FF, all bit set to 1(considering 8 bit)
 		temp=1<<pos;
 		//this set only the specified position bit 0 others 1
@@ -33,3 +35,12 @@ int main()
 
 	return 0;
 }
+
+// **********************************************************************************
+Output :
+enter first & second no:
+9
+4
+enter specified position(0-indexed)
+2
+converted no 13
