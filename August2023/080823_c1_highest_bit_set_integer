@@ -26,3 +26,8 @@ int main()
 
 	return 0;
 }
+// *******************************************************************************************
+Output :
+enter the integer
+24
+Highest bit set in its binary representation: 4 
