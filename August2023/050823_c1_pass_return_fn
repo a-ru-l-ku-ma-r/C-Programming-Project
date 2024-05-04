@@ -42,3 +42,9 @@ void DisplayOutput(struct FirstStruct Input)
 {
     printf("%d\n", ((Input.Num1) + (Input.Num2)));
 }
+
+// ******************************************************************************
+Output :
+Enter a number: 5
+Enter a number again: 7
+12
