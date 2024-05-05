@@ -27,3 +27,9 @@ int main()
     
     return 0;
 }
+
+
+// *******************************************************************************
+Output :
+Integer number: 2864434397, hex: AABBCCDD
+Indivisual bytes: AA BB CC DD 
