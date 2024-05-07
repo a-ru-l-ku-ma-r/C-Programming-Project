@@ -35,3 +35,13 @@ int main()
     
     return 0;
 }
+
+
+// ********************************************************************
+Output :
+Enter first distance in feet & inches:5
+8
+Enter second distance in feet & inches:7
+3
+
+Total distance- Feet: 12, Inches: 11
