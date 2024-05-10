@@ -66,3 +66,29 @@ int main()
     printf("~Thanks for using me... Enjoy your party!!!~\n");
     return 0;
 }
+
+
+// *************************************************************************************************
+Output :
+Enter item details [ 1]:
+Item?  vegtables
+Price? 30
+Quantity?  5
+
+Want to more items (press 1): 1
+Enter item details [ 2]:
+Item?  fruits
+Price? 45
+Quantity?  3
+
+Want to more items (press 1): 0
+All details are:
+vegtables
+                         30.00     5 
+ 150.00
+fruits
+                         45.00     3 
+ 135.00
+#### Total expense: 285.00
+Want to divide in friends (press 1 for yes): 0
+~Thanks for using me... Enjoy your party!!!~
