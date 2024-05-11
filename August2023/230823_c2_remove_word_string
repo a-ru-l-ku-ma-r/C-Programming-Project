@@ -58,8 +58,15 @@ int main()
 
 
 // ********************************************************************************************************
-Output :
+Output1 :
 Enter string: Rugged Embedded Engineering System
 Enter word: System     
 Result is:
 Rugged Embedded Engineering 
+
+
+Output2 :
+Enter string: Electronic Devices and Circuits
+Enter word: and
+Result is:
+Electronic Devices Circuits 
