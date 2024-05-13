@@ -178,3 +178,21 @@ void sort(int * arr, int size, int (* compare)(int *, int *))
         curElem++;
     }
 }
+
+
+// ************************************************************************************
+Output :
+Enter array size: 7
+Enter elements in array: 4
+5
+12
+8
+10
+7
+2
+
+
+Elements before sorting: 4, 5, 12, 8, 10, 7, 2, 
+
+Array in ascending order: 2, 4, 5, 7, 8, 10, 12, 
+Array in descending order: 12, 10, 8, 7, 5, 4, 2, 
