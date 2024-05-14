@@ -1,0 +1,34 @@
+/**************************************************************************************************
+                  print the structure variable using memcpy function
+**************************************************************************************************/
+#include <stdio.h>
+#include <string.h>
+
+struct passive_component{
+    char name[10];
+    char unit;
+};
+
+int main()
+{
+    struct passive_component CAP = {"Capacitor", 'F'};
+    
+    char print_ch[10];
+    
+    memcpy(print_ch, &CAP.name, sizeof(CAP.name));
+    
+    printf("\n%s\n", print_ch);
+
+    memcpy(print_ch, &CAP.unit, sizeof(CAP.unit));
+    
+    printf("\n%c\n", print_ch[0]);
+    
+    return 0;
+}
+
+// **************************************************************************************************
+Output :
+
+Capacitor
+
+F
