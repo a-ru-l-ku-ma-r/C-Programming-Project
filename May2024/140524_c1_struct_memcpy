@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
+// create structure 
 struct passive_component{
     char name[10];
     char unit;
@@ -11,6 +12,7 @@ struct passive_component{
 
 int main()
 {
+    // structure declaration 
     struct passive_component CAP = {"Capacitor", 'F'};
     
     char print_ch[10];
