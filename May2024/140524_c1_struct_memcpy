@@ -25,12 +25,42 @@ int main()
     
     printf("\n%c\n", print_ch[0]);
     
+    printf("------------------------");
+    
+    memcpy(print_ch, &CAP, sizeof(CAP));
+    
+    for(int i=0; i<sizeof(CAP);i++)
+    {
+        printf("\n%c\n", print_ch[i]);
+    }
+    
     return 0;
 }
 
 // **************************************************************************************************
 Output :
-
 Capacitor
+
+F
+------------------------
+C
+
+a
+
+p
+
+a
+
+c
+
+i
+
+t
+
+o
+
+r
+
+
 
 F
