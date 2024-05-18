@@ -14,9 +14,11 @@ int main()
 {
     // structure declaration 
     struct passive_component CAP = {"Capacitor", 'F'};
-    
+
+    // destination variable 
     char print_ch[10];
-    
+
+    // coping from source to destination 
     memcpy(print_ch, &CAP.name, sizeof(CAP.name));
     
     printf("\n%s\n", print_ch);
