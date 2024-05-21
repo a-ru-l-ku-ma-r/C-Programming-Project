@@ -3,6 +3,7 @@
 *********************************************************************************/
 
 #include <stdio.h>
+
 int main()
 {
     char str[100];
@@ -30,3 +31,11 @@ int main()
 
     return 0;
 }
+
+
+
+// **************************************************************************************
+Output :
+Enter any string :: RuggedEmbeddedSystem
+
+Total number of VOWELS :: 6 and CONSONANTS :: 14
