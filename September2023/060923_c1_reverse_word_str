@@ -43,3 +43,8 @@ int main()
 
     return 0;
 }
+.// *********************************************************************************************************
+// Output
+Enter any Sentence :: Rugged Embedded System
+
+Reversed Sentence :: System Embedded Rugged 
