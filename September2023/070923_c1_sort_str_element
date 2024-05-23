@@ -46,3 +46,88 @@ int main()
 
    return 0;
 }
+
+
+// ************************************************************************************************
+Output :
+
+Enter Player Name : ABCD 
+
+Enter Team Name : XYZ
+
+Enter Average : 4
+
+
+Enter Player Name : EFG
+
+Enter Team Name : PKF
+
+Enter Average : 5
+
+
+Enter Player Name : HIJ
+
+Enter Team Name : WED
+
+Enter Average : 5
+
+
+Enter Player Name : KLM
+
+Enter Team Name : FNS
+
+Enter Average : 6
+
+
+Enter Player Name : NOP
+
+Enter Team Name : DPA
+
+Enter Average : 4
+
+
+Enter Player Name : QRS 
+
+Enter Team Name : FPE
+
+Enter Average : 6
+
+
+Enter Player Name : TUVW
+
+Enter Team Name : CGQ
+
+Enter Average : 4
+
+
+Enter Player Name : XY
+
+Enter Team Name : LDR
+
+Enter Average : 6
+
+
+Enter Player Name : ZAB
+
+Enter Team Name : DTZ
+
+Enter Average : 5
+
+
+Enter Player Name : CDE
+
+Enter Team Name : FRO
+
+Enter Average : 7
+
+
+TUVW    CGQ     4
+NOP     DPA     4
+ZAB     DTZ     5
+KLM     FNS     6
+QRS     FPE     6
+CDE     FRO     7
+XY      LDR     6
+EFG     PKF     5
+HIJ     WED     5
+ABCD    XYZ     4
