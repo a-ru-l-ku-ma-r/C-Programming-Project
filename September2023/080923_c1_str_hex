@@ -31,3 +31,12 @@ int main()
      
     return 0;
 }
+
+
+// *********************************************************
+Output :
+Enter string: RuggedEmbeddedSystem
+
+String is: RuggedEmbeddedSystem
+Hexadecimal converted string is: 
+527567676564456D62656464656453797374656D
