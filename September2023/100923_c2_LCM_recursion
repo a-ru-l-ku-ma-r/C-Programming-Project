@@ -56,3 +56,9 @@ int lcm(int a, int b)
         return lcm(a, b);
     }
 }
+
+//*****************************************************************************
+Output :
+Enter any two numbers to find lcm: 64
+24
+LCM of 64 and 24 = 192
