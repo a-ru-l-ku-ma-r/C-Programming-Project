@@ -23,3 +23,10 @@ int main()
 
     return 0;
 }
+
+
+// *****************************************************************************
+Output :
+Enter any number: 27
+Enter nth bit to check (0-31): 16
+The 16 bit is set to 0
