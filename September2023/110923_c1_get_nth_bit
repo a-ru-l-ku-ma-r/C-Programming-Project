@@ -30,3 +30,11 @@ Output :
 Enter any number: 27
 Enter nth bit to check (0-31): 16
 The 16 bit is set to 0
+
+Enter any number: 87
+Enter nth bit to check (0-31): 21
+The 21 bit is set to 0
+
+Enter any number: 63
+Enter nth bit to check (0-31): 2
+The 2 bit is set to 1
