@@ -25,3 +25,12 @@ int main()
 
     return 0;
 }
+
+// **********************************************************************************
+Output :
+Enter any number: 45
+Enter nth bit to set (0-31): 1
+Bit set successfully.
+
+Number before setting 1 bit: 45 (in decimal)
+Number after setting 1 bit: 47 (in decimal)
