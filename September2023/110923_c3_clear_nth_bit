@@ -29,3 +29,12 @@ int main()
 
     return 0;
 }
+
+// **********************************************************************************
+Output :
+Enter any number: 125
+Enter nth bit to clear (0-31): 3
+Bit cleared successfully.
+
+Number before clearing 3 bit: 125 (in decimal)
+Number after clearing 3 bit: 117 (in decimal)
