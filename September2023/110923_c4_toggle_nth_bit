@@ -28,3 +28,13 @@ int main()
 
     return 0;
 }
+
+
+// *********************************************************************************
+Output :
+Enter any number: 127
+Enter nth bit to toggle (0-31): 4
+Bit toggled successfully.
+
+Number before toggling 4 bit: 127 (in decimal)
+Number after toggling 4 bit: 111 (in decimal)
