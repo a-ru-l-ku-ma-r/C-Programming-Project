@@ -28,3 +28,10 @@ int main()
 
     return 0;
 }
+
+
+// **********************************************************************************************
+Output :
+Enter first string: Rugged Embed
+Enter second string: ded System
+Concatenated string = Rugged Embedded System
