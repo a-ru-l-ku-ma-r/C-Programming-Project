@@ -51,3 +51,10 @@ int compare(char * str1, char * str2)
 
     return *str1 - *str2;
 }
+
+
+// ***************************************************************************************
+Output :
+Enter first string: Rugged Embedded System 
+Enter second string: Aerospace and Defence
+First string is lexicographically greater than second.
