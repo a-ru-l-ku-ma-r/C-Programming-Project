@@ -83,3 +83,21 @@ void printMatrix(int (*matrix)[COLS], int rows, int cols)
         printf("\n");
     }
 }
+
+
+// ***********************************************************************************
+Output :
+Enter elements in 3x3 matrix.
+5
+6
+7
+2
+9
+4
+12
+2
+11
+Elements of 3x3 matrix.
+5 6 7 
+2 9 4 
+12 2 11 
