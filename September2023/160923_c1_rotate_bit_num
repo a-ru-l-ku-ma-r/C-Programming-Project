@@ -98,3 +98,12 @@ int rotateRight(int num, unsigned int rotation)
 
     return num;
 }
+
+
+// *******************************************************************************************
+Output :
+Enter a number: 27
+Enter number of rotation: 5
+27 left rotated 5 times = 864
+
+27 right rotated 5 times = -671088640
