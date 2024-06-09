@@ -51,3 +51,14 @@ int main()
 
     return 0;
 }
+
+// *********************************************************************************************************
+Output :
+Enter size of array: 5
+Enter elements in array: 5
+8
+9
+4
+1
+
+Unique elements in the array are: 5 8 9 4 1 
