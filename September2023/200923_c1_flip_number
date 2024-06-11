@@ -20,3 +20,10 @@ int main()
 
     return 0;
 }
+
+
+// ******************************************************************************************
+Output :
+Enter any number: 7
+Original number = 7 (in decimal)
+Number after bits are flipped = -8 (in decimal)
