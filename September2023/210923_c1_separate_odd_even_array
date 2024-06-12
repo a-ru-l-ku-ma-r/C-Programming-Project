@@ -75,3 +75,22 @@ void printArray(int arr[], int len)
     }
     printf("\n");
 }
+
+
+
+// *****************************************************************************************
+Output :
+Enter size of the array: 7
+Enter elements in the array: 5
+6
+8
+12
+15
+21
+81
+
+Elements of even array:
+Elements in the array: 6 8 12
+
+Elements of odd array:
+Elements in the array: 5 15 21 81
