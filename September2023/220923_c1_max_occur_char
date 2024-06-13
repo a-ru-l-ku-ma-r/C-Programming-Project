@@ -4,6 +4,8 @@
  */
 
 #include <stdio.h>
+
+// macro definition
 #define MAX_SIZE 100  // Maximum string size
 #define MAX_CHARS 255 // Maximum characters allowed
 
@@ -49,3 +51,9 @@ int main()
 
     return 0;
 }
+
+// ******************
+Output :
+Enter any string: Rugged Embedded System 
+
+Maximum occurring character is d = 4 times.
