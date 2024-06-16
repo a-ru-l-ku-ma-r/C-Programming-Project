@@ -56,3 +56,10 @@ void removeAll(char * str, const char toRemove)
         }
     }
 }
+
+
+// ********************************************************************************************
+Output :
+Enter any string: Rugged Embedded System
+Enter character to remove from string: d
+String after removing 'd': Rugge Embee System
