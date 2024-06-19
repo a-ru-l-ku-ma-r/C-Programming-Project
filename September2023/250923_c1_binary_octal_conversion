@@ -54,3 +54,10 @@ int main()
 
     return 0;
 }
+
+
+// *******************************************************************************************
+Output :
+Enter any binary number: 11010101001
+Original binary number = 11010101001
+Octal number = 3251
