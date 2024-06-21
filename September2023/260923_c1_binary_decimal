@@ -34,3 +34,10 @@ int main()
 
     return 0;
 }
+
+
+// **********************************************************************************
+Output :
+Enter any binary number: 1101010010
+Binary number = 1101010010
+Decimal number= 850
