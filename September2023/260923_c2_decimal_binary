@@ -33,3 +33,8 @@ int main()
 
     return 0;
 }
+// ********************************************************************************************************
+Output :
+Enter any decimal number: 143
+Decimal number = 143
+Binary number = 10001111
