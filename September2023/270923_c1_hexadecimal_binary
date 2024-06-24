@@ -83,3 +83,10 @@ int main()
 
     return 0;
 }
+
+
+// ********************************************************************************************
+Output :
+Enter binary number: 1101001010
+Binary number = 1101001010
+Hexadecimal number = 34A
