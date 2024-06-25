@@ -34,3 +34,11 @@ int main()
 
     return 0;
 }
+
+
+// **********************************************************************************
+Output :
+Enter any decimal number: 74
+
+Decimal number = 74
+Octal number = 112
