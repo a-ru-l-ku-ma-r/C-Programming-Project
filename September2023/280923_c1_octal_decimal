@@ -40,3 +40,10 @@ int main()
 
     return 0;
 }
+
+
+// ************************************************************************
+Output :
+Enter any octal number: 746
+Octal number = 746
+Decimal number = 486
