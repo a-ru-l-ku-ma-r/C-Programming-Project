@@ -40,3 +40,11 @@ int main()
 
     return 0;
 }
+
+
+// ********************************************************************************
+Output :
+Enter any decimal number: 124
+
+Decimal number = 124
+Hexadecimal number = 7C
