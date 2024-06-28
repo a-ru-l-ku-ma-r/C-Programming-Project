@@ -51,3 +51,10 @@ int main()
 
     return 0;
 }
+
+
+// *******************************************************************************************
+Output :
+Enter any hexadecimal number: A42
+Hexadecimal number = A42
+Decimal number = 2626
