@@ -100,3 +100,10 @@ int main()
 
     return 0;
 }
+
+
+// *******************************************************************************************************
+Output :
+Enter any octal number: 275
+Octal number: 275
+Hexadecimal number: BD
