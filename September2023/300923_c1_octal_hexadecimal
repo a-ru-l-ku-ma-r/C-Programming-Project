@@ -9,7 +9,9 @@ int main()
     int OCTALVALUES[] = {0, 1, 10, 11, 100, 101, 110, 111};
 
     long long octal, tempOctal, binary, place;
+
     char hex[65] = "";
+
     int rem;
 
     place = 1;
@@ -18,11 +20,13 @@ int main()
     /* Input octal number from user */
     printf("Enter any octal number: ");
     scanf("%lld", &octal);
+
     tempOctal = octal;
 
     /*
      * Octal to binary conversion
      */
+
     while(tempOctal > 0)
     {
         rem = tempOctal % 10;
