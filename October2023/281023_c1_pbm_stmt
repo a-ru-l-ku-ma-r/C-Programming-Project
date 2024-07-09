@@ -12,9 +12,11 @@ int pincode;
 
 int main()
 {
- 	printf("\n\n Pointer : Show a pointer to union :\n"); 
-	printf("----------------------------------------\n");
+    printf("\n\n Pointer : Show a pointer to union :\n"); 
+    printf("----------------------------------------\n");
+
     union empAdd employee,*pt;
+
     employee.ename="Jhon Mc\0Donald";//assign  the string up to null character i.e. '\0'
 
     pt=&employee;
