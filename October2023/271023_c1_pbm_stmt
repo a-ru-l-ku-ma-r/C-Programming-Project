@@ -30,3 +30,24 @@ int main()
 	printf("\n\n");
 	return 0;
 }
+
+
+
+// ****************************************************************************************
+Output :
+ Pointer : Show a pointer to an array which contents are pointer to structure :
+-----------------------------------------------------------------------------------
+ Exmployee Name : Alex
+---------------- Explanation --------------------
+(**(*pt+1)).empname
+= (**(*&arr+1)).empname   as pt=&arr
+= (**(arr+1)).empname     from rule *&pt = pt
+= (*arr[1]).empname       from rule *(pt+i) = pt[i]
+= (*&emp2).empname        as arr[1] = &emp2
+= emp2.empname = Alex       from rule *&pt = pt
+
+ Employee ID :  1002
+---------------- Explanation --------------------
+(*(*pt+1))-> empid
+= (**(*pt+1)).empid     from rule -> = (*).
+= emp2.empid = 1002
