@@ -41,3 +41,15 @@ int main(void)
     printf("\nExcel column title: %s ",convert_To_Excel_Title(n));
     return 0;
 }
+
+
+// *******************************************************************************************
+Output :
+Column Number n = 3
+Excel column title: C 
+
+Column Number n = 27
+Excel column title: AA 
+
+Column Number n = 151
+Excel column title: EU 
