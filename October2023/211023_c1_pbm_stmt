@@ -42,3 +42,9 @@ int main()
     printf("\n");
     return 0;
 }
+
+
+// ***************************************************************************************************
+Output :
+Array elements before processing: 1 2 3 4 5 6 
+Square of the array elements after processing: 1 4 9 16 25 36 
