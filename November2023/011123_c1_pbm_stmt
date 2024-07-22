@@ -2,20 +2,27 @@
       Write a C program to demonstrate how a function returns a pointer
 ********************************************************************************/
 #include <stdio.h>
+
 int* findLarger(int*, int*);
+
 void main()
 {
- int numa=0;
- int numb=0;
- int *result;
- 	printf("\n\n Pointer : Show a function returning pointer :\n"); 
-	printf("--------------------------------------------------\n");
-   printf(" Input the first number : ");
-   scanf("%d", &numa);
-   printf(" Input the second  number : ");
-   scanf("%d", &numb); 	
+ int num_1=0;
+ int num_2=0;
 
- result=findLarger(&numa, &numb);
+ int *result;
+
+ printf("\n\n Pointer : Show a function returning pointer :\n"); 
+ printf("--------------------------------------------------\n");
+
+ printf(" Enter the first number : ");
+ scanf("%d", &num_1);
+
+ printf(" Enter the second  number : ");
+ scanf("%d", &num_2); 	
+
+ result=findLarger(&num_1, &num_2);
+ 
  printf(" The number %d is larger.  \n\n",*result);
 }
 
@@ -26,3 +33,13 @@ int* findLarger(int *n1, int *n2)
  else
   return n2;
 }
+
+
+
+// ***************************************************************************
+Output :
+ Pointer : Show a function returning pointer :
+--------------------------------------------------
+ Enter the first number : 45
+ Enter the second  number : 78
+ The number 78 is larger.
