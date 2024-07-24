@@ -26,3 +26,10 @@ int main(){
       }
       printf("\nLength of longest common subsequence of said strings: %d\n",result[n][m]);
 }
+
+
+// **********************************************************************
+Input the first string: Rugged Embedded Sytem
+
+Input the second string:
+Length of longest common subsequence of said strings: 2
