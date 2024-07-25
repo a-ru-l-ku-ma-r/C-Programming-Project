@@ -65,8 +65,6 @@ int main(int argu)
 
 // ************************************************************************************************
 Output :
-
-
  Recursion : Hailstone Sequence of a given number upto 1 :
 --------------------------------------------------------------
  Input any number (positive) to start for Hailstone Sequence : 7
