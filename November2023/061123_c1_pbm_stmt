@@ -52,3 +52,20 @@
   
   return 0;
   }
+
+
+
+// ****************************************************************************************
+Output :
+Input  number of elements: 7
+
+Input  array elements one by one : 5
+7
+12
+5
+15
+9
+8
+
+Array  elements : 5     7       12      5       15      9       8
+Sorted  elements : 5    5       7       8       9       12      15
