@@ -64,5 +64,20 @@ int main(void)
     char str_num4[ ]=" 99e2.5 ";
     printf("\n\nstr_num = %s", str_num4);
     printf("\nIs the above string is a number? %d ",is_Number(str_num4));
-      return 0;
+    return 0;
 }
+
+
+// *********************************************************************************
+Output :
+str_num = 1234
+Is the above string is a number? 1 
+
+str_num =  0.1 
+Is the above string is a number? 1 
+
+str_num =  -90e3   
+Is the above string is a number? 1 
+
+str_num =  99e2.5 
+Is the above string is a number? 0 
