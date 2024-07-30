@@ -31,3 +31,24 @@ int main()
       printf("%d\n",i);
   return(0);
 } 
+
+
+// ********************************************************************************************************
+Output :
+Number of integers want to input in the first sequence: 4
+Input the numbers:
+5
+1
+6
+3
+Number of integers want to input in the second sequence: 4
+
+Input the numbers:
+3
+4
+5
+8
+
+Common elements of the said sequences:
+3
+5
