@@ -28,3 +28,13 @@
 	  
 	   return 0;
 	}
+
+
+// *****************************************************************************************************
+Output :
+Input A: 5
+Input B: 2
+
+Input X: 8
+Smallest absolute value of difference between X and integers between A and B (inclusive):
+2
