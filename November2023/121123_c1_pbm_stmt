@@ -7,23 +7,25 @@ int main()
 {
     int arr1[100], n,ctr=0;
     int i, j, k;
-       printf("\n\nPrint all unique elements of an array:\n");
-       printf("------------------------------------------\n");	
-       printf("Input the number of elements to be stored in the array: ");
-       scanf("%d",&n);
-       printf("Input %d elements in the array :\n",n);
-       for(i=0;i<n;i++)
-            {
-	      printf("element - %d : ",i);
-	      scanf("%d",&arr1[i]);
-	    }
+	printf("\n\nPrint all unique elements of an array:\n");
+	printf("------------------------------------------\n");	
+	printf("Input the number of elements to be stored in the array: ");
+	scanf("%d",&n);
+
+	printf("Input %d elements in the array :\n",n);
+	for(i=0;i<n;i++)
+	{
+		printf("element - %d : ",i);
+		scanf("%d",&arr1[i]);
+	}
+
     printf("\nThe unique elements found in the array are: \n");
     for(i=0; i<n; i++)
     {
         ctr=0;
         for(j=0,k=n; j<k+1; j++)
         {
-            /*Increment the counter when the seaarch value is duplicate.*/
+            /*Increment the counter when the search value is duplicate.*/
             if (i!=j)
             {
 		       if(arr1[i]==arr1[j])
@@ -39,3 +41,20 @@ int main()
     }
        printf("\n\n");
 }
+
+// ****************************************************************************************
+Output :
+Print all unique elements of an array:
+------------------------------------------
+Input the number of elements to be stored in the array: 10
+Input 10 elements in the array :
+element - 0 : 2
+element - 1 : 5
+element - 2 : 6
+element - 3 : 2
+element - 4 : 2
+element - 5 : 3
+element - 6 : 4
+element - 7 : 5
+element - 8 : 2
+element - 9 : 1
