@@ -34,3 +34,12 @@ int main(void)
 
     return 0;
 }
+
+
+// *********************************************************************************
+Output :
+Input a string: Embedded
+Input position-1 for reverse the string: 2
+
+Input position-2 for reverse the string: 5
+Reverse string (partly): Edebmded
