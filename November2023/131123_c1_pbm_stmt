@@ -11,14 +11,17 @@ int main(void)
     char text[101] = {0};
     char result[101] = {0};
     int n1, n2, l; 
+
     printf("Input a string: ");
     scanf("%s", text);
+
     printf("Input position-1 for reverse the string: ");
     scanf("%d", &n1);
     printf("\nInput position-2 for reverse the string: ");
     scanf("%d", &n2);
         
     l = strlen(text);
+
     int i = 0;
     for(; i < n1-1; i++) {
         result[i] = text[i];
