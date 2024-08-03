@@ -60,3 +60,16 @@ int main() {
     display();
     return 0;
 }
+
+
+// **********************************************************************************************
+Output :
+Initialize a queue!
+Insert some elements into the queue:
+Queue elements are: 1 2 3 
+
+Delete an element from the said queue:
+Queue elements are: 2 3 
+
+Insert another element into the queue:
+Queue elements are: 2 3 4 
