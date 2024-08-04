@@ -73,3 +73,17 @@ int main() {
     printf("\nCheck the queue is empty or not? %s\n", is_empty() ? "Yes" : "No");
     return 0;
 }
+
+
+// ****************************************************************************************
+Output :
+Initialize a queue!
+Check the queue is empty or not? Yes
+
+Insert some elements into the queue:
+1 2 3 
+
+Insert another element into the queue:
+1 2 3 4 
+
+Check the queue is empty or not? No
