@@ -74,3 +74,16 @@ int main() {
     display();
     return 0;
 }
+
+
+// *********************************************************************************************************
+Output :
+Initialize a queue!
+Insert some elements into the queue:
+1 2 3 
+
+Delete an element from the said queue:
+2 3
+
+Delete another element from the said queue:
+3
