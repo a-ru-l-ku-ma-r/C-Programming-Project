@@ -86,3 +86,17 @@ int main() {
     printf("Average of the elements in the queue is: %f\n", avg);
     return 0;;
 }
+
+
+// ********************************************************************************
+Output :
+Queue elements are: 1 2 3 4 5 
+Average of the elements in the queue is: 3.000000
+
+Remove 2 elements from the said queue:
+Queue elements are: 3 4 5 
+Average of the elements in the queue is: 4.000000
+
+Insert 3 more elements:
+Queue elements are: 3 4 5 300 427 519 
+Average of the elements in the queue is: 209.666672
