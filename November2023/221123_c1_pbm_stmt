@@ -81,3 +81,15 @@ int main() {
     
     return 0;
 }
+
+
+// ****************************************************************************************
+Output :
+Insert some elements into the queue:
+Queue elements are: 1 2 3 4 5
+
+Delete the 7th element of the said queue:
+Error: Invalid position
+
+Delete the 3rd element of the said queue:
+Queue elements are: 4 5
