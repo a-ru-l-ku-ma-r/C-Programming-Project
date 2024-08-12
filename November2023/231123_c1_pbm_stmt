@@ -81,3 +81,22 @@ int main() {
     display();
     return 0;
 }
+
+
+// *************************************************************************************************
+Output :
+Input some elements into the queue:
+Elements of the queue:
+4 2 7 5 1 
+
+Sort the said queue:
+Elements of the sorted queue in ascending order:
+1 2 4 5 7 
+
+Input two more elements into the queue:
+Elements of the queue:
+1 2 4 5 7 -1 3 
+
+Sort the said queue:
+Elements of the sorted queue in ascending order:
+-1 1 2 3 4 5 7 
