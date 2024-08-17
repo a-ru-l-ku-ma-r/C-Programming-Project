@@ -17,9 +17,8 @@ void displayList();         // function to display the list
 int main()
 {
     int n;
-		printf("\n\n Linked List : To create and display Singly Linked List :\n");
-		printf("-------------------------------------------------------------\n");
-		
+    printf("\n\n Linked List : To create and display Singly Linked List :\n");
+    printf("-------------------------------------------------------------\n");
     printf(" Input the number of nodes : ");
     scanf("%d", &n);
     createNodeList(n);
@@ -27,6 +26,7 @@ int main()
     displayList();
     return 0;
 }
+
 void createNodeList(int n)
 {
     struct node *fnNode, *tmp;
