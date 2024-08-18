@@ -112,3 +112,36 @@ void displayList()
         }
     }
 }
+
+
+// **************************************************************************************************
+Output :
+
+ Linked List : Create a singly linked list and print it in reverse order :
+------------------------------------------------------------------------------
+ Input the number of nodes : 7
+ Input data for node 1 : 5
+ Input data for node 2 : 6
+ Input data for node 3 : 8
+ Input data for node 4 : 18
+ Input data for node 5 : 1
+ Input data for node 6 : 7
+ Input data for node 7 : 20
+
+ Data entered in the list are : 
+ Data = 5
+ Data = 6
+ Data = 8
+ Data = 18
+ Data = 1
+ Data = 7
+ Data = 20
+
+ The list in reverse are :
+ Data = 20
+ Data = 7
+ Data = 1
+ Data = 18
+ Data = 8
+ Data = 6
+ Data = 5
