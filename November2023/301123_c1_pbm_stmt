@@ -98,3 +98,28 @@ void displayList()
         }
     }
 } 
+
+
+// ***********************************************************************************************************
+Output :
+ Linked List : Create a singly linked list and count the number of nodes :
+------------------------------------------------------------------------------
+ Input the number of nodes : 7
+ Input data for node 1 : 24
+ Input data for node 2 : 15
+ Input data for node 3 : 02
+ Input data for node 4 : 5
+ Input data for node 5 : 18
+ Input data for node 6 : 21
+ Input data for node 7 : 7
+
+ Data entered in the list are :
+ Data = 24
+ Data = 15
+ Data = 2
+ Data = 5
+ Data = 18
+ Data = 21
+ Data = 7
+
+ Total number of nodes = 7
