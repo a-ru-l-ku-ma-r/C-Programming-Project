@@ -109,3 +109,22 @@ void displayList()
         }
     }
 } 
+
+
+// *****************************************************************************************************
+Output :
+ Linked List : Insert a new node at the beginning of a Singly Linked List:
+------------------------------------------------------------------------------
+ Input the number of nodes : 5
+ Input data for node 1 : 74
+ Input data for node 2 : 12
+ Input data for node 3 : 5
+ Input data for node 4 : 112
+ Input data for node 5 : 24
+
+ Data entered in the list are :
+ Data = 74
+ Data = 12
+ Data = 5
+ Data = 112
+ Data = 24
