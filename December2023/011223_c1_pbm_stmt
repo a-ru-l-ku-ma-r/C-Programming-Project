@@ -18,8 +18,8 @@ void displayList();             //function to display the list
 int main()
 {
     int n,num;
-		printf("\n\n Linked List : Insert a new node at the beginning of a Singly Linked List:\n");
-		printf("------------------------------------------------------------------------------\n");
+    printf("\n\n Linked List : Insert a new node at the beginning of a Singly Linked List:\n");
+    printf("------------------------------------------------------------------------------\n");
     printf(" Input the number of nodes : ");
     scanf("%d", &n);
     createNodeList(n);
