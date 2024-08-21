@@ -109,3 +109,38 @@ void displayList()
         }
     }
 } 
+
+
+// ***************************************************************************************************************************
+Output :
+ Linked List : Insert a new node at the end of a Singly Linked List :
+-------------------------------------------------------------------------
+ Input the number of nodes : 7
+ Input data for node 1 : 52
+ Input data for node 2 : 4 
+ Input data for node 3 : 17
+ Input data for node 4 : 28
+ Input data for node 5 : 5
+ Input data for node 6 : 0
+ Input data for node 7 : 89
+
+ Data entered in the list are :
+ Data = 52
+ Data = 4
+ Data = 17
+ Data = 28
+ Data = 5
+ Data = 0
+ Data = 89
+
+ Input data to insert at the end of the list : 102
+
+ Data, after inserted in the list are :
+ Data = 52
+ Data = 4
+ Data = 17
+ Data = 28
+ Data = 5
+ Data = 0
+ Data = 89
+ Data = 102
