@@ -134,3 +134,36 @@ void displayList()
         }
     }
 } 
+
+
+// *********************************************************************************
+Output :
+
+ Linked List : Insert a new node at the middle of the Linked List :
+-----------------------------------------------------------------------
+ Input the number of nodes (3 or more) : 5
+ Input data for node 1 : 5
+ Input data for node 2 : 2
+ Input data for node 3 : 14
+ Input data for node 4 : 24
+ Input data for node 5 : 1
+
+ Data entered in the list are : 
+ Data = 5
+ Data = 2
+ Data = 14
+ Data = 24
+ Data = 1
+
+ Input data to insert in the middle of the list : 6
+ Input the position to insert new node : 3
+
+ Insertion completed successfully.
+
+ The new list are :
+ Data = 5
+ Data = 2
+ Data = 6
+ Data = 14
+ Data = 24
+ Data = 1
