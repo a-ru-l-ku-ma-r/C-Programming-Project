@@ -102,3 +102,30 @@ void displayList()
         }
     }
 }
+
+
+// *********************************************************************************************
+Output :
+ Linked List : Delete first node of Singly Linked List :
+------------------------------------------------------------
+ Input the number of nodes : 5
+ Input data for node 1 : 9
+ Input data for node 2 : 25
+ Input data for node 3 : 12
+ Input data for node 4 : 3
+ Input data for node 5 : 84
+
+ Data entered in the list are :
+ Data = 9
+ Data = 25
+ Data = 12
+ Data = 3
+ Data = 84
+
+ Data of node 1 which is being deleted is :  9
+
+ Data, after deletion of first node :
+ Data = 25
+ Data = 12
+ Data = 3
+ Data = 84
