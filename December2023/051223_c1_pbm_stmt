@@ -146,3 +146,32 @@ void displayList()
         }
     }
 } 
+
+
+// *********************************************************************************************
+Output :
+ Linked List : Delete a node from the middle of Singly Linked List. :
+-------------------------------------------------------------------------
+ Input the number of nodes : 5
+ Input data for node 1 : 52
+ Input data for node 2 : 64
+ Input data for node 3 : 12
+ Input data for node 4 : 3
+ Input data for node 5 : 98
+
+ Data entered in the list are : 
+ Data = 52
+ Data = 64
+ Data = 12
+ Data = 3
+ Data = 98
+
+ Input the position of node to delete : 4
+
+ Deletion completed successfully.
+
+ The new list are  :
+ Data = 52
+ Data = 64
+ Data = 12
+ Data = 98
