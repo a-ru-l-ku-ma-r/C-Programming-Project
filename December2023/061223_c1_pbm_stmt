@@ -124,3 +124,34 @@ void displayList()
         }
     }
 }
+
+
+// *****************************************************************************************
+Output :
+ Linked List : Delete the last node of Singly Linked List :
+---------------------------------------------------------------
+ Input the number of nodes : 7
+ Input data for node 1 : 2
+ Input data for node 2 : 8
+ Input data for node 3 : 15
+ Input data for node 4 : 21
+ Input data for node 5 : 21
+ Input data for node 6 : 25
+ Input data for node 7 : 36
+
+ Data entered in the list are : 
+ Data = 2
+ Data = 8
+ Data = 15
+ Data = 21
+ Data = 21
+ Data = 25
+ Data = 36
+
+ The new list after deletion the last node are  :
+ Data = 2
+ Data = 8
+ Data = 15
+ Data = 21
+ Data = 21
+ Data = 25
