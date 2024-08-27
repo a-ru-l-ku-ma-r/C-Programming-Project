@@ -18,18 +18,24 @@ void displayList();             //function to display the list
 int main()
 {
     int n,num,pos;
-		printf("\n\n Linked List : Delete the last node of Singly Linked List :\n");
-		printf("---------------------------------------------------------------\n");
-	
+
+    printf("\n\n Linked List : Delete the last node of Singly Linked List :\n");
+    printf("---------------------------------------------------------------\n");	
     printf(" Input the number of nodes : ");
     scanf("%d", &n);
+
     createNodeList(n);
 
-    printf("\n Data entered in the list are : \n");		
+    printf("\n Data entered in the list are : \n");	
+
     displayList();
+
     LastNodeDeletion();
-	    printf("\n The new list after deletion the last node are  : \n");	
+
+    printf("\n The new list after deletion the last node are  : \n");	
+
     displayList();
+
     return 0;
 }
 void createNodeList(int n)
