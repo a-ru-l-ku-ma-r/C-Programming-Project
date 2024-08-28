@@ -65,3 +65,26 @@ int FindElement(int FindElem)
 	}
 	return ctr;
 }
+
+
+// ******************************************************************************
+Output :
+ Linked List : Search an element in a  Singly Linked List :
+---------------------------------------------------------------
+ Input the number of nodes : 5
+
+ Input data for node 1 : 15
+ Input data for node 2 : 23
+ Input data for node 3 : 08
+ Input data for node 4 : 098
+ Input data for node 5 : 25
+
+ Data entered in the list are :
+ Data = 15
+ Data = 23
+ Data = 8
+ Data = 98
+ Data = 25
+
+ Input the element to be searched : 98
+ Element found at node 4 
