@@ -78,3 +78,18 @@ void createNodeList(int n)
         }
     }
 }
+
+
+// *************************************************************************************
+Output :
+Linked List: Convert a Singly Linked list into a string
+-------------------------------------------------------------
+Input the number of nodes: 5
+ Input data for node 1 : 45
+ Input data for node 2 : 28
+ Input data for node 3 : 64
+ Input data for node 4 : 12
+ Input data for node 5 : 3
+
+Return data entered in the list as a string:
+The linked list: 45 28 64 12 3 
