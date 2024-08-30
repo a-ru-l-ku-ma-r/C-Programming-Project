@@ -80,3 +80,18 @@ void To_Array(struct node *head, int *array) {
         i++;
     }
 }
+
+
+// *******************************************************************************************
+Output :
+Linked List: Convert a Singly Linked list into an array:
+-------------------------------------------------------------
+Input the number of nodes: 5
+ Input data for node 1 : 8
+ Input data for node 2 : 4
+ Input data for node 3 : 5
+ Input data for node 4 : 7
+ Input data for node 5 : 1
+
+Return data entered in the list as an array:
+8 4 5 7 1 
