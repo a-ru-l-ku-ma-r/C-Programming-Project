@@ -78,3 +78,15 @@ int main() {
     displayList(head);
     return 0;
 }
+
+
+// *********************************************************************************
+Output :
+Original singly linked list:
+1 2 3 4 5 
+
+Create the loop:
+
+
+After removing the said loop:
+1 2 3 4 5 
