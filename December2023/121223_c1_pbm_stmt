@@ -102,3 +102,16 @@ int main() {
 
     return 0; // Indicates successful completion of the program
 }
+
+
+// *************************************************************************************************************************
+Output :
+Original singly list:
+1 2 3 5 7
+
+After setting the random pointers:
+Data: 1, Random: 3
+Data: 2, Random: 5
+Data: 3, Random: 7
+Data: 5, Random: 1
+Data: 7, Random: 3
