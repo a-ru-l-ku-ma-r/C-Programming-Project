@@ -33,12 +33,16 @@ int main()
 
     return 0;
 }
+
+
 void createNodeList(int n)
 {
     struct node *fnNode, *tmp;
+
     int num, i;
  
     stnode = (struct node *)malloc(sizeof(struct node));
+
     if(stnode == NULL) //check whether the stnode is NULL and if so no memory allocation
     {
         printf(" Memory can not be allocated.");
