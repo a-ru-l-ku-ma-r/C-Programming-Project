@@ -117,3 +117,16 @@ int main() {
 
     return 0; // Indicates successful completion of the program
 }
+
+
+// ***********************************************************************************************
+Output :
+Original lists:
+1 2 3 4
+5 3 4
+Intersection found at 3.
+
+Original lists:
+1 2 3 4
+5 3 4
+Intersection not found.
